@@ -1,0 +1,22 @@
+\begin{lstlisting}[caption={Function which is given the state-transition matrix in input and combines the thresholding of its values with the decomposition into separate MDPs, returning \texttt{d} which is a list indicating which sub-space each state belongs to (as an index) and \texttt{groups} which is a list of lists containing the states of each sub-space.}, captionpos=b]
+def stateDecomposition(st_table, thr):
+  def joinGroups(i, j, d, groups):
+    M = max(d[i], d[j])
+    m = min(d[i], d[j])
+    if d[i] != d[j]:
+      groups[m] += groups[M]
+      del groups[M]
+      for ind, el in enumerate(d):
+        if el > M: d[ind] -= 1
+        if el == M: d[ind] = m
+
+  n_states = st_table.shape[0]
+  d = [i for i in range(n_states)]
+  groups = [[i] for i in range(n_states)]
+
+  #iterate through all the entries
+  for i, j in np.ndindex(st_table.shape):
+    if st_table[i][j] > thr: joinGroups(i, j, d, groups)
+          
+  return d, groups
+\end{lstlisting}

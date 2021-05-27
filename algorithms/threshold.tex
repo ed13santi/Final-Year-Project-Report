@@ -1,0 +1,48 @@
+\begin{algorithm}[H]
+\singlespacing
+\SetAlgoLined
+
+\SetKwInOut{In}{stateTransMatrix}
+\SetKwInOut{Output}{subspaces}
+\SetKwInOut{des}{nSubspacesDesired}
+
+\SetKwData{STMat}{stateTransMatrix}
+\SetKwData{Out}{subspaces}
+
+\SetKwFunction{SD}{stateDecomposition}
+\SetKwFunction{NSubs}{nSubspaces}
+
+\SetKwData{N}{nSubspacesDesired}
+\SetKwData{MaxIt}{maxIterations}
+\SetKwData{Fact}{changeFactor}
+\SetKwData{Thre}{$\epsilon$}
+\SetKwData{UB}{upperBound}
+\SetKwData{LB}{lowerBound}
+
+\In{input 2D array representing the state-transition matrix}
+\des{input integer representing the number of sub-spaces to decompose into} 
+\Output{output data structure representing the decomposed sub-spaces}
+
+\MaxIt $\leftarrow 50$\;
+\Fact $\leftarrow 10$\;
+\Thre $\leftarrow 1.0$\;
+\BlankLine
+\UB $\leftarrow$ NONE\;
+\LB $\leftarrow$ NONE\;
+\BlankLine
+ \For{$i \leftarrow 1$ \KwTo \MaxIt}{
+  \If{\UB and \LB are defined}{\Thre $\leftarrow (\UB + \LB) / 2$\;}
+   \lIf{only \UB is defined}{\Thre $\leftarrow \UB / \Fact$}
+   \lIf{only \LB is defined}{\Thre $\leftarrow \LB * \Fact$}
+   \BlankLine
+   \Out $\leftarrow$ \SD(\STMat, \Thre)\;
+   \BlankLine
+   \lIf{$\NSubs(\Out) == \N - 1$}{break}
+   \lIf{$\NSubs(\Out) < \N - 1$}{\LB = \Thre}
+   \lIf{$\NSubs(\Out) > \N - 1$}{\UB = \Thre}
+ }
+ 
+ 
+ \caption{State-decomposition into given number of sub-spaces}
+ \label{algo:threshold}
+\end{algorithm}

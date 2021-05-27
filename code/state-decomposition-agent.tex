@@ -1,0 +1,159 @@
+\begin{lstlisting}[caption={Current version of my state-decomposition agent. In this version the states are fed in the neural networks as one-hot-encoded integers.}, captionpos=b]
+class StateDecompositionDQNAgent:
+  def __init__(self, state_size, action_size, subnetIndexes, subnets):
+    self.state_size = state_size
+    self.action_size = action_size
+    self.gamma = 0.95    # discount rate
+    self.epsilon = 1.0  # exploration rate
+    self.epsilon_min = 0.01
+    self.epsilon_decay = 0.999
+    self.learning_rate = 0.001
+    self.subnets = subnets
+    self.n_subnets = len(stateGroups[1])
+    self.subnetIndex = self._subnetIndex_init(subnetIndexes)
+    self.memory = [deque(maxlen=50000) for i in range(len(self.subnets)+1)]
+    self.models = self._build_models()
+
+  def _subnetIndex_init(self, subnetIndexes):
+    ind0s = subnetIndexes
+    ind1s = [np.where(self.subnets[ind0s[i]] == i)[0][0] for i in range(self.state_size)]
+    return list(zip(ind0s, ind1s))
+
+  def _number_to_one_hot(self, n_classes, x):
+    one_hot_vect = np.eye(n_classes)[x]
+    reshaped = np.reshape(one_hot_vect, (1, n_classes))
+    return reshaped
+
+  def _one_hot_subnet(self, state):
+    ind0, ind1 = self.subnetIndex[state]
+    n_classes = self.subnets[ind0].shape[0]
+    return self._number_to_one_hot(n_classes, ind1)
+
+  def _all_zeros(self, subnet):
+    l = len(subnet)
+    return np.zeros((1,l))
+    
+  def _one_hot_joined(self, state):
+    ind0, _ = self.subnetIndex[state]
+    one_hot_inputs = []
+    for i, subnet in enumerate(self.subnets):
+      if i == ind0:
+        one_hot_inputs.append(self._one_hot_subnet(state))
+      else:
+        one_hot_inputs.append(self._all_zeros(subnet))
+    return np.concatenate(one_hot_inputs, axis=1)
+    
+  def _build_subnet_model(self, subnet):
+    subLen = len(subnet)
+    inputs = Input(shape=(subLen,), name="input{}".format(subLen))
+    x = Dense(50, activation='relu', name="subnet{}_dense_0".format(subLen))(inputs)
+    x = Dense(50, activation='relu', name="subnet{}_dense_1".format(subLen))(x)
+    x = Dense(50, activation='relu', name="subnet{}_dense_2".format(subLen))(x)
+    out = Dense(self.action_size, activation='linear', name="subnet{}_dense_3".format(subLen))(x)
+    model = Model(inputs=inputs, outputs=out, name="model{}".format(subLen))
+    model.compile(loss='mse',
+                  optimizer=Adam(lr=self.learning_rate))
+    return model
+    
+  def _build_models(self):
+    return [self._build_subnet_model(s) for s in self.subnets]
+
+  def join_models(self):
+    def _joined_subnets(input):
+      ind = 0
+      outputs = []
+      for i, subnet in enumerate(self.subnets):
+        input_subnet = Lambda(lambda x: x[:,i:i+len(subnet)], name="lambda_{}".format(i))(input)
+        return Lambda(lambda x: x[:,i:i+len(subnet)], name="lambda_{}".format(i))(input)
+        outputs.append(self.models[i](input_subnet))
+        i += len(subnet)
+      return Concatenate(name="concatenate_int_outputs")(outputs)
+
+    def _top_network(input):
+      n_inputs = self.action_size * self.n_subnets
+      x = Dense(24, activation='relu', input_shape=(None,n_inputs,), name="top_dense_0")(input)
+      x = Dense(48, activation='relu', name="top_dense_1")(x)
+      x = Dense(48, activation='relu', name="top_dense_2")(x)
+      x = Dense(self.action_size, activation='linear', name="top_dense_3")(x)
+      return x
+
+    input = Input(shape=(self.state_size,), name="intermediate_input")
+    int_outputs = _joined_subnets(input)
+    output = _top_network(int_outputs)
+    model = Model(inputs=input, outputs=output, name="joined_model")
+    model.compile(loss='mse',
+                  optimizer=Adam(lr=self.learning_rate)) #maybe should have separate lr for the top model
+    self.models.append(model)
+
+  def remember_subnet(self, state, action, reward, next_state, done):
+    ind0, _ = self.subnetIndex[state]
+    next_ind0, _ = self.subnetIndex[next_state]
+    if ind0 == next_ind0:
+      self.memory[ind0].append((state, action, reward, next_state, done))
+      return ind0
+    self.memory[self.n_subnets].append((state, action, reward, next_state, done))
+    return -1
+
+  def remember_joined(self, state, action, reward, next_state, done):
+    self.memory[self.n_subnets].append((state, action, reward, next_state, done))
+
+  def act_subnet(self, state):# We implement the epsilon-greedy policy
+    if np.random.rand() > self.epsilon:
+      one_hot_state = self._one_hot_subnet(state)
+      model = self.models[self.subnetIndex[state][0]]
+      act_values = model.predict(one_hot_state)
+      return np.argmax(act_values[0]) # returns action
+    return random.randrange(self.action_size)
+    
+  def exploit(self, state): # When we test the agent we dont want it to explore anymore, but to exploit what it has learnt
+    act_values = self.models[self.n_subnets].predict(self._one_hot_joined(state))
+    return np.argmax(act_values[0]) 
+
+  def act_joined(self, state):# We implement the epsilon-greedy policy
+    if np.random.rand() > self.epsilon:
+      return self.exploit(state) # returns action
+    return random.randrange(self.action_size)
+
+
+  def replay(self, subnet_ind, batch_size, joined):
+    if joined:
+      index = self.n_subnets
+    else: 
+      index = subnet_ind
+    
+    minibatch = random.sample(self.memory[index], batch_size)
+
+    b = False
+    for el in minibatch:
+      if self.subnetIndex[el[0]][0] != subnet_ind or self.subnetIndex[el[3]][0] != subnet_ind:
+        return True
+    if b: print("WRONG")
+
+    action_b = np.squeeze(np.array(list(map(lambda x: x[1], minibatch))))
+    reward_b = np.squeeze(np.array(list(map(lambda x: x[2], minibatch))))
+    done_b = np.squeeze(np.array(list(map(lambda x: x[4], minibatch))))
+
+    ### Q-learning
+    if joined:
+      state_b_one_hot = np.squeeze(np.array(list(map(lambda x: self._one_hot_joined(x[0]), minibatch))))
+      next_state_b_one_hot = np.squeeze(np.array(list(map(lambda x: self._one_hot_joined(x[3]), minibatch))))
+    else: 
+      state_b_one_hot = np.squeeze(np.array(list(map(lambda x: self._one_hot_subnet(x[0]), minibatch))))
+      next_state_b_one_hot = np.squeeze(np.array(list(map(lambda x: self._one_hot_subnet(x[3]), minibatch))))
+
+    pred = self.models[index].predict(next_state_b_one_hot)
+    target = (reward_b + self.gamma * np.amax(pred, 1))
+    target[done_b==1] = reward_b[done_b==1]
+    target_f = self.models[index].predict(state_b_one_hot)
+
+    for k in range(target_f.shape[0]):
+      target_f[k][action_b[k]] = target[k]
+    self.models[index].train_on_batch(state_b_one_hot, target_f)
+    if self.epsilon > self.epsilon_min:
+        self.epsilon *= self.epsilon_decay
+
+  def load(self, name):
+    self.model.load_weights(name)
+  def save(self, name):
+    self.model.save_weights(name)
+\end{lstlisting}

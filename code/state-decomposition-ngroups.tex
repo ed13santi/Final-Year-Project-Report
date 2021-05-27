@@ -1,0 +1,25 @@
+\begin{lstlisting}[caption={Function that given the state-transition and a target number of subspaces performs the state-decomposition with different thresholds in order to obtain the correct number of sub-spaces.}, captionpos=b]
+def stateDecompositionWithNGroups(st_table, target_n_groups):
+  limitIterations = 50 # number of iterations after which the algorithm stops 
+  firstChangeFactor = 10.0 # factor by which the threshold is multiplied/divided after first iteration
+  thr = 1.0 # initial threshold
+
+  lowerBound = None
+  upperBound = None
+
+  for i in range(limitIterations):
+    if lowerBound == None and upperBound != None: thr = upperBound / firstChangeFactor
+    if lowerBound != None and upperBound == None: thr = lowerBound * firstChangeFactor
+    if lowerBound != None and upperBound != None: thr = (upperBound + lowerBound) / 2.0
+
+    stateGroups = stateDecomposition(st_table, thr)
+    n_groups = len(stateGroups[1])
+    if n_groups == target_n_groups: 
+      print("Target number achieved")
+      break
+    if n_groups < target_n_groups: lowerBound = thr
+    if n_groups > target_n_groups: upperBound = thr
+    print(thr)
+
+  return stateGroups, thr
+\end{lstlisting}

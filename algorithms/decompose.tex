@@ -1,0 +1,30 @@
+\begin{algorithm}[H]
+\singlespacing
+\SetAlgoLined
+
+\SetKwInOut{In}{stateTransMatrix}
+\SetKwInOut{Output}{subspaces}
+
+\SetKwData{STMat}{stateTransMatrix}
+\SetKwData{Out}{subspaces}
+
+\SetKwData{Subs}{subspaces}
+
+\SetKwData{Thre}{$\epsilon$}
+
+\In{input 2D array representing the state-transition matrix}
+\Output{output data structure representing the decomposed sub-spaces}
+
+\BlankLine
+\Subs = initialise as one subspace for each group;
+
+ \For{$i \leftarrow 0$ \KwTo height(\STMat)-1}{
+ \For{$j \leftarrow 0$ \KwTo width(\STMat)-1}{
+  \lIf{\STMat[$i$][$j$] $>$ \Thre}{joinSubspacesContaining($i$, $j$)}
+ }
+ }
+ 
+ 
+ \caption{State-decomposition algorithm.}
+ \label{algo:decompose}
+\end{algorithm}
