@@ -1,115 +1,113 @@
 \begin{figure}[H]
     \centering
-    \resizebox{0.5\linewidth}{!}{
-        \begin{tikzpicture}[font=\sffamilym]
-    
-            % Setup the style for the states
-            \tikzset{node style/.style={state, 
-                                        minimum width=1cm,
-                                        line width=0.5mm,
-                                        fill=gray!20!white}}
-    
-            % Draw the states
-            \node[node style] at (0, 0) (0) {0};
-            \node[node style] at (3, 0) (1) {1};
-            \node[node style] at (0, -3) (2) {2};
-            \node[node style] at (3, -3) (3) {3};
+    \begin{tikzpicture}[]
+
+        % Setup the style for the states
+        \tikzset{node style/.style={state, 
+                                    minimum width=1cm,
+                                    line width=0.5mm,
+                                    fill=gray!20!white}}
+
+        % Draw the states
+        \node[node style] at (0, 0) (0) {0};
+        \node[node style] at (3, 0) (1) {1};
+        \node[node style] at (0, -3) (2) {2};
+        \node[node style] at (3, -3) (3) {3};
+        
+        \node[node style] at (6, 0) (4) {4};
+        \node[node style] at (9, 0) (5) {5};
+        \node[node style] at (6, -3) (6) {6};
+        \node[node style] at (9, -3) (7) {7};
+        
+        \node[node style] at (0, -6) (8) {8};
+        \node[node style] at (3, -6) (9) {9};
+        \node[node style] at (0, -9) (10) {10};
+        \node[node style] at (3, -9) (11) {11};
+        
+        \node[node style] at (6, -6) (12) {12};
+        \node[node style] at (9, -6) (13) {13};
+        \node[node style] at (6, -9) (14) {14};
+        \node[node style] at (9, -9) (15) {15};
+
+        % Connect the states with arrows
+        \draw[every loop,
+                auto=right,
+                line width=0.5mm,
+                >=latex,
+                draw=orange,
+                fill=orange]
+            (2)     edge[bend right=20]            node {} (0)
+            (2)     edge[bend right=20, auto=left] node {} (1)
+            (2)     edge[bend right=20, auto=left] node {} (3)
+            (2)     edge[loop left=20, auto=left] node {} (2)
+            (1)     edge[bend right=20]            node {} (2)
+            (1)     edge[bend right=20, auto=left] node {} (0)
+            (1)     edge[loop right=20, auto=left] node {} (1)
+            (1)     edge[bend right=20, auto=left] node {} (3)
+            (0) edge[bend right=20]            node {} (1)
+            (0)     edge[bend right=20, auto=left] node {} (3)
+            (0) edge[bend right=20, auto=left] node {} (2)
+            (0)     edge[loop left=20, auto=left] node {} (0)
+            (3) edge[bend right=20]            node {} (1)
+            (3)     edge[bend right=20, auto=left] node {} (0)
+            (3) edge[bend right=20, auto=left] node {} (2)
+            (3)     edge[loop right=20, auto=left] node {} (3)
             
-            \node[node style] at (6, 0) (4) {4};
-            \node[node style] at (9, 0) (5) {5};
-            \node[node style] at (6, -3) (6) {6};
-            \node[node style] at (9, -3) (7) {7};
+            (6)     edge[bend right=20]            node {} (4)
+            (6)     edge[bend right=20, auto=left] node {} (5)
+            (6)     edge[bend right=20, auto=left] node {} (7)
+            (6)     edge[loop left=20, auto=left] node {}  (6)
+            (5)     edge[bend right=20]            node {} (6)
+            (5)     edge[bend right=20, auto=left] node {} (4)
+            (5)     edge[loop right=20, auto=left] node {} (5)
+            (5)     edge[bend right=20, auto=left] node {} (7)
+            (4) edge[bend right=20]            node {}     (5)
+            (4)     edge[bend right=20, auto=left] node {} (7)
+            (4) edge[bend right=20, auto=left] node {}     (6)
+            (4)     edge[loop left=20, auto=left] node {}  (4)
+            (7) edge[bend right=20]            node {}     (5)
+            (7)     edge[bend right=20, auto=left] node {} (4)
+            (7) edge[bend right=20, auto=left] node {}     (6)
+            (7)     edge[loop right=20, auto=left] node {} (7)
             
-            \node[node style] at (0, -6) (8) {8};
-            \node[node style] at (3, -6) (9) {9};
-            \node[node style] at (0, -9) (10) {10};
-            \node[node style] at (3, -9) (11) {11};
+            (10)     edge[bend right=20]            node {} (8)
+            (10)     edge[bend right=20, auto=left] node {} (9)
+            (10)     edge[bend right=20, auto=left] node {} (11)
+            (10)     edge[loop left=20, auto=left] node {} (10)
+            (9)     edge[bend right=20]            node {} (10)
+            (9)     edge[bend right=20, auto=left] node {} (8)
+            (9)     edge[loop right=20, auto=left] node {} (9)
+            (9)     edge[bend right=20, auto=left] node {} (11)
+            (8) edge[bend right=20]            node {}     (9)
+            (8)     edge[bend right=20, auto=left] node {} (11)
+            (8) edge[bend right=20, auto=left] node {}     (10)
+            (8)     edge[loop left=20, auto=left] node {}  (8)
+            (11) edge[bend right=20]            node {}     (9)
+            (11)     edge[bend right=20, auto=left] node {} (8)
+            (11) edge[bend right=20, auto=left] node {}     (10)
+            (11)     edge[loop right=20, auto=left] node {} (11)
             
-            \node[node style] at (6, -6) (12) {12};
-            \node[node style] at (9, -6) (13) {13};
-            \node[node style] at (6, -9) (14) {14};
-            \node[node style] at (9, -9) (15) {15};
-    
-            % Connect the states with arrows
-            \draw[every loop,
-                  auto=right,
-                  line width=0.5mm,
-                  >=latex,
-                  draw=orange,
-                  fill=orange]
-                (2)     edge[bend right=20]            node {} (0)
-                (2)     edge[bend right=20, auto=left] node {} (1)
-                (2)     edge[bend right=20, auto=left] node {} (3)
-                (2)     edge[loop left=20, auto=left] node {} (2)
-                (1)     edge[bend right=20]            node {} (2)
-                (1)     edge[bend right=20, auto=left] node {} (0)
-                (1)     edge[loop right=20, auto=left] node {} (1)
-                (1)     edge[bend right=20, auto=left] node {} (3)
-                (0) edge[bend right=20]            node {} (1)
-                (0)     edge[bend right=20, auto=left] node {} (3)
-                (0) edge[bend right=20, auto=left] node {} (2)
-                (0)     edge[loop left=20, auto=left] node {} (0)
-                (3) edge[bend right=20]            node {} (1)
-                (3)     edge[bend right=20, auto=left] node {} (0)
-                (3) edge[bend right=20, auto=left] node {} (2)
-                (3)     edge[loop right=20, auto=left] node {} (3)
-                
-                (6)     edge[bend right=20]            node {} (4)
-                (6)     edge[bend right=20, auto=left] node {} (5)
-                (6)     edge[bend right=20, auto=left] node {} (7)
-                (6)     edge[loop left=20, auto=left] node {}  (6)
-                (5)     edge[bend right=20]            node {} (6)
-                (5)     edge[bend right=20, auto=left] node {} (4)
-                (5)     edge[loop right=20, auto=left] node {} (5)
-                (5)     edge[bend right=20, auto=left] node {} (7)
-                (4) edge[bend right=20]            node {}     (5)
-                (4)     edge[bend right=20, auto=left] node {} (7)
-                (4) edge[bend right=20, auto=left] node {}     (6)
-                (4)     edge[loop left=20, auto=left] node {}  (4)
-                (7) edge[bend right=20]            node {}     (5)
-                (7)     edge[bend right=20, auto=left] node {} (4)
-                (7) edge[bend right=20, auto=left] node {}     (6)
-                (7)     edge[loop right=20, auto=left] node {} (7)
-                
-                (10)     edge[bend right=20]            node {} (8)
-                (10)     edge[bend right=20, auto=left] node {} (9)
-                (10)     edge[bend right=20, auto=left] node {} (11)
-                (10)     edge[loop left=20, auto=left] node {} (10)
-                (9)     edge[bend right=20]            node {} (10)
-                (9)     edge[bend right=20, auto=left] node {} (8)
-                (9)     edge[loop right=20, auto=left] node {} (9)
-                (9)     edge[bend right=20, auto=left] node {} (11)
-                (8) edge[bend right=20]            node {}     (9)
-                (8)     edge[bend right=20, auto=left] node {} (11)
-                (8) edge[bend right=20, auto=left] node {}     (10)
-                (8)     edge[loop left=20, auto=left] node {}  (8)
-                (11) edge[bend right=20]            node {}     (9)
-                (11)     edge[bend right=20, auto=left] node {} (8)
-                (11) edge[bend right=20, auto=left] node {}     (10)
-                (11)     edge[loop right=20, auto=left] node {} (11)
-                
-                (14)     edge[bend right=20]            node {} (12)
-                (14)     edge[bend right=20, auto=left] node {} (13)
-                (14)     edge[bend right=20, auto=left] node {} (15)
-                (14)     edge[loop left=20, auto=left] node {}  (14)
-                (13)     edge[bend right=20]            node {} (14)
-                (13)     edge[bend right=20, auto=left] node {} (12)
-                (13)     edge[loop right=20, auto=left] node {} (13)
-                (13)     edge[bend right=20, auto=left] node {} (15)
-                (12) edge[bend right=20]            node {}     (13)
-                (12)     edge[bend right=20, auto=left] node {} (15)
-                (12) edge[bend right=20, auto=left] node {}     (14)
-                (12)     edge[loop left=20, auto=left] node {}  (12)
-                (15) edge[bend right=20]            node {}     (13)
-                (15)     edge[bend right=20, auto=left] node {} (12)
-                (15) edge[bend right=20, auto=left] node {}     (14)
-                (15)     edge[loop right=20, auto=left] node {} (15)
-                (3) edge[bend right=20, draw=blue, fill=blue]            node {}     (6)
-                (6)     edge[bend right=20, auto=left, draw=blue, fill=blue] node {} (12)
-                (12) edge[bend right=20, auto=left, draw=blue, fill=blue] node {}     (9)
-                (9)     edge[bend right=20, auto=left, draw=blue, fill=blue] node {} (3);;
-        \end{tikzpicture}
-    }
+            (14)     edge[bend right=20]            node {} (12)
+            (14)     edge[bend right=20, auto=left] node {} (13)
+            (14)     edge[bend right=20, auto=left] node {} (15)
+            (14)     edge[loop left=20, auto=left] node {}  (14)
+            (13)     edge[bend right=20]            node {} (14)
+            (13)     edge[bend right=20, auto=left] node {} (12)
+            (13)     edge[loop right=20, auto=left] node {} (13)
+            (13)     edge[bend right=20, auto=left] node {} (15)
+            (12) edge[bend right=20]            node {}     (13)
+            (12)     edge[bend right=20, auto=left] node {} (15)
+            (12) edge[bend right=20, auto=left] node {}     (14)
+            (12)     edge[loop left=20, auto=left] node {}  (12)
+            (15) edge[bend right=20]            node {}     (13)
+            (15)     edge[bend right=20, auto=left] node {} (12)
+            (15) edge[bend right=20, auto=left] node {}     (14)
+            (15)     edge[loop right=20, auto=left] node {} (15)
+            (3) edge[bend right=20, draw=blue, fill=blue]            node {}     (6)
+            (6)     edge[bend right=20, auto=left, draw=blue, fill=blue] node {} (12)
+            (12) edge[bend right=20, auto=left, draw=blue, fill=blue] node {}     (9)
+            (9)     edge[bend right=20, auto=left, draw=blue, fill=blue] node {} (3);
+    \end{tikzpicture}
     \caption{MDP composed of smaller sub-spaces of states connected by few but probable transitions.}
     \label{fig:connected-states}
 \end{figure}

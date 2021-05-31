@@ -1,0 +1,37 @@
+\BOOKMARK [0][-]{chapter.3}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.4}{Motivation}{chapter.3}% 2
+\BOOKMARK [1][-]{section.7}{Project Definition}{chapter.3}% 3
+\BOOKMARK [1][-]{section.10}{Structure of the report}{chapter.3}% 4
+\BOOKMARK [0][-]{chapter.11}{Background}{}% 5
+\BOOKMARK [1][-]{section.12}{Reinforcement learning}{chapter.11}% 6
+\BOOKMARK [1][-]{section.48}{Neural networks}{chapter.11}% 7
+\BOOKMARK [1][-]{section.49}{Q-learning and Deep Q-learning}{chapter.11}% 8
+\BOOKMARK [1][-]{section.59}{Problem of large state-spaces}{chapter.11}% 9
+\BOOKMARK [0][-]{chapter.65}{State-Decomposition method}{}% 10
+\BOOKMARK [1][-]{section.66}{State-Decomposition method}{chapter.65}% 11
+\BOOKMARK [1][-]{section.78}{Decomposing state trans. matrix}{chapter.65}% 12
+\BOOKMARK [0][-]{chapter.85}{Experimental method}{}% 13
+\BOOKMARK [1][-]{section.87}{Tools}{chapter.85}% 14
+\BOOKMARK [1][-]{section.94}{Obtaining the state trans. matrix}{chapter.85}% 15
+\BOOKMARK [1][-]{section.96}{The need for a suitable environment}{chapter.85}% 16
+\BOOKMARK [1][-]{section.107}{Implementation of the DQN agents}{chapter.85}% 17
+\BOOKMARK [1][-]{section.108}{Benchmark DQN agent}{chapter.85}% 18
+\BOOKMARK [0][-]{chapter.111}{Testing}{}% 19
+\BOOKMARK [0][-]{chapter.112}{Results}{}% 20
+\BOOKMARK [1][-]{section.113}{Needing to use one-hot encoding}{chapter.112}% 21
+\BOOKMARK [1][-]{section.114}{Initial results with Taxi2 and original state decomposition algorithm}{chapter.112}% 22
+\BOOKMARK [1][-]{section.115}{Effect of different encoding methods}{chapter.112}% 23
+\BOOKMARK [1][-]{section.116}{Effect of different number of parameters}{chapter.112}% 24
+\BOOKMARK [1][-]{section.117}{Effect of using reduced encoding \(taking advantage of state decomposition for smaller input vector\)}{chapter.112}% 25
+\BOOKMARK [1][-]{section.118}{Performance gain of DeltaSwitch}{chapter.112}% 26
+\BOOKMARK [1][-]{section.119}{Samples plots}{chapter.112}% 27
+\BOOKMARK [1][-]{section.120}{Effect of wall / no wall}{chapter.112}% 28
+\BOOKMARK [1][-]{section.121}{Effect of decomposing by destination or by position}{chapter.112}% 29
+\BOOKMARK [1][-]{section.122}{Techniques to learn switch and relationship with transfer learning + fair comparison}{chapter.112}% 30
+\BOOKMARK [0][-]{chapter.123}{Evaluation Plan}{}% 31
+\BOOKMARK [0][-]{chapter.129}{Evaluation}{}% 32
+\BOOKMARK [0][-]{chapter.130}{Conclusions and Further Work}{}% 33
+\BOOKMARK [1][-]{section.131}{Extensions}{chapter.130}% 34
+\BOOKMARK [1][-]{section.138}{Applications}{chapter.130}% 35
+\BOOKMARK [0][-]{chapter.139}{Ethical, Legal, and Safety Plan}{}% 36
+\BOOKMARK [0][-]{appendix.144}{Code}{}% 37

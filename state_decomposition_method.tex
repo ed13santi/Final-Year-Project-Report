@@ -1,0 +1,97 @@
+\chapter{State-Decomposition method}
+
+\section{State-Decomposition method}
+
+\paragraph{}
+The main topic of this project is the development of the state-decomposition method. This is suited to control problems of
+environments that are composed of many sub-problems that only seldom interact with each other. Separate RL agents can be trained
+for these separate sub-problems independently, thus treating them as separate problems. The separate agents are then combined at a
+later stage to take into account the interactions between the sub-problems. 
+
+\paragraph{}
+The first step of the process is to identify the subsystems as groups of states. This is done by examining the state-transition
+probability matrix. Given a finite MDP, this is defined as the matrix where each entry $P_{ij}$ is the probability of
+transitioning from state $S_t=i$ to the next state $S_{t+1}=j$:
+
+\begin{equation}
+    \begin{bmatrix}
+    P(S_{t+1}=s_0|S_{t}=s_0) & P(S_{t+1}=s_1|S_{t}=s_0) & ... & P(S_{t+1}=s_n|S_{t}=s_0) \\
+    P(S_{t+1}=s_0|S_{t}=s_1) & P(S_{t+1}=s_1|S_{t}=s_1) & ... & P(S_{t+1}=s_n|S_{t}=s_1) \\
+    ... & ... & ... & ... \\
+    P(S_{t+1}=s_0|S_{t}=s_n) & P(S_{t+1}=s_1|S_{t}=s_n) & ... & P(S_{t+1}=s_n|S_{t}=s_n) \\
+    \end{bmatrix}
+\end{equation}
+
+where $n$ is the number of states in $\mathcal{S}$. 
+
+\input{graphs/break chain}
+
+\paragraph{}
+The state-decomposition method is based on the fact that some state-transition probabilities are negligible compared to others and
+could be regarded as 0 to obtain a sparse version of the state-transition matrix. Specifically, every element smaller than a
+threshold $\epsilon$ can be set to 0. The probabilities of the matrix can then be normalised so that each row of the matrix has a
+sum of 1. This step is unnecessary and can be skipped in the implementation; however, it is necessary to obtain a valid MDP from
+the state-transition matrix after applying the threshold. Following this procedure, the MDP could be formed by multiple
+independent MDPs with smaller state-spaces, as shown in Figure-\ref{fig:OneMDPtoManyMDPs}. In this case, by reordering the states
+it is possible to express the state-transition matrix as a block matrix in the form:
+
+\begin{equation}
+    \begin{bmatrix}       
+    \fbox{$B_1$} & 0 & ... & 0  \\
+     0 & \fbox{$B_2$} & ... & 0 \\
+     ... & ... & ... & ... \\
+     0 & 0 & ... & \fbox{$B_n$} \\
+   \end{bmatrix}
+\end{equation} 
+
+where the matrices $B_1, B_2, ..., B_n$ are the state-transition matrices of the newly formed separate MDPs.
+
+\paragraph{}
+Once the states of the original MDP have been separated into multiple sub-spaces, it is possible to proceed with training the RL
+agent. In the first stage of training, for each of these sub-spaces, we train a separate DQN agent. To do so, we consider for each
+sub-space's agent only those state transitions that start and end within the same sub-space. Once the sub-spaces' agents
+converge\footnote{Or earlier. The time when we should do this is to be researched in this project.}, these should be combined to
+form a global agent that also takes into account transitions between the different sub-spaces. This is done by feeding the action
+values of the sub-spaces' agents, which are the outputs of their neural networks, as inputs of another neural network, as in
+Figure-\ref{fig:join_nets}. This forms a bigger neural network which is the Q-function approximator of a new global DQN agent,
+which is then trained using all possible transitions. This will be referred to as the second stage of training.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figures/join_networks}
+    \caption{The NNs of the decomposed states' agents are merged as input of another NN to form a new bigger NN.}
+    \label{fig:join_nets}
+\end{figure}
+
+\paragraph{}
+This method operates on the assumption that it would require fewer samples to achieve convergence for RL agents operating on many
+smaller MDPs than on one single MDP having as the number of states the sum of the number of states of the smaller MDPs. This is
+because the number of possible transitions in an MDP is the square of the number of states, so by dividing the system into
+separate independent sub-problems we reduce the complexity of the control problem\footnote{By decreasing the number of possible
+transitions, as \(\sum_{i=0}^n x_i^2 \leq (\sum_{i=0}^n x_i)^2\)}. By then combining the neural networks as previously explained,
+we take into account interactions between the sub-problems, allowing us to achieve the optimal policy for the original MDP. For
+this method to be successful, it is assumed that the weights of the neural networks of the sub-spaces' agents are not far from the
+values they take once the global agent converges in the final stage of training. This is equivalent to saying that the first stage
+of training provides a very good initialisation of the weights of the network used in the second stage. Although we use DQN
+agents, this method could be generalised to any agents that use a function approximator to evaluate the action-values given in
+input the states. This method however wouldn't be as useful if no approximator is being used, and the action-values are simply
+stored in a table, such as in the original Q-learning algorithm. In this case, applying the state-decomposition would simply
+ignore the transitions between different sub-spaces without changing the structure of the agent at all in the first stage of
+training.
+
+\section[Decomposing state trans. matrix]{Decomposing the state transition matrix}
+
+\paragraph{}
+The decomposition into sub-spaces of states given the state-transition table is done using Algorithm-\ref{algo:decompose}. The
+Python code for this is given in the Appendix.
+
+\input{algorithms/decompose}
+
+\paragraph{}
+Sometimes we know the number of sub-spaces that the original MDP should be decomposed into. For example, we might know the
+characteristics of the system and the number of subsystems it can be considered to have, such as how many sub-networks compose a
+certain communication network. In such case, the function that returns the decomposed sub-spaces can be run repeatedly while
+updating the threshold value $\epsilon$ at each iteration using binary search, until the MDP is decomposed in the correct number
+of sub-spaces. This is given in Algorithm-\ref{algo:threshold} and the Python code is in the Appendix. 
+
+\input{algorithms/threshold}

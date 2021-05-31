@@ -1,0 +1,59 @@
+\chapter{Introduction}
+
+The introduction should set the scene and give a highlevel problem statement/specification, so that after
+reading the introduction the reader understands
+roughly what the problem is and what you intend to
+do about it. Is the idea to write software, or develop
+an algorithm, or produce hardware, or something
+else?
+You should then highlight and summarise the most
+interesting or important questions or problems that
+your project addresses, and the broader context in
+which those questions or problems are situated.
+Finally, you must briefly introduce the structure of
+report (what you will cover in which chapters and how
+these relate to each other). You don’t need to go into
+any detail, the aim is to make sure the reader has an
+idea about what will be discussed and in what order
+
+\section{Motivation}
+
+%The online nature of this family of algorithms causes them to focus on learning optimal decisions in the most visited states at
+%the expense of the least visited ones. $
+
+\paragraph{}
+Reinforcement learning (RL) has been a very active research area in the last few years, achieving impressive feats in a wide range
+of applications. Some advantages of reinforcement learning algorithms are great flexibility, the capability of solving both very
+low and high-level problems \cite{sutton_barto_2018} and not requiring a model of the environment in which they are used. RL has
+famously been used to solve games, such DeepMind's AlphaGo \cite{silver_mastering_2017}, a program that in 2016 beat the
+top-ranked Go player in the world. Other successful applications are in healthcare \cite{yu_reinforcement_2020}, robotics
+\cite{noauthor_google_nodate}, autonomous driving \cite{autonomousDriving} and natural language processing \cite{NLP}. My project
+supervisor Prof. K. K. Leung has also been working on applications of RL in software-defined networks (SDNs), such as for the
+control of the placement of services \cite{ServicePlacement} and the synchronisation of controllers in distributed SDNs
+\cite{SDNSynchronisation}.
+
+\paragraph{}
+Dealing with very large systems is one of the main problems encountered in the application of reinforcement learning in practical
+environments. RL is based on learning through interaction with the environment. As the size of the system increases, so does the
+complexity of the problem and it becomes increasingly difficult to learn how to interact with the environment, making the learning
+process longer. In practical scenarios, it might not be feasible to train an RL agent for long enough for it to be a feasible
+solution, as this might incur excessive costs or, in the case that the behaviour of the environment changes over time, the
+algorithm might not be able to learn fast enough to adapt to the changing environment.
+
+\section{Project Definition}
+
+\paragraph{}
+The goal of this project is to develop the state-decomposition method proposed by my supervisor Prof. K. K. Leung. This aims to
+alleviate the problem of large state spaces of the Markov Decision Processes (MDPs) that underlay many practical environments.
+This new method leverages the characteristic of many control problems of being composed of many almost independent sub-problems
+that only seldom interact with each other. The method first identifies the sub-problems, then it trains separate RL agents for
+each of them. These are later combined to form a global agent that controls the whole system and takes into account their
+interactions. 
+
+\paragraph{}
+While the high-level methodology is defined, the specifics of the algorithms are not. This project involves conducting research on
+the development of the state-decomposition method and to test it and benchmark it against mainstream algorithms to determine if it
+achieves improved performance.
+
+\section{Structure of the report}
+Provide info about structure

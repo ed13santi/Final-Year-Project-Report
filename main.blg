@@ -1,0 +1,55 @@
+This is BibTeX, Version 0.99d (TeX Live 2020)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+The style file: ieeetr.bst
+Database file #1: bibliography/bibliography.bib
+Database file #2: bibliography/zotero.bib
+Warning--empty publisher in wiskunde_doubleq-learning_nodate
+Warning--empty year in wiskunde_doubleq-learning_nodate
+Warning--empty journal in wang_dueling_nodate
+Warning--empty year in wang_dueling_nodate
+Warning--empty journal in aggregationHierarchical
+Warning--empty journal in parr_reinforcement_nodate
+Warning--empty year in parr_reinforcement_nodate
+You've used 35 entries,
+            1876 wiz_defined-function locations,
+            670 strings with 9805 characters,
+and the built_in function-call counts, 8960 in all, are:
+= -- 855
+> -- 428
+< -- 0
++ -- 157
+- -- 122
+* -- 599
+:= -- 1234
+add.period$ -- 39
+call.type$ -- 35
+change.case$ -- 32
+chr.to.int$ -- 0
+cite$ -- 42
+duplicate$ -- 471
+empty$ -- 790
+format.name$ -- 122
+if$ -- 2187
+int.to.chr$ -- 0
+int.to.str$ -- 35
+missing$ -- 28
+newline$ -- 118
+num.names$ -- 34
+pop$ -- 134
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 419
+stack$ -- 0
+substring$ -- 432
+swap$ -- 228
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 7
+while$ -- 68
+width$ -- 37
+write$ -- 306
+(There were 7 warnings)
