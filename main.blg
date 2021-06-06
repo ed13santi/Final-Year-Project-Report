@@ -1,55 +1,101 @@
 This is BibTeX, Version 0.99d (TeX Live 2020)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
-The style file: ieeetr.bst
+The style file: plain.bst
 Database file #1: bibliography/bibliography.bib
 Database file #2: bibliography/zotero.bib
-Warning--empty publisher in wiskunde_doubleq-learning_nodate
-Warning--empty year in wiskunde_doubleq-learning_nodate
-Warning--empty journal in wang_dueling_nodate
-Warning--empty year in wang_dueling_nodate
+Warning--entry type for "noauthor_google_nodate" isn't style-file defined
+--line 244 of file bibliography/zotero.bib
+Warning--entry type for "noauthor_markov_2021" isn't style-file defined
+--line 356 of file bibliography/zotero.bib
+Warning--entry type for "noauthor_openai_nodate" isn't style-file defined
+--line 503 of file bibliography/zotero.bib
+Warning--entry type for "noauthor_cloud_nodate" isn't style-file defined
+--line 513 of file bibliography/zotero.bib
+Warning--entry type for "noauthor_tensorflow_nodate" isn't style-file defined
+--line 540 of file bibliography/zotero.bib
+Warning--entry type for "openai_gym_nodate" isn't style-file defined
+--line 547 of file bibliography/zotero.bib
+Warning--to sort, need author or key in noauthor_google_nodate
+Warning--to sort, need author or key in noauthor_markov_2021
+Warning--to sort, need author or key in noauthor_cloud_nodate
+Warning--to sort, need author or key in noauthor_tensorflow_nodate
+Warning--to sort, need author or key in noauthor_openai_nodate
 Warning--empty journal in aggregationHierarchical
+Warning--empty journal in barto_recent_2003
+Warning--empty year in barto_recent_2003
+Warning--empty journal in bellman_dynamic_1966
+Warning--empty year in bellman_dynamic_1966
+Warning--empty journal in dietterich_hierarchical_1999
+Warning--empty year in dietterich_hierarchical_1999
+Warning--empty year in goos_q-learning_1999
+Warning--empty journal in kingma_adam_2017
+Warning--empty year in kingma_adam_2017
+Warning--empty year in menache_q-cutdynamic_2002
+Warning--empty journal in mnih_human-level_2015
+Warning--empty year in mnih_human-level_2015
+Warning--empty journal in moerland_model-based_2020
+Warning--empty year in moerland_model-based_2020
 Warning--empty journal in parr_reinforcement_nodate
 Warning--empty year in parr_reinforcement_nodate
-You've used 35 entries,
-            1876 wiz_defined-function locations,
-            670 strings with 9805 characters,
-and the built_in function-call counts, 8960 in all, are:
-= -- 855
-> -- 428
-< -- 0
-+ -- 157
-- -- 122
-* -- 599
-:= -- 1234
-add.period$ -- 39
-call.type$ -- 35
-change.case$ -- 32
+Warning--empty journal in rusu_progressive_2016
+Warning--empty year in rusu_progressive_2016
+Warning--empty journal in silver_mastering_2017
+Warning--empty year in silver_mastering_2017
+Warning--empty journal in sutton_dyna_1991
+Warning--empty year in sutton_dyna_1991
+Warning--empty journal in sutton_between_1999
+Warning--empty year in sutton_between_1999
+Warning--empty journal in van_hasselt_deep_2015
+Warning--empty year in van_hasselt_deep_2015
+Warning--empty journal in wang_dueling_nodate
+Warning--empty year in wang_dueling_nodate
+Warning--empty journal in watkins_q-learning_1992
+Warning--empty year in watkins_q-learning_1992
+Warning--empty publisher in wiskunde_doubleq-learning_nodate
+Warning--empty year in wiskunde_doubleq-learning_nodate
+Warning--empty journal in yu_reinforcement_2020
+Warning--empty year in yu_reinforcement_2020
+Warning--empty year in simsek_identifying_2005
+You've used 37 entries,
+            2118 wiz_defined-function locations,
+            665 strings with 10010 characters,
+and the built_in function-call counts, 12891 in all, are:
+= -- 1210
+> -- 714
+< -- 10
++ -- 284
+- -- 246
+* -- 863
+:= -- 2020
+add.period$ -- 96
+call.type$ -- 37
+change.case$ -- 229
 chr.to.int$ -- 0
-cite$ -- 42
-duplicate$ -- 471
-empty$ -- 790
-format.name$ -- 122
-if$ -- 2187
+cite$ -- 78
+duplicate$ -- 535
+empty$ -- 894
+format.name$ -- 246
+if$ -- 2715
 int.to.chr$ -- 0
-int.to.str$ -- 35
-missing$ -- 28
-newline$ -- 118
-num.names$ -- 34
-pop$ -- 134
+int.to.str$ -- 37
+missing$ -- 30
+newline$ -- 170
+num.names$ -- 68
+pop$ -- 349
 preamble$ -- 1
-purify$ -- 0
+purify$ -- 195
 quote$ -- 0
-skip$ -- 419
+skip$ -- 481
 stack$ -- 0
-substring$ -- 432
-swap$ -- 228
-text.length$ -- 0
+substring$ -- 548
+swap$ -- 185
+text.length$ -- 10
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 0
-warning$ -- 7
-while$ -- 68
-width$ -- 37
-write$ -- 306
-(There were 7 warnings)
+type$ -- 144
+warning$ -- 41
+while$ -- 93
+width$ -- 39
+write$ -- 323
+(There were 47 warnings)

@@ -79,7 +79,7 @@ stored in a table, such as in the original Q-learning algorithm. In this case, a
 ignore the transitions between different sub-spaces without changing the structure of the agent at all in the first stage of
 training.
 
-\section[Decomposing state trans. matrix]{Decomposing the state transition matrix}
+\subsection[Decomposing state trans. matrix]{Decomposing the state transition matrix}
 
 \paragraph{}
 The decomposition into sub-spaces of states given the state-transition table is done using Algorithm-\ref{algo:decompose}. The
@@ -95,3 +95,12 @@ updating the threshold value $\epsilon$ at each iteration using binary search, u
 of sub-spaces. This is given in Algorithm-\ref{algo:threshold} and the Python code is in the Appendix. 
 
 \input{algorithms/threshold}
+
+
+ONE OR TWO EXAMPLES TO DEMONSTRATE HOW THE STATE DECOMPOSITION WORKS
+
+ALSO MENTION HOW YOU CAN DECOMPOSE USING TRANSITION TABLES AT DIFFERENT STAGES. FOR EXAMPLE, DECOMPOSING BY DESTINATION IS LIKE
+DECOMPOSING USING A RANDOM POLICY, WHILE DECOMPOSIIGN BY POSITION IS LIKE DECOMPOSITION USING THE OPTIMAL POLICY
+
+
+EXPLANATION OF HAVING BASICALLY DIFFERNT PARTS OF THE BRAIN DOING DIFFERENT THINGS

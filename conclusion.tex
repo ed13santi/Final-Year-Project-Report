@@ -1,31 +1,30 @@
 \chapter{Conclusions and Further Work}
-How successful have you been? What have you
-achieved? How could the work be taken further given
-more time (perhaps by another student next year)? It
-is important here to identify positively what is
-worthwhile in your work. At the same time, honesty,
-and a clear description of the limits of your work, is
-equally important. It is often most appropriate to
-describe work you did not have time to complete as
-further work.
-Your readers will not be clear where, in your long
-report, are your most significant achievements. In the
-conclusions you must summarise this, referring as
-necessary to other sections for more detail.
-- What design choices did you have along the
-way, and why did you make the choices you
-made?
-- What was the most difficult and/or clever part
-of the project?
-- Why was it difficult?
-- How did you overcome the difficulties?
-- Did you discover or invent anything novel?
-- What did you learn?
-Note that “difficult” does not necessarily mean the
-thing that took you the longest amount of time. Note
-also that the conclusions must concisely summarise
-this material, and refer to other sections for the
-details.
+
+- ONE POSSIBLE LIMITATION IS THAT I TRIED ALL THIS STUFF IN RELATIVELY SIMPLE SCENARIOS, WHERE THE NETWROSK DOES NOT NECESSARILY
+NEED TO GENERALISE. I THINK THAT IN THE CASE OF LIKE A VIDEO-GAME OR SOMETHING LIKE THAT, THE STATE-DECOMPOSITION WOULD BE EVEN
+MORE HELPFUL, AS IT WOULD MEAN THAT THE NETWORKS HAVE TO GENERALISE TO A SMALLER SUB-SPACE THAN THE ORIGINAL STATE-SPACE.
+
+- could try to use state-decomposition with policy algorithms
+
+- actually I think that what makes a difference is more like a better decoding
+
+-i f you think about it isn't deltaswitch just a type of hierarchical learning? What's the difference?
+
+-DeltaSwitch is basically a hierarchical agent that works for environemnts that are not perfectly decomposable too
+
+- Need to explain that this project focussed on decomposition using tranisiotn probabilities, however this is not the only kind
+and actullay the example given in the data centre part might give an even better decomposition.
+
+- other limitations of my work, small number of samples and incomplete range of scenarios to be tested due to time constraints and
+computational constraints
+
+The time at which the agents of the sub-spaces should be joined together to form the global agent is not defined.
+    Different strategies can be compared, such as waiting for the sub-agents' action-values to converge or defining different
+    minimum rates of change of the average episode rewards going below which would start the second stage of training.
+
+
+Disadvantages of state-decomposition: need to determine decomposition, more complicated system, not guaranteed to be faster
+
 
 \section{Extensions}
 
@@ -55,7 +54,7 @@ could be saved and later added to the experience replay memories of the DQN agen
 using these samples as this could improve sample efficiency. Similarly, transition samples between different sub-spaces are not
 used in the first stage of training. These could be used to conduct offline pre-training of the merged network.
 
-%\paragraph{Sharing information between sub-agents}
+\paragraph{Sharing information between sub-agents} YE basically the link between this and hierarchical innit
 
 \input{graphs/connected-states}
 
@@ -79,7 +78,7 @@ Figure-\ref{fig:connected-states}.
 
 %\paragraph{Possible expansion of looking at how policy affects the decomposition}
 
-\section[Applications]{Application to real-life scenarios}
+\subsection[Applications]{Application to real-life scenarios}
 
 Resource allocation problem, 2 data centres, allocate job to 2nd data-centre
 Driving taxi

@@ -1,42 +1,5 @@
 \chapter{Background}
 
-You should provide enough background to the reader
-for them to understand what the project is all about,
-and what is the relevant prior work.
-TJWC Final Year Projects 2
-Examiners like to know that you have done the
-appropriate background research and it is important
-that you review either what has been done previously
-to tackle related problems, or perhaps what other
-products exist related to your deliverable. Clear
-references are important here, and much of this
-section will typically already have been written in your
-Interim Report. You may use feedback from that
-report to improve what you write in your Final Report,
-and should note that self-plagiarism between the two
-reports is not possible, so no citation is needed of
-your own earlier writing.
-- What does the reader need to know in order
-to understand the rest of the report? What
-problem are you solving?
-- Why is this problem interesting or worthwhile
-to solve?
-- Who cares if you solve it?
-- How does this relate to other work in this
-area?
-- What work does it build on?
-- For 'research-style' projects involving the
-design and analysis of specific algorithms
-there is a large amount of relevant
-background both of general theory, and very
-specific to the algorithm you investigate.
-Supervisors will help you to see what is most
-important here, but the general rule is that
-you must both provide overall context and
-note work close to what you do that
-influences your work or is in some way
-comparable to your work.
-
 \section{Reinforcement learning}
 
 \paragraph{}
@@ -180,6 +143,8 @@ Should I give a bried intrdoction to neural networks
 
 \section{Q-learning and Deep Q-learning}
 
+SHOULD ADD A BIT OF INFORMATION ABOUT NEURAL NETWORKS
+
 \paragraph{}
 Many RL algorithms deal with the problem of solving an MDP without being given the optimal policy and the dynamics of the system.
 Q-learning \cite{watkins_1989} is one of the most noteworthy among these. It is based on Temporal Differences learning as the
@@ -265,7 +230,7 @@ higher-level action. Examples of hierarchical reinforcement learning algorithms 
 
 \paragraph{}
 Model-based reinforcement learning \cite{moerland_model-based_2020} has been receiving increasing attention lately. This class of
-algorithms is at the intersection of planning algorithms and model-free reinforcement learning as it approximates the model of the
+algorithms is at the intersubsection of planning algorithms and model-free reinforcement learning as it approximates the model of the
 environment during the learning process, which can be used to more efficiently learn from new samples. Dyna
 \cite{sutton_dyna_1991} learns a model of the environment and uses it to simulate samples for Q-learning other than those obtained
 by actual interaction with the environment. AlphaZero \cite{silver_mastering_2017}, which achieved state-of-the-art performance in

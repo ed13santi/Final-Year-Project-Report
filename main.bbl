@@ -1,170 +1,198 @@
 \begin{thebibliography}{10}
 
-\bibitem{sutton_barto_2018}
-R.~S. Sutton and A.~G. Barto, {\em Reinforcement learning: an introduction}.
-\newblock The MIT Press, 2018.
-
-\bibitem{silver_mastering_2017}
-D.~Silver, J.~Schrittwieser, K.~Simonyan, I.~Antonoglou, A.~Huang, A.~Guez,
-  T.~Hubert, L.~Baker, M.~Lai, A.~Bolton, Y.~Chen, T.~Lillicrap, F.~Hui,
-  L.~Sifre, G.~van~den Driessche, T.~Graepel, and D.~Hassabis, ``Mastering the
-  game of {Go} without human knowledge,'' {\em Nature}, vol.~550, pp.~354--359,
-  Oct. 2017.
-\newblock Number: 7676 Publisher: Nature Publishing Group.
-
-\bibitem{yu_reinforcement_2020}
-C.~Yu, J.~Liu, and S.~Nemati, ``Reinforcement {Learning} in {Healthcare}: {A}
-  {Survey},'' {\em arXiv:1908.08796 [cs]}, Apr. 2020.
-\newblock arXiv: 1908.08796.
+\bibitem{noauthor_cloud_nodate}
+Cloud tensor processing units ({TPUs}).
 
 \bibitem{noauthor_google_nodate}
-``Google {AI} {Blog}: {Scalable} {Deep} {Reinforcement} {Learning} for
-  {Robotic} {Manipulation}.''
-
-\bibitem{autonomousDriving}
-R.~B~Kiran, I.~Sobh, T.~Victor, P.~Mannion, A.~A. Al~Sallab, S.~Yogamani, and
-  P.~Pérez, ``Deep reinforcement learning for autonomous driving: A survey,''
-  {\em arXiv.org}, Feb 2020.
-
-\bibitem{NLP}
-R.~Paulus, C.~Xiong, and R.~Socher, ``A deep reinforced model for abstractive
-  summarization,'' November 2017.
-
-\bibitem{ServicePlacement}
-Z.~Zhang, L.~Ma, K.~K. Leung, L.~Tassiulas, and J.~Tucker, ``Q-placement:
-  Reinforcement-learning-based service placement in software-defined
-  networks,'' {\em 2018 IEEE 38th International Conference on Distributed
-  Computing Systems (ICDCS)}, 2018.
-
-\bibitem{SDNSynchronisation}
-Z.~Zhang, L.~Ma, K.~Poularakis, K.~K. Leung, and L.~Wu, ``Dq scheduler: Deep
-  reinforcement learning based controller synchronization in distributed sdn,''
-  {\em ICC 2019 - 2019 IEEE International Conference on Communications (ICC)},
-  2019.
+Google {AI} blog: Scalable deep reinforcement learning for robotic
+  manipulation.
 
 \bibitem{noauthor_markov_2021}
-``Markov decision process,'' Jan. 2021.
-\newblock Page Version ID: 1002665350.
-
-\bibitem{bellman_dynamic_1966}
-R.~Bellman, ``Dynamic {Programming},'' {\em Science}, vol.~153, pp.~34--37,
-  July 1966.
-
-\bibitem{watkins_1989}
-C.~J. C.~H. Watkins, {\em Learning from delayed rewards}.
-\newblock PhD thesis, University of Cambridge, 1989.
-
-\bibitem{watkins_q-learning_1992}
-C.~J. C.~H. Watkins and P.~Dayan, ``Q-learning,'' {\em Machine Learning},
-  vol.~8, pp.~279--292, May 1992.
-
-\bibitem{mnih_human-level_2015}
-V.~Mnih, K.~Kavukcuoglu, D.~Silver, A.~A. Rusu, J.~Veness, M.~G. Bellemare,
-  A.~Graves, M.~Riedmiller, A.~K. Fidjeland, G.~Ostrovski, S.~Petersen,
-  C.~Beattie, A.~Sadik, I.~Antonoglou, H.~King, D.~Kumaran, D.~Wierstra,
-  S.~Legg, and D.~Hassabis, ``Human-level control through deep reinforcement
-  learning,'' {\em Nature}, vol.~518, pp.~529--533, Feb. 2015.
-
-\bibitem{dqn}
-V.~{Mnih}, K.~{Kavukcuoglu}, D.~{Silver}, A.~{Graves}, I.~{Antonoglou},
-  D.~{Wierstra}, and M.~{Riedmiller}, ``{Playing Atari with Deep Reinforcement
-  Learning},'' {\em arXiv e-prints}, p.~arXiv:1312.5602, Dec. 2013.
-
-\bibitem{wiskunde_doubleq-learning_nodate}
-C.~Wiskunde, {\em {DoubleQ}-learning {Hado} van {Hasselt} {Multi}-agent and
-  {Adaptive} {Computation} {Group}}.
-
-\bibitem{van_hasselt_deep_2015}
-H.~van Hasselt, A.~Guez, and D.~Silver, ``Deep {Reinforcement} {Learning} with
-  {Double} {Q}-learning,'' {\em arXiv:1509.06461 [cs]}, Dec. 2015.
-\newblock arXiv: 1509.06461.
-
-\bibitem{wang_dueling_nodate}
-Z.~Wang, T.~Schaul, M.~Hessel, H.~van Hasselt, M.~Lanctot, and N.~de~Freitas,
-  ``Dueling {Network} {Architectures} for {Deep} {Reinforcement} {Learning},''
-  p.~9.
-
-\bibitem{goos_q-learning_1999}
-C.~Gaskett, D.~Wettergreen, and A.~Zelinsky, ``Q-{Learning} in {Continuous}
-  {State} and {Action} {Spaces},'' in {\em Advanced {Topics} in {Artificial}
-  {Intelligence}} (G.~Goos, J.~Hartmanis, J.~van Leeuwen, and N.~Foo, eds.),
-  vol.~1747, pp.~417--428, Berlin, Heidelberg: Springer Berlin Heidelberg,
-  1999.
-\newblock Series Title: Lecture Notes in Computer Science.
-
-\bibitem{stateActionEmbeddings}
-P.~J. {Pritz}, L.~{Ma}, and K.~K. {Leung}, ``{Jointly-Trained State-Action
-  Embedding for Efficient Reinforcement Learning},'' {\em arXiv e-prints},
-  p.~arXiv:2010.04444, Oct. 2020.
-
-\bibitem{worldModels}
-D.~{Ha} and J.~{Schmidhuber}, ``{World Models},'' {\em arXiv e-prints},
-  p.~arXiv:1803.10122, Mar. 2018.
-
-\bibitem{stateAggregation}
-T.~L. {Dean}, R.~{Givan}, and S.~{Leach}, ``{Model Reduction Techniques for
-  Computing Approximately Optimal Solutions for Markov Decision Processes},''
-  {\em arXiv e-prints}, p.~arXiv:1302.1533, Feb. 2013.
-
-\bibitem{aggregationHierarchical}
-M.~Asadi and M.~Huber, ``State space reduction for hierarchical reinforcement
-  learning,'' 2004.
-
-\bibitem{barto_recent_2003}
-A.~G. Barto and S.~Mahadevan, ``Recent {Advances} in {Hierarchical}
-  {Reinforcement} {Learning},'' {\em Discrete Event Dynamic Systems}, vol.~13,
-  pp.~41--77, Jan. 2003.
-
-\bibitem{dietterich_hierarchical_1999}
-T.~G. Dietterich, ``Hierarchical {Reinforcement} {Learning} with the {MAXQ}
-  {Value} {Function} {Decomposition},'' {\em arXiv:cs/9905014}, May 1999.
-\newblock arXiv: cs/9905014.
-
-\bibitem{sutton_between_1999}
-R.~S. Sutton, D.~Precup, and S.~Singh, ``Between {MDPs} and semi-{MDPs}: {A}
-  framework for temporal abstraction in reinforcement learning,'' {\em
-  Artificial Intelligence}, vol.~112, pp.~181--211, Aug. 1999.
-
-\bibitem{parr_reinforcement_nodate}
-R.~Parr and S.~Russell, ``Reinforcement {Learning} with {Hierarchies} of
-  {Machines},'' p.~7.
-
-\bibitem{moerland_model-based_2020}
-T.~M. Moerland, J.~Broekens, and C.~M. Jonker, ``Model-based {Reinforcement}
-  {Learning}: {A} {Survey},'' {\em arXiv:2006.16712 [cs, stat]}, July 2020.
-\newblock arXiv: 2006.16712.
-
-\bibitem{sutton_dyna_1991}
-R.~S. Sutton, ``Dyna, an integrated architecture for learning, planning, and
-  reacting,'' {\em ACM SIGART Bulletin}, vol.~2, pp.~160--163, July 1991.
-
-\bibitem{noauthor_cloud_nodate}
-``Cloud {Tensor} {Processing} {Units} ({TPUs}).''
-
-\bibitem{keras}
-K.~Team, ``Simple. flexible. powerful..''
-\newblock Accessed: 2021-01-23.
-
-\bibitem{noauthor_tensorflow_nodate}
-``{TensorFlow}.''
-
-\bibitem{openai_gym_nodate}
-OpenAI, ``Gym: {A} toolkit for developing and comparing reinforcement learning
-  algorithms.''
+Markov decision process.
+\newblock Page Version {ID}: 1002665350.
 
 \bibitem{noauthor_openai_nodate}
-``{OpenAI} {Gym}: the {CartPole}-v0 environment.''
+{OpenAI} gym: the {CartPole}-v0 environment.
 
-\bibitem{simsek_identifying_2005}
-O.~Şimşek, A.~P. Wolfe, and A.~G. Barto, ``Identifying useful subgoals in
-  reinforcement learning by local graph partitioning,'' in {\em Proceedings of
-  the 22nd international conference on {Machine} learning}, {ICML} '05, (New
-  York, NY, USA), pp.~816--823, Association for Computing Machinery, Aug. 2005.
+\bibitem{noauthor_tensorflow_nodate}
+{TensorFlow}.
+
+\bibitem{aggregationHierarchical}
+Mehran Asadi and Manfred Huber.
+\newblock State space reduction for hierarchical reinforcement learning.
+\newblock 2004.
+
+\bibitem{autonomousDriving}
+Ravi B~Kiran, Ibrahim Sobh, Talpaert Victor, Patrick Mannion, Ahmad~A.
+  Al~Sallab, Senthil Yogamani, and Patrick Pérez.
+\newblock Deep reinforcement learning for autonomous driving: A survey.
+\newblock {\em arXiv.org}, Feb 2020.
+
+\bibitem{barto_recent_2003}
+Andrew~G. Barto and Sridhar Mahadevan.
+\newblock Recent advances in hierarchical reinforcement learning.
+\newblock 13(1):41--77.
+
+\bibitem{bellman_dynamic_1966}
+R.~Bellman.
+\newblock Dynamic programming.
+\newblock 153(3731):34--37.
+
+\bibitem{stateAggregation}
+Thomas~L. {Dean}, Robert {Givan}, and Sonia {Leach}.
+\newblock {Model Reduction Techniques for Computing Approximately Optimal
+  Solutions for Markov Decision Processes}.
+\newblock {\em arXiv e-prints}, page arXiv:1302.1533, February 2013.
+
+\bibitem{dietterich_hierarchical_1999}
+Thomas~G. Dietterich.
+\newblock Hierarchical reinforcement learning with the {MAXQ} value function
+  decomposition.
+
+\bibitem{goos_q-learning_1999}
+Chris Gaskett, David Wettergreen, and Alexander Zelinsky.
+\newblock Q-learning in continuous state and action spaces.
+\newblock In Norman Foo, editor, {\em Advanced Topics in Artificial
+  Intelligence}, volume 1747, pages 417--428. Springer Berlin Heidelberg.
+\newblock Series Title: Lecture Notes in Computer Science.
+
+\bibitem{worldModels}
+David {Ha} and J{\"u}rgen {Schmidhuber}.
+\newblock {World Models}.
+\newblock {\em arXiv e-prints}, page arXiv:1803.10122, March 2018.
+
+\bibitem{kingma_adam_2017}
+Diederik~P. Kingma and Jimmy Ba.
+\newblock Adam: A method for stochastic optimization.
 
 \bibitem{menache_q-cutdynamic_2002}
-I.~Menache, S.~Mannor, and N.~Shimkin, ``Q-{Cut}—{Dynamic} {Discovery} of
-  {Sub}-goals in {Reinforcement} {Learning},'' in {\em Machine {Learning}:
-  {ECML} 2002} (T.~Elomaa, H.~Mannila, and H.~Toivonen, eds.), Lecture {Notes}
-  in {Computer} {Science}, (Berlin, Heidelberg), pp.~295--306, Springer, 2002.
+Ishai Menache, Shie Mannor, and Nahum Shimkin.
+\newblock Q-cut—dynamic discovery of sub-goals in reinforcement learning.
+\newblock In Tapio Elomaa, Heikki Mannila, and Hannu Toivonen, editors, {\em
+  Machine Learning: {ECML} 2002}, Lecture Notes in Computer Science, pages
+  295--306. Springer.
+
+\bibitem{dqn}
+Volodymyr {Mnih}, Koray {Kavukcuoglu}, David {Silver}, Alex {Graves}, Ioannis
+  {Antonoglou}, Daan {Wierstra}, and Martin {Riedmiller}.
+\newblock {Playing Atari with Deep Reinforcement Learning}.
+\newblock {\em arXiv e-prints}, page arXiv:1312.5602, December 2013.
+
+\bibitem{mnih_human-level_2015}
+Volodymyr Mnih, Koray Kavukcuoglu, David Silver, Andrei~A. Rusu, Joel Veness,
+  Marc~G. Bellemare, Alex Graves, Martin Riedmiller, Andreas~K. Fidjeland,
+  Georg Ostrovski, Stig Petersen, Charles Beattie, Amir Sadik, Ioannis
+  Antonoglou, Helen King, Dharshan Kumaran, Daan Wierstra, Shane Legg, and
+  Demis Hassabis.
+\newblock Human-level control through deep reinforcement learning.
+\newblock 518(7540):529--533.
+
+\bibitem{moerland_model-based_2020}
+Thomas~M. Moerland, Joost Broekens, and Catholijn~M. Jonker.
+\newblock Model-based reinforcement learning: A survey.
+
+\bibitem{openai_gym_nodate}
+{OpenAI}.
+\newblock Gym: A toolkit for developing and comparing reinforcement learning
+  algorithms.
+
+\bibitem{parr_reinforcement_nodate}
+Ronald Parr and Stuart Russell.
+\newblock Reinforcement learning with hierarchies of machines.
+\newblock page~7.
+
+\bibitem{NLP}
+Romain Paulus, Caiming Xiong, and Richard Socher.
+\newblock A deep reinforced model for abstractive summarization, November 2017.
+
+\bibitem{stateActionEmbeddings}
+Paul~J. {Pritz}, Liang {Ma}, and Kin~K. {Leung}.
+\newblock {Jointly-Trained State-Action Embedding for Efficient Reinforcement
+  Learning}.
+\newblock {\em arXiv e-prints}, page arXiv:2010.04444, October 2020.
+
+\bibitem{rusu_progressive_2016}
+Andrei~A. Rusu, Neil~C. Rabinowitz, Guillaume Desjardins, Hubert Soyer, James
+  Kirkpatrick, Koray Kavukcuoglu, Razvan Pascanu, and Raia Hadsell.
+\newblock Progressive neural networks.
+
+\bibitem{silver_mastering_2017}
+David Silver, Thomas Hubert, Julian Schrittwieser, Ioannis Antonoglou, Matthew
+  Lai, Arthur Guez, Marc Lanctot, Laurent Sifre, Dharshan Kumaran, Thore
+  Graepel, Timothy Lillicrap, Karen Simonyan, and Demis Hassabis.
+\newblock Mastering chess and shogi by self-play with a general reinforcement
+  learning algorithm.
+
+\bibitem{sutton_dyna_1991}
+Richard~S. Sutton.
+\newblock Dyna, an integrated architecture for learning, planning, and
+  reacting.
+\newblock 2(4):160--163.
+
+\bibitem{sutton_barto_2018}
+Richard~S. Sutton and Andrew~G. Barto.
+\newblock {\em Reinforcement learning: an introduction}.
+\newblock The MIT Press, 2018.
+
+\bibitem{sutton_between_1999}
+Richard~S. Sutton, Doina Precup, and Satinder Singh.
+\newblock Between {MDPs} and semi-{MDPs}: A framework for temporal abstraction
+  in reinforcement learning.
+\newblock 112(1):181--211.
+
+\bibitem{keras}
+Keras Team.
+\newblock Simple. flexible. powerful.
+\newblock Accessed: 2021-01-23.
+
+\bibitem{van_hasselt_deep_2015}
+Hado van Hasselt, Arthur Guez, and David Silver.
+\newblock Deep reinforcement learning with double q-learning.
+
+\bibitem{wang_dueling_nodate}
+Ziyu Wang, Tom Schaul, Matteo Hessel, Hado van Hasselt, Marc Lanctot, and Nando
+  de~Freitas.
+\newblock Dueling network architectures for deep reinforcement learning.
+\newblock page~9.
+
+\bibitem{watkins_q-learning_1992}
+Christopher J. C.~H. Watkins and Peter Dayan.
+\newblock Q-learning.
+\newblock 8(3):279--292.
+
+\bibitem{watkins_1989}
+Christopher John Cornish~Hellaby. Watkins.
+\newblock {\em Learning from delayed rewards}.
+\newblock PhD thesis, University of Cambridge, 1989.
+
+\bibitem{wiskunde_doubleq-learning_nodate}
+Centrum Wiskunde.
+\newblock {\em {DoubleQ}-learning Hado van Hasselt Multi-agent and Adaptive
+  Computation Group}.
+
+\bibitem{yu_reinforcement_2020}
+Chao Yu, Jiming Liu, and Shamim Nemati.
+\newblock Reinforcement learning in healthcare: A survey.
+
+\bibitem{ServicePlacement}
+Ziyao Zhang, Liang Ma, Kin~K. Leung, Leandros Tassiulas, and Jeremy Tucker.
+\newblock Q-placement: Reinforcement-learning-based service placement in
+  software-defined networks.
+\newblock {\em 2018 IEEE 38th International Conference on Distributed Computing
+  Systems (ICDCS)}, 2018.
+
+\bibitem{SDNSynchronisation}
+Ziyao Zhang, Liang Ma, Konstantinos Poularakis, Kin~K. Leung, and Lingfei Wu.
+\newblock Dq scheduler: Deep reinforcement learning based controller
+  synchronization in distributed sdn.
+\newblock {\em ICC 2019 - 2019 IEEE International Conference on Communications
+  (ICC)}, 2019.
+
+\bibitem{simsek_identifying_2005}
+Özgür Şimşek, Alicia~P. Wolfe, and Andrew~G. Barto.
+\newblock Identifying useful subgoals in reinforcement learning by local graph
+  partitioning.
+\newblock In {\em Proceedings of the 22nd international conference on Machine
+  learning}, {ICML} '05, pages 816--823. Association for Computing Machinery.
 
 \end{thebibliography}

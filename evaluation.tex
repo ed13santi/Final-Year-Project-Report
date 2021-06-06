@@ -1,27 +1,75 @@
-\chapter{Evaluation}
-This Chapter (or possibly section of the conclusions) is
-distinct from your results. It must contain your critical
-evaluation of your work as compared to previous
-analysis, algorithms, products, and when related to
-your original objectives. To what extent have your
-original objectives been fulfilled? If they have
-changed, what is your rationale for this? What are the
-advantages, disadvantages of your approach
-compared with related work? How does the scope of
-your work differ from related work? Examiners expect
-your project report to show evidence of your ability to
-think as an engineer, and that includes the ability to
-critically reflect on your own work and evaluate its
-significance.
-Material here will compare project outcomes with
-initial objectives and requirements captured. Usually
-your Interim Report will contain these. Where these
-have changed significantly over the course of the
-project this should be explained and reasons given.
-This section should not require examiners to read
-your Interim Report, and will not reference it. Changes
-between final and initial objectives should be
-explained in a self-contained manner.
-Note that here you will reference and summarise,
-rather than repeat, your description of Requirements
-Capture earlier in the Final Report.
+\chapter{Applicability of the proposed technique}
+
+\paragraph{} The previous section shows that given certain conditions, the state-decomposition method can give a performance gain in terms of
+the speed of learning of a reinforcement learning agent. Additionally, such methods are able to leverage information from simpler
+environments to learn faster in a more complicated version of said environments. This secion aims to provide a more real-life like
+examples to illustrate to potential of the state-decomposition method in scenarios where using a single global agent could be
+deemed wasteful, given the better efficeincy of the proposed methods.
+
+\paragraph{} In general, techniques based on the state-decomposition method could be developed for any kind of problem that is decomposable.
+Usually, such a characteristic occurs in systems composed of multiple sub-systems, where the various components seldom interact
+with each other. It is useful to discuss a possible application of the methodology to better show how such a technique could be
+applied to a real-life scenario.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\linewidth]{figures/dataCentres.pdf}
+    \caption{Allocation of resources problem for two interconnected data centres.}
+    \label{fig:data-centres}
+\end{figure}
+
+\paragraph{} Consider a scenario where we have two data centres, each of which has multiple computers, as showing in
+Figure-\ref{fig:data-centres}. Each of these data centres receives tasks (jobs) that can be assigned to the computers and
+completed. Each of these jobs requires a random time to process on its allocated machine. At each time-step there can be no task
+or 1 task arriving to one of the data centres. The resource allocation problem deals with assigning these tasks to machines in the
+two data centres in order to minimise the average waiting time to completion of the tasks. Most of the time it is most efficient
+for the data-centre that receives the task to fullfil it, as sending the task to the other data-centres incurs in additional
+delays. However, sometimes a data-centre is busy enough to justify the additional delay incurred in trasferring tasks between
+data-centres. This problem can be carefully formulated as a Markov Decision Process and solved using reinforcement learning. The
+MDP can be defined as follows:
+\begin{itemize}
+    \item The state of the MDP indicates the number of tasks waiting for each machine, that is, a computer in a data centre. It
+    also indicates the presence of eventual incoming tasks in the data centres. Thus the state can be represented by a vector
+    having an element for each machine, which take integer values indicating the number of jobs waiting for processing in each of
+    the machines. The vector would also include additional two elements, taking values 0 or 1, indicating the presence of new
+    incoming tasks in each of the data centres.
+    \item The actions to be taken by the controller are to assign the tasks to the machines. At each time-step, the
+    controller can allocate the received task to any machine, either in the local or in the remote data centre.
+    \item The rewards can be positive values that occur when tasks are completed. In order to encourage resolution of a task in a
+    local machine one the rewards can be set to be higher when the task is completed in the data centre that received the task
+    than when it is completed by the other data centre.
+\end{itemize}
+If the difference of the rewards upon completion of tasks between local and remote data centres is set to be very high, the
+controller will allocate most tasks locally. The fact that the controller is unlikely to assign tasks to the remote data centre
+makes it so that the equivalent transitions are unlikely to happen and that the state-space can be decomposed accordingly. 
+
+\paragraph{} The simplest way of applying a state-decomposition in this scenario would be with a 'DeltaSwitch' agent having two neural
+networks, one for when a task is received by one data centre and another NN for when a task is received by the other data centre.
+Though this might be effective, it does not use the decomposition previously discussed based on decomposing by 'ignoring' state
+transitions below a certain threshold. In this case, an intuitive decomposition of treating two relatively separate problems as
+such is used.
+
+\paragraph{} In the case where the difference in rewards between completing a task locally or remotely is infinite, the tasks would always be
+solved locally. In this case the problem of deciding which data centre the task should be processed in is inexistant. In this case
+we could simply have two separate agents for the two data centres that learn how to assign tasks within the data centres, without
+dealing with their interconnection. Howver, as the difference in rewards decreases, it becomes optimal to use the interconnection.
+The 'learn the switch' and transfer learning techniques discussed in the previous chapter in this case would be useful. The
+networks trained to assign tasks internally within the two data-centres can be combined in order to learn a global agent that can
+assign tasks in both in the most optimal manner. This architectures is illustrated in Figure-\ref{fig:data-centres-decomposition-agent}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{figures/data-centre-decomposition.pdf}
+    \caption{Possible state-decomposition agent.}
+    \label{fig:data-centres-decomposition-agent}
+\end{figure}
+
+\paragraph{} This last methodology is very similar to what would be done in a hierarchical architecture. This would have an agent that
+explicitely decides whether a task should be assigned to data centre 1 or 2. Given this knowledge a sub-agent trained to decide
+how to assign the task internally within the data centre would be used and the outputs of these two would be combined to give the
+full action description. The difference with the state-decomposition method is that while in the latter the full-action
+description is given by the combination network and all other components merely provide implicit information to it, in the
+hierarchical approach the action description is formed explicitely by combining the outputs of multiple 'layers' of sub-agents.
+Additionally, the hierarchical approach deals with the problem on 'high level' to 'low level' approach, in which 'high level'
+actions are decided first and 'low level' actions are determined using the 'high level' actions, while the state-decomposition
+approach feeds the knowledge of the possible 'low level' agents to a global agent that deals with all levels of action.
