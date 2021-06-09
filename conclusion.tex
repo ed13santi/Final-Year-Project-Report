@@ -1,29 +1,48 @@
 \chapter{Conclusions and Further Work}
 
-- ONE POSSIBLE LIMITATION IS THAT I TRIED ALL THIS STUFF IN RELATIVELY SIMPLE SCENARIOS, WHERE THE NETWROSK DOES NOT NECESSARILY
-NEED TO GENERALISE. I THINK THAT IN THE CASE OF LIKE A VIDEO-GAME OR SOMETHING LIKE THAT, THE STATE-DECOMPOSITION WOULD BE EVEN
-MORE HELPFUL, AS IT WOULD MEAN THAT THE NETWORKS HAVE TO GENERALISE TO A SMALLER SUB-SPACE THAN THE ORIGINAL STATE-SPACE.
-
-- could try to use state-decomposition with policy algorithms
+\section{Findings}
 
 - actually I think that what makes a difference is more like a better decoding
 
--i f you think about it isn't deltaswitch just a type of hierarchical learning? What's the difference?
+-DeltaSwitch is basically a hierarchical agent that works for environemnts that are not perfectly decomposable too. Explain that
+decomposition has basically changed and it's not reallly decomposition anymore if we are using the DeltaSwitch.
 
--DeltaSwitch is basically a hierarchical agent that works for environemnts that are not perfectly decomposable too
+- while in the origianl it was more like solve different problems, now it is more like HAVING BASICALLY DIFFERNT PARTS OF THE BRAIN DOING DIFFERENT THINGS
 
-- Need to explain that this project focussed on decomposition using tranisiotn probabilities, however this is not the only kind
-and actullay the example given in the data centre part might give an even better decomposition.
+\section{Discussion}
 
-- other limitations of my work, small number of samples and incomplete range of scenarios to be tested due to time constraints and
-computational constraints
+\paragraph{}
+One limitation of this project is that due to timing and computational constraints, the state-decomposition technique was only
+tested in relatively simple environments with small state-spaces. As this technique aims to aid in scenarios with very large
+state-spaces, it would be useful to test it in such environments. However, I predict that the performance gain of
+state-decomposition could increase further for very large state-spaces. The reason is that the environments used in this project
+were small enough so that all states were likely to be visited multiple times and the neural networks approximating Q-values would
+not have to massively rely on generalisation. However, the generalisation properties of neural networks are increasingly important
+as the size of the state-space increases, as it becomes harder to visit all the states during training. As the state-decomposition
+methods train a sub-agent for each sub-space, these agents only have to generalise over the smaller sub-spaces. It might be that
+this effect outweights the fact that there are fewer samples for each sub-space than for the whole state-space, leading to better
+generalisation and thus faster convergence.
 
-The time at which the agents of the sub-spaces should be joined together to form the global agent is not defined.
-    Different strategies can be compared, such as waiting for the sub-agents' action-values to converge or defining different
-    minimum rates of change of the average episode rewards going below which would start the second stage of training.
+\paragraph{}
+Another problem is that while it was shown that the state-decomposition method can lead to performance gains in certain
+environments, using certian network architectures and and hyperparameters, this doesn't necessarily imply that this would also
+occur with different design choices. For example, all experiments shown in this report used an $\epsilon$-greedy policy and
+$\gamma=0.95$, however, different values of these might affect the results.
 
+\paragraph{}
+- talk about number of trials
 
-Disadvantages of state-decomposition: need to determine decomposition, more complicated system, not guaranteed to be faster
+\paragraph{Finding the state-transition matrix}
+The first step in the state-decomposition method is to obtain the state-transition matrix. Since we are testing the algorithm in
+software simulations, the state-transition matrix can be easily obtained from the source code of the environments and it can be
+considered as given. This is usually not the case, so at a later stage we shall test methods to approximate the state-transition
+matrix. This can be done by interacting with the environment and sampling the $\langle S,A,R,S' \rangle$ tuples that are
+generated. Since the state-transition probabilities are dependent on the action, the state-transition matrix is dependent on the
+chosen policy. As we are conducting this before the training and we have no information about the optimal policy, we choose to use
+the most general possible policy to obtain the state-transition table, that is, the actions are all chosen with equal probability
+independently of the current state. The number of iterations required to construct the state-transition matrix is dependant on the
+number of states, actions, the probability of visiting each different state and the required level of accuracy of the
+state-transition matrix estimate. 
 
 
 \section{Extensions}
@@ -40,21 +59,32 @@ state spaces. A possible extension would investigate methods to decompose contin
 be obtained by discretising the states and the state-space would be decomposed accordingly, while the agents could still be fed
 the original continuous states as input.
 
-\paragraph{Applying threshold to transitions between whole sub-spaces} The original state-decomposition method in this project
-consists of temporarily ignoring improbable state transitions by applying a threshold to the state-transition matrix. There are
-scenarios in which groups of states are connected by state-transitions that have a high probability but it would still be useful
-to consider them as separate sub-spaces. Consider for example Figure-\ref{fig:connected-states}, where an MDP is composed of
-nearly independent sub-spaces that are only connected by the blue transitions. In such a scenario it could be useful to determine
-the sub-spaces by limiting the number of possible non-zero transition probabilities between any two sub-spaces rather than
-applying a probability threshold to every single transition. Alternatively, we could apply a threshold to transition probabilities
-between sub-spaces instead of single states.
+\label{sec:different-decompositions}
+\paragraph{Different types of decomposition} - Need to explain that this project focussed on decomposition using tranisiotn probabilities, however this is not the only kind
+and actually the example given in the data centre part might give an even better decomposition.
+\begin{itemize}
+    \item \textbf{Applying threshold to transitions between whole sub-spaces} The original state-decomposition method in this project
+    consists of temporarily ignoring improbable state transitions by applying a threshold to the state-transition matrix. There are
+    scenarios in which groups of states are connected by state-transitions that have a high probability but it would still be useful
+    to consider them as separate sub-spaces. Consider for example Figure-\ref{fig:connected-states}, where an MDP is composed of
+    nearly independent sub-spaces that are only connected by the blue transitions. In such a scenario it could be useful to determine
+    the sub-spaces by limiting the number of possible non-zero transition probabilities between any two sub-spaces rather than
+    applying a probability threshold to every single transition. Alternatively, we could apply a threshold to transition probabilities
+    between sub-spaces instead of single states.
+\end{itemize}
 
 \paragraph{Offline training} The samples obtained from the pre-training interaction required to obtain the state-transition matrix
 could be saved and later added to the experience replay memories of the DQN agents. Offline pre-training could also be conducted
 using these samples as this could improve sample efficiency. Similarly, transition samples between different sub-spaces are not
 used in the first stage of training. These could be used to conduct offline pre-training of the merged network.
 
-\paragraph{Sharing information between sub-agents} YE basically the link between this and hierarchical innit
+\paragraph{Sharing information between sub-agents} Consider a system composed of many idenatical sub-systems. The proposed
+decomposition method would be able to exploit the structure of the system to learn more efficiently. However, in this case, it
+would be possible to also exploit the similarity of the sub-systems in order to be even more efficient. This is because in this
+case, the sub-agents would basically be identical, meaning that the samples belonging to one sub-space could also be used to train
+the agents of the other sub-spaces. This is an extreme scenario, however, there are many common environemnts in which the
+sub-systems are similar if not identical. Studying ways to share learned information between sub-agents to exploit the similarity
+of the sub-spaces could further increasing the sample efficiency of training.
 
 \input{graphs/connected-states}
 
@@ -66,20 +96,7 @@ number of state-transitions. The intuition is that sub-goals, such as driving to
 destination after picking it up, are often connected by bottleneck states, such as states 3, 6, 9 and 12 in
 Figure-\ref{fig:connected-states}.
 
+\paragraph{Proving mathematical bounds} Ok cool it works, but why? Mathemtical foundation is important m8
 
-%\paragraph{No NN version} For the ersion without neural networks, the final neural netowrk could be attached earlier than
-%achiving convergence if we still allow to update the intermediate q-values during training
-
-%if I do without NN I don't think it's really state decomposition. It's more like I initially do q-learning in a simple
-%environment that disregards interactions between subsystems and then I append a NN at the end to take into account these
-%interatctions, Seems like a very weird thing to do doesn't it
-
-%\paragraph{aybe prove some mathematical bounds}
-
-%\paragraph{Possible expansion of looking at how policy affects the decomposition}
-
-\subsection[Applications]{Application to real-life scenarios}
-
-Resource allocation problem, 2 data centres, allocate job to 2nd data-centre
-Driving taxi
-Alibaba thing
+\paragraph{Applying state-decomposition to policy gradient algorithms} If we do Q-learning, why not other algos too, what about
+RNNs and stuff

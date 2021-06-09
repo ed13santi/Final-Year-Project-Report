@@ -1,17 +1,22 @@
 \chapter{State-Decomposition method}
 
-\section{State-Decomposition method}
-
 \paragraph{}
 The main topic of this project is the development of the state-decomposition method. This is suited to control problems of
-environments that are composed of many sub-problems that only seldom interact with each other. Separate RL agents can be trained
-for these separate sub-problems independently, thus treating them as separate problems. The separate agents are then combined at a
-later stage to take into account the interactions between the sub-problems. 
+environments that are composed of many sub-problems that only seldom interact with each other. The state-decomposition method
+takes advantage of the almost independence of these problems to learn agents that deal with these smaller problems, which are
+easier to solve. These separate agents need to be combined to take into account the interactions between the sub-problems. 
+
+An example of a system composed of many almost independent sub-systems could be the control of a communication network composed of
+many networks that rarely communicated with each other. The state-decomposition method would aim to learn an optimal controller by
+learning agents that control the smaller sub-networks and combining them to account for the small amount of interaction between
+sub-networks.
+
+\section[Originally proposed method]{The original state-decomposition method}
 
 \paragraph{}
-The first step of the process is to identify the subsystems as groups of states. This is done by examining the state-transition
-probability matrix. Given a finite MDP, this is defined as the matrix where each entry $P_{ij}$ is the probability of
-transitioning from state $S_t=i$ to the next state $S_{t+1}=j$:
+The first step of the process is to separate the sub-problems by identifying separate groups of states. This is done by examining
+the state-transition probability matrix. Given a finite MDP, this is defined as the matrix where each entry $P_{ij}$ is the
+probability of transitioning from state $S_t=i$ to the next state $S_{t+1}=j$:
 
 \begin{equation}
     \begin{bmatrix}
@@ -29,11 +34,11 @@ where $n$ is the number of states in $\mathcal{S}$.
 \paragraph{}
 The state-decomposition method is based on the fact that some state-transition probabilities are negligible compared to others and
 could be regarded as 0 to obtain a sparse version of the state-transition matrix. Specifically, every element smaller than a
-threshold $\epsilon$ can be set to 0. The probabilities of the matrix can then be normalised so that each row of the matrix has a
-sum of 1. This step is unnecessary and can be skipped in the implementation; however, it is necessary to obtain a valid MDP from
-the state-transition matrix after applying the threshold. Following this procedure, the MDP could be formed by multiple
-independent MDPs with smaller state-spaces, as shown in Figure-\ref{fig:OneMDPtoManyMDPs}. In this case, by reordering the states
-it is possible to express the state-transition matrix as a block matrix in the form:
+certain threshold $\tau$ can be set to 0. The probabilities of the matrix can then be normalised so that each row of the matrix
+has a sum of 1. This step is unnecessary and can be skipped in the implementation; however, it is necessary to obtain a valid MDP
+from the state-transition matrix after applying the threshold. Following this procedure, the original MDP could have transformed
+into multiple independent MDPs with smaller state-spaces, as shown in Figure-\ref{fig:OneMDPtoManyMDPs}. In this case, by
+reordering the states it is possible to express the state-transition matrix as a block matrix in the form:
 
 \begin{equation}
     \begin{bmatrix}       
@@ -46,15 +51,19 @@ it is possible to express the state-transition matrix as a block matrix in the f
 
 where the matrices $B_1, B_2, ..., B_n$ are the state-transition matrices of the newly formed separate MDPs.
 
+This is the method of state-decomposition that this report focuses on, which is based on ignoring state transitions that are below
+the threshold $\tau$. There are different ways to decompose the state-space, the choice of which might depends on the specific
+problem that the method is applied to. A further discussion on this can be found in section-\ref{sec:different-decompositions}.
+
 \paragraph{}
-Once the states of the original MDP have been separated into multiple sub-spaces, it is possible to proceed with training the RL
-agent. In the first stage of training, for each of these sub-spaces, we train a separate DQN agent. To do so, we consider for each
-sub-space's agent only those state transitions that start and end within the same sub-space. Once the sub-spaces' agents
-converge\footnote{Or earlier. The time when we should do this is to be researched in this project.}, these should be combined to
-form a global agent that also takes into account transitions between the different sub-spaces. This is done by feeding the action
-values of the sub-spaces' agents, which are the outputs of their neural networks, as inputs of another neural network, as in
-Figure-\ref{fig:join_nets}. This forms a bigger neural network which is the Q-function approximator of a new global DQN agent,
-which is then trained using all possible transitions. This will be referred to as the second stage of training.
+The following describes the original architecture that was devised to apply state-decomposition to a practical problem. Once the
+states of the original MDP have been separated into multiple sub-spaces, it is possible to proceed with training the RL agent. In
+the first stage of training, a separate DQN agen is trained for each of these sub-spaces. To do so, we consider for each
+sub-space's agent only those state transitions that start and end within the same sub-space. Once the sub-spaces' agents converge,
+these should be combined to form a global agent that also takes into account transitions between the different sub-spaces. This is
+done by feeding the action values of the sub-spaces' agents, which are the outputs of their neural networks, as inputs of another
+neural network, as in Figure-\ref{fig:join_nets}. This forms a bigger neural network which is the Q-function approximator of a new
+global DQN agent, which is then trained using all possible transitions. This will be referred to as the second stage of training.
 
 \begin{figure}[H]
     \centering
@@ -79,11 +88,32 @@ stored in a table, such as in the original Q-learning algorithm. In this case, a
 ignore the transitions between different sub-spaces without changing the structure of the agent at all in the first stage of
 training.
 
-\subsection[Decomposing state trans. matrix]{Decomposing the state transition matrix}
+\paragraph{}
+It is important to mention that the state-transition matrix depends on the policy being followed by the agent that interacts with
+the environemnt. Thus the state-transition matrix is most likely different when starting to train an agent and upon convergence.
+For this reason, different state-decompositions could be possible depending on the policy that the state-transition matrix is
+based on. For example, some state-decompositions might exist regardless of the policy, such as when the transitions between two
+sub-spaces are made unlikely by the characteristics of the environemnt itself, such as moving between two place separated by a
+wall in a navigation problem. However, some decomposition are purely created by the policy of the agent, such as if in a
+navigation problem there is no wall seaparating two positions, but the agent simply never moves between these two places. More
+concrete examples of this are given in the next chapter and for now it is sufficient to acknowledge that different decompositions
+can occur depending on the assumed policy. 
 
 \paragraph{}
-The decomposition into sub-spaces of states given the state-transition table is done using Algorithm-\ref{algo:decompose}. The
-Python code for this is given in the Appendix.
+This method is the one that was initially proposed to study the effects of state-decomposition. In chapter-\ref{chap:results} we
+show that this architecture is problematic, having issues such as the first stage of training not successfully speeding up the
+second stage.
+
+\section[Decomposing state trans. matrix, when this is known]{Decomposing the state transition matrix} \label{sec:decomposing-trans-matrix}
+
+\paragraph{}
+This report focuses on the application of state-decomposition where the state-decomposition is 'intuitive' and it is done in a
+non-mathematical way, as will be shown in the next sections. However this is not always the case, thus we need a systematic way to
+obtain the correct state-decomposition, given that we know the state-transition matrix. This would normally also be unknown,
+however, techniques to estimate this could be discussed as an extension of this project. 
+
+The decomposition into sub-spaces of states given the state-transition table is done using
+Algorithm-\ref{algo:decompose}. 
 
 \input{algorithms/decompose}
 
@@ -91,16 +121,8 @@ Python code for this is given in the Appendix.
 Sometimes we know the number of sub-spaces that the original MDP should be decomposed into. For example, we might know the
 characteristics of the system and the number of subsystems it can be considered to have, such as how many sub-networks compose a
 certain communication network. In such case, the function that returns the decomposed sub-spaces can be run repeatedly while
-updating the threshold value $\epsilon$ at each iteration using binary search, until the MDP is decomposed in the correct number
-of sub-spaces. This is given in Algorithm-\ref{algo:threshold} and the Python code is in the Appendix. 
+updating the threshold value $\tau$ at each iteration using binary search, until the MDP is decomposed in the correct number
+of sub-spaces. This is given in Algorithm-\ref{algo:threshold}. 
 
 \input{algorithms/threshold}
 
-
-ONE OR TWO EXAMPLES TO DEMONSTRATE HOW THE STATE DECOMPOSITION WORKS
-
-ALSO MENTION HOW YOU CAN DECOMPOSE USING TRANSITION TABLES AT DIFFERENT STAGES. FOR EXAMPLE, DECOMPOSING BY DESTINATION IS LIKE
-DECOMPOSING USING A RANDOM POLICY, WHILE DECOMPOSIIGN BY POSITION IS LIKE DECOMPOSITION USING THE OPTIMAL POLICY
-
-
-EXPLANATION OF HAVING BASICALLY DIFFERNT PARTS OF THE BRAIN DOING DIFFERENT THINGS

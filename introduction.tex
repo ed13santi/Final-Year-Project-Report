@@ -27,16 +27,28 @@ algorithm might not be able to learn fast enough to adapt to the changing enviro
 \section{Project Definition}
 
 \paragraph{}
-The goal of this project is to develop the state-decomposition method proposed by my supervisor Prof. K. K. Leung. This aims to
-alleviate the problem of large state spaces of the Markov Decision Processes (MDPs) that underlay many practical environments.
-This new method leverages the characteristic of many control problems of being composed of many almost independent sub-problems
-that only seldom interact with each other. The method first identifies the sub-problems, then it trains separate RL agents for
-each of them. These are later combined to form a global agent that controls the whole system and takes into account their
-interactions. 
+The goal of this project is to develop a state-decomposition method, that aims to alleviate the problem of large state spaces of
+the Markov Decision Processes (MDPs) that underlay many practical environments. This new method leverages the characteristic of
+many control problems of being composed of many almost independent sub-problems that only seldom interact with each other. The
+method considers these sub-problems independently as well as combining them to form a global agent that controls the whole system
+and takes into account their interactions. 
 
 \paragraph{}
-While the high-level methodology is defined, the specifics of the algorithms are not. This project involves conducting research on
-the development of the state-decomposition method and to test it and benchmark it against mainstream algorithms to determine if it
-achieves improved performance.
+This project deals with developing reinforcement learning algorithms that use the high-level idea of state-decomposition and to
+test them and benchmark them against baseline algorithms to determine if such methodology can provide any performance gains. The
+performance is measured in terms of training samples or training episodes, that is the amount of training experience required to
+achieve a certain level of accuracy by the algorithm. This is not to be confused with reducing training time, which is more
+involved with reducing computational effort, which was not considered in this project.
 
 \section{Structure of the report}
+
+\paragraph{}
+This project has the following structure. Chapter-2 provides the background information required to understand the topic of this
+project. This is about reinforcement learning basics and Q-learning and Deep Q-learning, as well as introducing the problem of
+large state-spaces which this project tries to alleviate and methodologies used in the literature for the same scope. Chapter-3
+introduces the state-decomposition method more specifically, explaining the high-level ideas and the originally devised method to
+decompose state-spaces. Chapter-4 presents the tools and methods that were used in testing the state-decomposition technique and
+the type of experiments that were run. Chapter-5 shows the most important results obtained during testing and their
+interpretation. Chapter-6 discusses the applicability of the proposed techniques and provides a real-life example where the
+technique could be useful. Lastly, Chapter-7 discusses the findings of this project, its limitation and possible extension and
+future work.

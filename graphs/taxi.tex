@@ -1,5 +1,6 @@
 \begin{figure}[H]
 \centering
+    \resizebox{\linewidth}{!}{
     \subfloat["Taxi"]{
         \begin{tikzpicture}
             \draw[step=1cm,color=gray] (0,0) grid (5,5);
@@ -31,6 +32,17 @@
             \draw[very thick, dash dot] (3,3) -- (3,5);
             \draw[very thick, dash dot] (4,2) -- (4,1);
         \end{tikzpicture}}
-    \caption{On the left, the original "Taxi" environment. On the right, the "TaxiTraps" environment.}
+    \qquad
+    \subfloat["Taxi2"]{
+        \begin{tikzpicture}
+            \draw[step=1cm,color=gray] (0,0) grid (5,5);
+            \node at (0.5,4.5) {R};
+            \node at (4.5,4.5) {G};
+            \draw[very thick] (2,5) -- (2,3);
+            \draw[very thick] (1,2) -- (1,0);
+            \draw[very thick] (3,2) -- (3,0);
+            \draw[very thick] (2,3) -- (2,2);
+        \end{tikzpicture}}}
+    \caption{Original and modified 'Taxi' environments.}
     \label{fig:taxi}
 \end{figure}

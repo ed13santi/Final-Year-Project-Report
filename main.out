@@ -2,37 +2,35 @@
 \BOOKMARK [1][-]{section.4}{Motivation}{chapter.3}% 2
 \BOOKMARK [1][-]{section.7}{Project Definition}{chapter.3}% 3
 \BOOKMARK [1][-]{section.10}{Structure of the report}{chapter.3}% 4
-\BOOKMARK [0][-]{chapter.11}{Background}{}% 5
-\BOOKMARK [1][-]{section.12}{Reinforcement learning}{chapter.11}% 6
-\BOOKMARK [1][-]{section.48}{Neural networks}{chapter.11}% 7
-\BOOKMARK [1][-]{section.49}{Q-learning and Deep Q-learning}{chapter.11}% 8
-\BOOKMARK [1][-]{section.59}{Problem of large state-spaces}{chapter.11}% 9
-\BOOKMARK [0][-]{chapter.65}{State-Decomposition method}{}% 10
-\BOOKMARK [1][-]{section.66}{State-Decomposition method}{chapter.65}% 11
-\BOOKMARK [2][-]{subsection.78}{Decomposing state trans. matrix}{section.66}% 12
-\BOOKMARK [0][-]{chapter.85}{Design and testing of the proposed decomposition technique}{}% 13
-\BOOKMARK [1][-]{section.87}{Tools}{chapter.85}% 14
-\BOOKMARK [2][-]{subsection.94}{Obtaining the state trans. matrix}{section.87}% 15
-\BOOKMARK [1][-]{section.96}{The need for a suitable environment}{chapter.85}% 16
-\BOOKMARK [1][-]{section.109}{Implementation of the DQN agents}{chapter.85}% 17
-\BOOKMARK [1][-]{section.110}{Benchmark DQN agent}{chapter.85}% 18
-\BOOKMARK [1][-]{section.113}{Ensuring fair comparison}{chapter.85}% 19
-\BOOKMARK [0][-]{chapter.114}{Results}{}% 20
-\BOOKMARK [1][-]{section.115}{Evaluation method}{chapter.114}% 21
-\BOOKMARK [1][-]{section.116}{Effect of different state representations on the performance}{chapter.114}% 22
-\BOOKMARK [1][-]{section.122}{First approach}{chapter.114}% 23
-\BOOKMARK [1][-]{section.123}{Initial results with Taxi2 and original state decomposition algorithm}{chapter.114}% 24
-\BOOKMARK [1][-]{section.124}{Effect of varying the neural network's size}{chapter.114}% 25
-\BOOKMARK [1][-]{section.126}{A simple approach to decomposition: 'DeltaSwitch'}{chapter.114}% 26
-\BOOKMARK [1][-]{section.132}{Effect of using reduced encoding}{chapter.114}% 27
-\BOOKMARK [1][-]{section.134}{Samples plots}{chapter.114}% 28
-\BOOKMARK [1][-]{section.135}{Effect of wall / no wall}{chapter.114}% 29
-\BOOKMARK [1][-]{section.137}{Effect of decomposing by destination or by position}{chapter.114}% 30
-\BOOKMARK [1][-]{section.139}{A different approach based on transfer learning}{chapter.114}% 31
-\BOOKMARK [1][-]{section.147}{Techniques to learn the 'switch'}{chapter.114}% 32
-\BOOKMARK [1][-]{section.152}{Can have separate subsection for things that didn't work}{chapter.114}% 33
-\BOOKMARK [0][-]{chapter.153}{Applicability of the proposed technique}{}% 34
-\BOOKMARK [0][-]{chapter.162}{Conclusions and Further Work}{}% 35
-\BOOKMARK [1][-]{section.163}{Extensions}{chapter.162}% 36
-\BOOKMARK [2][-]{subsection.171}{Applications}{section.163}% 37
-\BOOKMARK [0][-]{appendix.173}{Code}{}% 38
+\BOOKMARK [0][-]{chapter.12}{Background}{}% 5
+\BOOKMARK [1][-]{section.13}{Reinforcement learning}{chapter.12}% 6
+\BOOKMARK [1][-]{section.49}{Neural networks}{chapter.12}% 7
+\BOOKMARK [1][-]{section.50}{Q-learning and Deep Q-learning}{chapter.12}% 8
+\BOOKMARK [1][-]{section.60}{Problem of large state-spaces}{chapter.12}% 9
+\BOOKMARK [0][-]{chapter.66}{State-Decomposition method}{}% 10
+\BOOKMARK [1][-]{section.68}{Originally proposed method}{chapter.66}% 11
+\BOOKMARK [1][-]{section.80}{Decomposing state trans. matrix, when this is known}{chapter.66}% 12
+\BOOKMARK [0][-]{chapter.87}{Design and testing}{}% 13
+\BOOKMARK [1][-]{section.89}{Tools}{chapter.87}% 14
+\BOOKMARK [1][-]{section.96}{Environments}{chapter.87}% 15
+\BOOKMARK [1][-]{section.117}{Benchmark DQN agent}{chapter.87}% 16
+\BOOKMARK [1][-]{section.125}{Ensuring fair comparison}{chapter.87}% 17
+\BOOKMARK [0][-]{chapter.126}{Results}{}% 18
+\BOOKMARK [1][-]{section.127}{Evaluation method}{chapter.126}% 19
+\BOOKMARK [1][-]{section.131}{Effect of state representations}{chapter.126}% 20
+\BOOKMARK [1][-]{section.137}{Effect of the NN's size}{chapter.126}% 21
+\BOOKMARK [1][-]{section.139}{Initial results}{chapter.126}% 22
+\BOOKMARK [1][-]{section.141}{A simple approach to decomposition: 'DeltaSwitch'}{chapter.126}% 23
+\BOOKMARK [1][-]{section.147}{Effect of using reduced encoding}{chapter.126}% 24
+\BOOKMARK [1][-]{section.149}{Samples plots}{chapter.126}% 25
+\BOOKMARK [1][-]{section.150}{Effect of wall / no wall}{chapter.126}% 26
+\BOOKMARK [1][-]{section.152}{Effect of decomposing by destination or by position}{chapter.126}% 27
+\BOOKMARK [1][-]{section.155}{A different approach based on transfer learning}{chapter.126}% 28
+\BOOKMARK [1][-]{section.163}{Techniques to learn the 'switch'}{chapter.126}% 29
+\BOOKMARK [1][-]{section.168}{Can have separate subsection for things that didn't work}{chapter.126}% 30
+\BOOKMARK [0][-]{chapter.169}{Applicability of the proposed technique}{}% 31
+\BOOKMARK [0][-]{chapter.179}{Conclusions and Further Work}{}% 32
+\BOOKMARK [1][-]{section.180}{Findings}{chapter.179}% 33
+\BOOKMARK [1][-]{section.181}{Discussion}{chapter.179}% 34
+\BOOKMARK [1][-]{section.186}{Extensions}{chapter.179}% 35
+\BOOKMARK [0][-]{appendix.197}{Code}{}% 36

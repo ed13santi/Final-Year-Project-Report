@@ -104,13 +104,23 @@ trainable parameters demonstrates that this is unlikely to have an important eff
 
 \section[Initial results]{Initial results with 'Taxi2' and original state decomposition architecture}
 
-The original state decomposition architecture proposed in the previous chapter 
-Say that get stuck at -200 Say that two stage method has bad initialisation of second stage. Show figure of the bad initialisation
-Say that for this reason try one stage initialisation
+The original state decomposition architecture proposed in the previous chapter was initially tested in the 'Taxi2' environment.
+The results are shown in Figure-\ref{fig:two_stage}, where the networks are combined at episode 100. In the first part of
+training, convergence is not achieved, as the transitions between sub-spaces are not considered. In the second part of training
+(starting at episode 100, when the networks are combined), the average reward starts at the same levels as an untrained agent and
+they as long as a DQN agent to converge. This means that the knowledge learned in the first part of training is 'forgotten' in the
+second part, thus not contributing to any faster learning in the second stage.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{figures/two_stage.pdf}
+    \caption{Performance of the original two-stage state-decomposition method. The networks are combined at episode 100, where the rewards fall to 'untrained agent' levels and take long to convergence, not any faster than a DQN agent.}
+    \label{fig:two_stage}
+\end{figure}
 
 \section{A simple approach to decomposition: 'DeltaSwitch'}
 
-Though the original idea involves the use of a combinining neural network on top of the neural networks correspodning to each one
+Though the original idea involves the use of a combinining neural network on top of the neural networks corresponding to each one
 of the sub-spaces, I decided to experiment with a simpler approach in order to first validate the idea of state-decomposition in
 the simplest possible application. For this purpose I introduced a network architecture that I called 'DeltaSwitch'. This consists
 of one neural network corresponding to each sub-space, as in the orginal proposed architecture. The difference is that the

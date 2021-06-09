@@ -1,5 +1,6 @@
 \begin{figure}[H]
     \centering
+    \resizebox{0.5\linewidth}{!}{
     \begin{tikzpicture}[]
 
         % Setup the style for the states
@@ -107,7 +108,7 @@
             (6)     edge[bend right=20, auto=left, draw=blue, fill=blue] node {} (12)
             (12) edge[bend right=20, auto=left, draw=blue, fill=blue] node {}     (9)
             (9)     edge[bend right=20, auto=left, draw=blue, fill=blue] node {} (3);
-    \end{tikzpicture}
+    \end{tikzpicture}}
     \caption{MDP composed of smaller sub-spaces of states connected by few but probable transitions.}
     \label{fig:connected-states}
 \end{figure}

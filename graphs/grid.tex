@@ -1,5 +1,6 @@
 \begin{figure}[H]
     \centering
+    \resizebox{0.5\linewidth}{!}{
     \begin{tikzpicture}
         \draw[step=0.4cm,color=gray] (0,0) grid (10,10);
         \node at (0.2,9.8) {$D_1$};
@@ -28,7 +29,7 @@
         \draw[very thick, dash dot] (1.2,0.8) -- (1.2,1.6);
         \draw[very thick, dash dot] (0.4,0.8) -- (1.2,0.8);
         \draw[very thick, dash dot] (0.4,0.0) -- (0.4,0.8);
-    \end{tikzpicture}
-    \caption{'Grid' environment. The dotted lines have no effect on the environment, they are just used to separate what will be referred to as the uppper-left triangle and the lower-right triangle.}
+    \end{tikzpicture}}
+    \caption{'Grid' environment. The dotted lines have no effect on the environment, they simply separate what will be referred to as the upper-left triangle and the lower-right triangle.}
     \label{fig:grid}
 \end{figure}
