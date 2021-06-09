@@ -1,93 +1,99 @@
-\chapter{Results}
+\chapter{Results} \label{chap:results}
 
-Introduce the chapter
+This section presents the most important results that I obtained during this project, using different variations of the
+state-decomposition method and comparing them with the baseline DQN algorithm.
 
 \section{Evaluation method}
 
-The main aspect of these algorithms that will be evaluated is the sample efficiency, which is how efficiently the algorithm uses
-the samples that it experiences to learn a policy. This affects how quickly the algorithm can learn an optimal policy and it can
-be measured by plotting the total reward per episode vs the number of training steps. It is also important to consider the fact
-that the learning process is stochastic and the performance varies between trials, hence we normally express the reward per
-episode using a confidence bound.
+\paragraph{}
+This project mainly deals with evaluating the sample efficiency of the state-decomposition method, which is how efficiently the
+the experienced samples (time-steps) are used to learn a policy. The sample efficiency affects how quickly the algorithm can learn
+an optimal policy and it can be illustrated by plotting the average total reward in each episode versus the number of the episode
+during training, which shows the improvement in rewards during training, as in Figure-\ref{fig:effect-state-encoding}. Another way
+to illustrate the performance of a reinforcement learning agent is to plot the total reward obtained in the corresponding episode
+versus the number of experienced samples, as in Figure-\ref{fig:samples-graph}. This is the more standard method used to compare
+the sample efficiency of different algorithms. However, plotting against the number of episodes should give equivalent
+conclusions,as better performance in one type of graph implies better performance in the other. It is also important to consider
+the fact that the learning process is stochastic and the performance varies between trials hence the graphs were plotted using
+values averaged over multiple trials.
 
-EXPLAIN HOW EXPERIEMNTS WERE RUN, NUMBER OF OF TRIALS, USE OF CONFIDENCE BOUNDS, USE OF SAMPLE GRAPHS and also probelm with sample
-graphs so why have to use shorter versions
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{figures/grid_samples.pdf}
+    \caption{An example of an 'average reward' vs 'samples' graph. The black line indicates the length of the shortest trial. Moving to the right of the line, the quality of the graph decreases and the average reward counterintuitively decreases due to the bias of only "bad" trials having such a high sample count.}
+    \label{fig:samples-graph}
+\end{figure}
 
-\section{Effect of different state representations on the performance}
+\paragraph{}
+The main method of presenting the results in this report is using the 'total reward' vs 'episode' graphs. The reasoning for
+relying less on the 'total reward' vs 'sample' graphs is that the data was collected in experiments with a fixed number of
+episodes rather than a fixed number of samples. As the number of samples in each episode varies, each trial has a different number
+of samples. Thus, an average graph can be plotted only for the length of the shortest trial. Plotting for any longer length would
+mean that the right section of the graph is an average calculated on fewer trials. This obviously increases its variance, but also
+introduces a bias. This is because a higher number of samples for the same number of episodes occurs when the episodes are longer,
+which is when the agent performs worse because successfully completing a task early ends the episode. As a result, if the graph is
+plotted for more than the length in samples of the shortest trial, the rewards values for high sample counts are negatively biased
+and as some of the trials last a very short number of samples, the number of reliable samples is small in these graphs.
+
+\section[Effect of state representations]{Effect of different state representations on the performance.}
 
 Although it doesn't necessarily impact the state-decomposition method, it was initially necessary to decide how to encode the
-state to be fed into the neural network. As a first approach, the state was fed directly as an integer between 0 and $no. states -
-1$. This is the most compact encoding of the state which is what one would use in standard Q-learning, in which the state is used
-merely as an index in a look-up table rather than as the input of a neural network. Though extremely compact, this representation
-of the state is very hard to decode for the neural network and its structure does not directly reveal aspects of the speed
-directly\footnote{As the state is represented by an integer, this has not physical meaning before decoding. However, the state
-could be represented for example by a vector of values, each having a physical meaning such as horizontal position, etc.} and led
-to difficulties in achieving convergence in a reasonable number of iterations. Thus it was decided the encode the state in in
-three alternative representations:
+states to be fed into the neural network. As a first approach, the state was fed directly as an integer representing the index of
+the state. This is the most compact encoding of the state, which is what would be used in standard Q-learning, in which the state
+is used merely as an index in a look-up table rather than as the input of a neural network. Though extremely compact, this
+representation of the state is very hard to decode for the neural network and its structure does not directly reveal aspects of
+the state directly\footnote{As the state is represented by an integer, this has no physical meaning before decoding. However, the
+state could be represented for example by a vector of values, each having a physical meaning such as horizontal position, etc.}
+and led to difficulties in achieving convergence in a reasonable number of iterations. The lack of physical meaning of the state
+representation also would make it very hard for the neural network to generalise to unseen states, which is an important feature
+in large state-spaces. Thus, it was decided the encode the state in three alternative representations:
 
 \begin{enumerate}
-    \item \textbf{Compact} The idea is to give a physical meaning to the state. The state is represented by a vector of values,
-    each representing a different aspect of the physical meaning of the state. In the 'Grid' environemnt, these are the row in
-    which the Taxi is currently located, the column and its current destination. (NEED TO SAY FOR SPEICIFC ENV)
-    \item \textbf{One-hot encoding} The idea is to make it easier for the neural network to learn to decode the state. The state
-    is in this method simply converted to a one-hot encoded version.
-    \item \textbf{Hybrid encoding} This combines the previous two methods. The destination is a represented by a single bit, while
-    the position of the state is represented by a one-hot-encoded vector. This results in a state representation that is a vector
-    of size one bit greater than the number of possible positions in the environment.
+    \item \textbf{Compact} The idea is to give a physical meaning to the state representation. The state is given by a vector of
+    values, each representing a different aspect of the physical meaning of the state. In the 'Grid' environment, these are the
+    row in which the Taxi is currently located, the column and its current destination.
+    \item \textbf{One-hot encoding} This aims to make it easier for the neural network to learn to decode the state. The state is
+    in this method simply converted to a one-hot encoded version, which is a vector of length the number of possible states, where
+    all but one elements have value 0, whereas the other one has value 1.
+    \item \textbf{Hybrid encoding} This combines the previous two methods. The destination is represented by a single bit, taking
+    value 0 or 1, while the position of the state is represented by a one-hot-encoded vector. This results in a state
+    representation that is a vector of size one bit greater than the number of possible positions in the environment.
 \end{enumerate}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\linewidth]{figures/effect_state_encoding.pdf}
-    \caption{Effect of different state encoding methods on the performance of DeltaSwitch. IN WCHIH ENVIRONMENT??? SHOULD SHOW FOR DQN INSTEAD}
+    \includegraphics[width=0.6\linewidth]{figures/encodings.pdf}
+    \caption{Effect of different state encoding methods on the performance of the baseline DQN agent in the 'Grid' environment.}
     \label{fig:effect-state-encoding}
 \end{figure}
 
-Figure-\ref{fig:effect-state-encoding} shows that in this environment (WHICH ENVIRONMENT?) the hybrid encoding achieves the best
-performance, followed by the standard one-hot encoding and lastly by the compacy encoding. Thus, it was decided to use the hybrid
-encoding for all experiments in order to expedite experimentation time. This was actually a majot issue during the project, as the
-training time of the algorithms is long and any increase in performance is wellcome as it allows to tun more trials to obtain
-higher quality results and to also run different experiments.
+Figure-\ref{fig:effect-state-encoding} shows that in the 'Grid' environment the hybrid encoding achieves the best performance, as
+in the the rewards are higher during the training phase, while they are similar upon convergence when compared to standard on-hot
+encoding. The compact encoding shows the worst performance at all points in time. Thus, it was decided to use the hybrid encoding
+for all experiments to expedite training times and hence experimentation times. This was actually a major issue during the
+project, as the training time of the algorithms is long and any increase in performance is welcome as it allows to run more trials
+to obtain higher quality results and to also run more experiments.
 
-\section{First approach}
-Need to describe initial results using the original method, which didn't allow communication between different sub-networks and
-was a 2-stage method. Also the environment was too complicated and it was not easy to identify problems.
+\section[Effect of the NN's size]{Effect of varying the neural network's size}
 
-Don't even know if I should talk about these old methods because I don't even know what I achieved with them
-
-The first meaningful results that I obtained used the original state-decomposition algorithm applied in a modified 'TaxiTraps'
-environment. The changes made the environment simpler. The number of possible destinations was reduced to 2, while the passenger
-is initialised to be always inside the Taxi, and the actions of picking-up and dropping-off were removed, so that the learning
-task only involves learning to navigate. The probability of activating the Traps was set to 1\%. In this case, though the learning
-was 
-
-
-- Original TaxiTraps was problematic because the rewards used to get stuck at -200 (this is because of multi-sub-task nature of
-the task) - Even with OneHot encoding it was so complicated that rewards would not improve, also extremely slow training, not good
-for my purposes
-
-
-\section{Initial results with Taxi2 and original state decomposition algorithm}
-
-\section{Effect of varying the neural network's size}
-
-It is important to note that the one of the factors influencing the speed of learning of deep reinforcement learning algorithm is
-the size of the neural network. Figure-\ref{fig:effect_NN_dimension} shows that the performance seems to improve as the network
-size increases, at least for the range of dimensions that I experimented with. When the network is too small, performance degrades
-as the network is not complex enough to represent the function that maps from states to action-values of the environment, thus
-rewards are lower after any number of episodes compared to other networks. In the figure, the three bigger networks are all
-complex enough to reach convergence, whoever the biggest one does so quicker. This might be due to increased flexibility and the
-existance of mutliple sets of weights that achieve the same optimal function representation. While this leads to faster
-convergence and is not a problem in the environments used in this report, it might lead to problems in complex environments that
-rely on generalisation of unseen states. This is because using an overly big network can easily cause overfitting, thus hurting
-the generalisation propertties to unseesn states. Thus, for the sake of this project, it was decided to use networks that are
-complex enough to capture the dynamics of the environment, while limiting the size so that the project could be relevant to other
-scenarios. The figure also shows that the difference in performance of 'medium2', which has twice the number of trainable weights
-of 'medium' is not very significant. I chose to show this comparison because in the environments used in this project, the
-decomposition divides the state-space into two sub-spaces, which means that there are two NNs corresponding to the sub-spaces
-instead of the one original NN. In order to make the comparison fair, I make the total number of trainable parameters
-approximately equal in experiments that are being compared. It is arguable whether this is a fair comparison, but the fact that
-the performance hardly varies when doubling the number of trainable parameters demonstrates that this is hardly an issue.
+One of the factors influencing the speed of learning of deep reinforcement learning algorithm is the size of the neural network.
+Figure-\ref{fig:effect_NN_dimension} shows that for a DQN agent in the 'Grid' environemnt, the performance improves as the network
+size increases, at least for tested range of dimensions. When the network is too small, performance degrades as the network is not
+complex enough to represent the function that maps from states to action-values of the environment, thus rewards are lower after
+any number of episodes compared to other networks. In the figure, the three bigger networks are all complex enough to reach
+convergence, however the biggest one does so quicker. This might be due to increased flexibility and the existence of multiple
+sets of weights that achieve the same optimal function representation. While this leads to faster convergence and is not a problem
+in the environments used in this report, it might lead to problems in complex environments that rely on generalisation of unseen
+states. This is because using an overly big network can easily cause overfitting, thus hurting the generalisation propertiesof the
+network to unseen states. In this project, it was decided to use networks that are complex enough to capture the dynamics of the
+environment, while limiting the size so that the project could be relevant in other scenarios where generalisation is imporant.
+The figure also shows that the difference in performance of 'medium2', which has twice the number of trainable weights of 'medium'
+is not very significant. I chose to show this comparison because in the environments used in this project, the decomposition
+divides the state-space into two sub-spaces, which means that there are two NNs corresponding to the sub-spaces instead of the one
+original NN. To make the comparison fair, I made the total number of trainable parameters approximately equal in any architectures
+that being directly compared. It is arguable whether this is a fair comparison, as there are more factors affecting the rate of
+learning, such as the structure of the network, but the fact that the performance hardly varies when doubling the number of
+trainable parameters demonstrates that this is unlikely to have an important effect on the results.
 
 \begin{figure}[H]
     \centering
@@ -95,6 +101,12 @@ the performance hardly varies when doubling the number of trainable parameters d
     \caption{Performance of DQN with NNs of different sizes in the Taxi2 environment. 'medium2' has twice the number of trainable weights of 'medium'.}
     \label{fig:effect_NN_dimension}
 \end{figure}
+
+\section[Initial results]{Initial results with 'Taxi2' and original state decomposition architecture}
+
+The original state decomposition architecture proposed in the previous chapter 
+Say that get stuck at -200 Say that two stage method has bad initialisation of second stage. Show figure of the bad initialisation
+Say that for this reason try one stage initialisation
 
 \section{A simple approach to decomposition: 'DeltaSwitch'}
 
@@ -183,12 +195,13 @@ during training. However, in this case the training fails so using $\delta>0$ is
 
 Thus we determined that a 'DeltaSwitch' agent with $\delta=0$ can lead to performance benefits. We now shall explore the
 performance of such an agent in environments that are not perfectly decomposable. This is done by running experiments in the
-'GridEps' environment with $\epsilon>0$. Figure-(WHATFIGURE!!!!!) compares the performance of training a DQN agent and 'DeltaSwitch'
-agents, decomposing by destination and by position. It can be seen that for for $\epsilon \leq 0.3$ 'DeltaSwitch' with decomposition
-by destination learns noticeably faster than the other two algorithms. The difference is especially large for $\epsilon = 0.3$. This
-might be due to this environemnt being the harder to solve, giving a greater margin of improvement over DQN. For higher $\epsilon$
-values, there isn't a statistically relevant difference between the three algorithms. This is probably due to the fact that the
-environment is not as decomposable anymore, as the transition proabilities between the sub-spaces are larger.
+'GridEps' environment with $\epsilon>0$. Figure-(WHATFIGURE!!!!!) compares the performance of training a DQN agent and
+'DeltaSwitch' agents, decomposing by destination and by position. It can be seen that for for $\epsilon \leq 0.3$ 'DeltaSwitch'
+with decomposition by destination learns noticeably faster than the other two algorithms. The difference is especially large for
+$\epsilon = 0.3$. This might be due to this environemnt being the harder to solve, giving a greater margin of improvement over
+DQN. For higher $\epsilon$ values, there isn't a statistically relevant difference between the three algorithms. This is probably
+due to the fact that the environment is not as decomposable anymore, as the transition proabilities between the sub-spaces are
+larger.
 
 This is an important result, as it shows that while the state-decomposition method is applicable to perfectly decomposable
 environemnts, or environments that are almost fully-decomposable, the performance gain disappears once the transition
@@ -202,9 +215,9 @@ to shed light on this mechanism.
 
 \section{Effect of using reduced encoding}
 
-As I used the 'hybrid' encoding described in a previous subsection, the input to the first layer of the network is a vectors of '0's
-and '1's of size the number of possible positions in the grid plus one. However, since I am using $\delta=0$ and each network only
-contributes to the output when the input state is in the network's sub-space, it is possible to reduce the size of the input
+As I used the 'hybrid' encoding described in a previous subsection, the input to the first layer of the network is a vectors of
+'0's and '1's of size the number of possible positions in the grid plus one. However, since I am using $\delta=0$ and each network
+only contributes to the output when the input state is in the network's sub-space, it is possible to reduce the size of the input
 vector to only account for the states that are relevant to each network. For example, when decomposing 'Grid' by position, the two
 networks only deal with 312 and 313 positions instead of the original 625. This means that instead of the original vector of
 $625+1=626$ elements, it is sufficient to feed the networks with vectors of $312+1=313$ and $313+1=314$ elements respectively. I
@@ -263,15 +276,22 @@ only exists upon convergence, as previously discussed, while decomposing by dest
 exists. The second difference is that the experiments were run using the hybrid encoding, in which most of the input vector length
 represents the position and only one bit represents the destination. The graphs in previous figures show that the decomposition by
 position tends to have superior performance in the 'Grid' and in the 'GridEps' environemnts. As I already discussed the effect of
-a decomposition that relies on the optimal policy in the previous subsection, I will now discuss the effect of decomposing in a way
-that reduces the number of possible active input elements. I define a possible active input element as an element that can be both
-a 0 or a 1, given the state-decomposition. For example, given the hybrid encoding with 625 elements corresponding to the positions
-in the grid and 1 element corresponding to the destination, decomposing by position gives 312 (or 313) active position elements
-and 1 active destination element, while decomposing by position leaves 625 position elements while making the 1 destination
-element inactive. Thus, decomposing by position greatly reduces the number of active elements, while decomposing by destination
-only changes the status of 1 element. This might justify the reduced performance of the decomposition by position. A further
-experiment was run to validate this hypothesis, using standard one-hot encoding instead of the hybrid encoding. This is because
-with standard on-hot-encoding, both types of decomposition roughly half the number of active neurons. 
+a decomposition that relies on the optimal policy in the previous subsection, I will now discuss the effect of decomposing in a
+way that reduces the number of possible active input elements. I define a possible active input element as an element that can be
+both a 0 or a 1, given the state-decomposition. For example, given the hybrid encoding with 625 elements corresponding to the
+positions in the grid and 1 element corresponding to the destination, decomposing by position gives 312 (or 313) active position
+elements and 1 active destination element, while decomposing by position leaves 625 position elements while making the 1
+destination element inactive. Thus, decomposing by position greatly reduces the number of active elements, while decomposing by
+destination only changes the status of 1 element. This might justify the reduced performance of the decomposition by position. A
+further experiment was run to validate this hypothesis, using standard one-hot encoding instead of the hybrid encoding. This is
+because with standard on-hot-encoding, both types of decomposition roughly half the number of active neurons. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{figures/effect_state_encoding.pdf}
+    \caption{Effect of different state encoding methods on the performance of 'DeltaSwitch' in the 'Grid' environment.}
+    \label{fig:effect-state-encoding}
+\end{figure}
 
 \begin{figure}[H]
     \centering
@@ -283,10 +303,10 @@ with standard on-hot-encoding, both types of decomposition roughly half the numb
 Figure-\ref{fig:one-hot} shows that when using standard one-hot encoding, the decomposition by destination is much better than
 that by position which is infact slightly worse now than DQN. Comparing with the experiments run with the hybrid encoding, one can
 see that the performance increases further when using 'DeltaSwitch' with decomposition by destination, while it degradates when
-decomposing by position. This can be attributed to the change only involving the "destination" subsection of the input state. Thus,
-when the decomposition is by position, the change in performance going from hybrid to one-hot encoding is equivalent to the one
-that occurs for DQN, which also gets slightly worse. Conversely, going from hybrid to one-hot allows the decomposition to have the
-previously described effect of making some of the inputs inactive.
+decomposing by position. This can be attributed to the change only involving the "destination" subsection of the input state.
+Thus, when the decomposition is by position, the change in performance going from hybrid to one-hot encoding is equivalent to the
+one that occurs for DQN, which also gets slightly worse. Conversely, going from hybrid to one-hot allows the decomposition to have
+the previously described effect of making some of the inputs inactive.
 
 Need to explain the different between one-hot inputs and normal inputs and how normal inputs despite being fewer are much more
 complicated so that a single input that can take 1000 values is more complicated than 1000 that can only take one value. Also
@@ -361,8 +381,8 @@ with expected SARSA, which has the updates
 \begin{equation}
     Q(S_t, A_t) \leftarrow Q(S_t, A_t) + \alpha \{R_{t+1}+\gamma \E_{\pi}[Q(S_{t+1},A_{t+1})] - Q(S_t,A_t) \}
 \end{equation}
-where $\pi$ is the policy at the time of the update. Figure-\ref{fig:SARSA-progressive} shows that using expected SARSA seems to improve the
-initial performance, as rewards never fall below -200. 
+where $\pi$ is the policy at the time of the update. Figure-\ref{fig:SARSA-progressive} shows that using expected SARSA seems to
+improve the initial performance, as rewards never fall below -200. 
 
 \begin{figure}[H]
     \centering
@@ -387,7 +407,7 @@ task when transferring knowledge from two previously trained tasks.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\linewidth]{figures/progressive.pdf}
+    \includegraphics[width=0.4\linewidth]{figures/progressive.pdf}
     \caption{Structure of progressive network when training the third task. Figure taken from \cite{rusu_progressive_2016}.}
     \label{fig:progressive-3-tasks}
 \end{figure}
@@ -401,9 +421,9 @@ previously done in the other combining methodology, the performance is similar t
 expected SARSA, as shown in Figure-\ref{fig:SARSA-progressive}.
 
 \section{Techniques to learn the 'switch'}
-While the transfer learning techniques in the previous subsection show superior performance to DQN, this is an unfair comparison, as
-they rely on the previously trained networks 'NN0' and 'NN1'. However, the two combining techniques can be modified to work in one
-stage, thus simply providing a decomposition rather than doing transfer learning. 
+While the transfer learning techniques in the previous subsection show superior performance to DQN, this is an unfair comparison,
+as they rely on the previously trained networks 'NN0' and 'NN1'. However, the two combining techniques can be modified to work in
+one stage, thus simply providing a decomposition rather than doing transfer learning. 
 
 SHOULD I TALK ABOUT RUNNING DQN FIRST, and LEARN SWITCH AFTER
 
@@ -429,7 +449,7 @@ by position.}, which shows that in 'GridEps' with $\epsilon=1\%$, this architect
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\linewidth]{figures/simultaneous.pdf}
+    \includegraphics[width=0.5\linewidth]{figures/simultaneous.pdf}
     \caption{Performance of progressive network and combining network when 'NN0' and 'NN1' are not pre-trained. Standard DQN and DeltaSwitch are shown for comparison.}
     \label{fig:progressive-combining-simultaneous}
 \end{figure}
@@ -450,7 +470,7 @@ training without helping it in any way, thus slowing it down.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\linewidth]{figures/modified-progressive.pdf}
+    \includegraphics[width=0.5\linewidth]{figures/modified-progressive.pdf}
     \caption{Modified progressive neural network. The layers of the combining neural network receive as inputs the respective outputs of the previous layers of frozen 'NN0', frozen 'NN1' and the comining network itself. $h$ indicates hidden layers of the network.}
     \label{fig:modified-progressive}
 \end{figure}
@@ -465,6 +485,8 @@ splitting the vector into the two sub-vectors, such as each of two neural networ
 
 COULD ADD SAMPLE GRAPHS
 
+Consider that decomposition by position is a counter-example
+
 \section{Can have separate subsection for things that didn't work}
 
 The mechanism by which the algorithm improves performance is potentially different for small problems and for big problems. I
@@ -473,5 +495,3 @@ performance seems to only improve when these ifnoresd states exist. This increas
 raio and has a similar effect to increasing the network size. Howver, in a big enironemnt that relies on generalisation I think it
 would be different and the mains mechanism would be that generalisation has to occur over a smaler subspace thus converging
 faster.
-
-\input{evaluation_plan.tex}
