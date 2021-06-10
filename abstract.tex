@@ -1,3 +1,19 @@
-\begin{abstract} Your abstract \end{abstract}
+\begin{abstract} 
+
+The existence of prohibitely large state-spaces is a common problem of reinforcement learning algorithms in practical domains.
+This project proposes state-decomposition as a method to alleviate this problems by allowing more efficient learning in deep
+reinforcement learning algorithms. This exploits the almost independence of sub-systems within a bigger system that only rarely
+interact with each other. The developed state-decomposition methods rely on learning sub-agents for each of these sub-systems.
+This report focuses on grouping the states into sub-spaces which have low probability of cross-transitions. The developed
+algorithms were tested in "toy" environments and their performance was compared with a baseline DQN algorithm. Amongst the
+developed techniques, two demonstrated better performance than the baseline algorithm. The algorithm named 'DeltaSwitch' achieved
+performance gains in both perfectly decomposable environments (perfectly separable into sub-systems) and more generic
+environments. The performance gain disappears once the sub-systems are not independent enough. Another algorithm that achieved
+performance gains is based on "progressive networks". This techniques were thus demonstrated capable of improving the efficiency
+of learning and a possible application could be the allocation of jobs in inter-connected data-centres. Further studies could
+focus on the use of different state-decompositions, not based on transition probabilities and on techniques to share common
+information between similar sub-spaces.
+
+\end{abstract}
 
 \cleardoublepage
