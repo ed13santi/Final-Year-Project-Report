@@ -13,24 +13,23 @@
 \BOOKMARK [0][-]{chapter.87}{Design and testing}{}% 13
 \BOOKMARK [1][-]{section.89}{Tools}{chapter.87}% 14
 \BOOKMARK [1][-]{section.96}{Environments}{chapter.87}% 15
-\BOOKMARK [1][-]{section.117}{Benchmark DQN agent}{chapter.87}% 16
-\BOOKMARK [1][-]{section.125}{Ensuring fair comparison}{chapter.87}% 17
-\BOOKMARK [0][-]{chapter.126}{Results}{}% 18
-\BOOKMARK [1][-]{section.127}{Evaluation method}{chapter.126}% 19
-\BOOKMARK [1][-]{section.131}{Effect of state representations}{chapter.126}% 20
-\BOOKMARK [1][-]{section.137}{Effect of the NN's size}{chapter.126}% 21
-\BOOKMARK [1][-]{section.139}{Initial results}{chapter.126}% 22
-\BOOKMARK [1][-]{section.141}{A simple approach to decomposition: 'DeltaSwitch'}{chapter.126}% 23
-\BOOKMARK [1][-]{section.147}{Effect of using reduced encoding}{chapter.126}% 24
-\BOOKMARK [1][-]{section.149}{Samples plots}{chapter.126}% 25
-\BOOKMARK [1][-]{section.150}{Effect of wall / no wall}{chapter.126}% 26
-\BOOKMARK [1][-]{section.152}{Effect of decomposing by destination or by position}{chapter.126}% 27
-\BOOKMARK [1][-]{section.155}{A different approach based on transfer learning}{chapter.126}% 28
-\BOOKMARK [1][-]{section.163}{Techniques to learn the 'switch'}{chapter.126}% 29
-\BOOKMARK [1][-]{section.168}{Can have separate subsection for things that didn't work}{chapter.126}% 30
-\BOOKMARK [0][-]{chapter.169}{Applicability of the proposed technique}{}% 31
-\BOOKMARK [0][-]{chapter.179}{Conclusions and Further Work}{}% 32
-\BOOKMARK [1][-]{section.180}{Findings}{chapter.179}% 33
-\BOOKMARK [1][-]{section.181}{Discussion}{chapter.179}% 34
-\BOOKMARK [1][-]{section.186}{Extensions}{chapter.179}% 35
-\BOOKMARK [0][-]{appendix.197}{Code}{}% 36
+\BOOKMARK [1][-]{section.118}{Benchmark DQN agent}{chapter.87}% 16
+\BOOKMARK [1][-]{section.126}{Ensuring fair comparison}{chapter.87}% 17
+\BOOKMARK [0][-]{chapter.127}{Results}{}% 18
+\BOOKMARK [1][-]{section.128}{Evaluation method}{chapter.127}% 19
+\BOOKMARK [1][-]{section.132}{Effect of state representations}{chapter.127}% 20
+\BOOKMARK [1][-]{section.140}{Effect of the NN's size}{chapter.127}% 21
+\BOOKMARK [1][-]{section.142}{Initial results}{chapter.127}% 22
+\BOOKMARK [1][-]{section.144}{A simple approach to decomposition: 'DeltaSwitch'}{chapter.127}% 23
+\BOOKMARK [2][-]{subsection.157}{Applying 'DeltaSwitch' to non-prefectly decomposable environment}{section.144}% 24
+\BOOKMARK [2][-]{subsection.162}{Effect of using reduced encoding}{section.144}% 25
+\BOOKMARK [2][-]{subsection.166}{Effect of wall}{section.144}% 26
+\BOOKMARK [1][-]{section.171}{A different approach based on transfer learning}{chapter.127}% 27
+\BOOKMARK [1][-]{section.191}{Techniques to learn the 'switch'}{chapter.127}% 28
+\BOOKMARK [0][-]{chapter.199}{Applicability of the proposed technique}{}% 29
+\BOOKMARK [0][-]{chapter.209}{Conclusions and Further Work}{}% 30
+\BOOKMARK [1][-]{section.210}{Findings}{chapter.209}% 31
+\BOOKMARK [1][-]{section.215}{Discussion}{chapter.209}% 32
+\BOOKMARK [1][-]{section.222}{Extensions}{chapter.209}% 33
+\BOOKMARK [0][-]{appendix.232}{Performance graphs}{}% 34
+\BOOKMARK [0][-]{appendix.234}{Code}{}% 35

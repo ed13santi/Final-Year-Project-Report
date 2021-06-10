@@ -158,6 +158,16 @@ I decided to set the transition probabilities this way as while providing small 
 sub-spaces, it also modifies the policy as the value of $\epsilon$ changes. This is important as the case in which the optimal
 policy is unaffected by the value of $\epsilon$ is a special case which should not be used for testing.
 
+\paragraph{}
+Another version that was used in various test is very similar to 'GridEps' and will be caleed 'GridEps2'. The difference is that
+the probabilities with which the destination is picked is slightly different. In this case, when the destination is the close one,
+the destination in the next state is the close one for next state with probability $1-\epsilon$ and the far one for the next state
+with probability $\epsilon$, whereas in in 'GridEps' the destination in the next state depends on the position of the previous
+state. This only makes a differnce in transitions that cross the boundarh between the two triangles. In 'GridEps', when the
+boundary is crossed and the destination was the close one, the destination most likely remains the same, while in 'GridEps2' it
+most likely switches to the other one, which is the closest after crossing the boundary. This may seem like a small difference,
+but it will be shown that is has a great impact on the effect of different state-decompositions.
+
 \input{graphs/grid}
 
 %Is the fact that we are discouraging the Taxi to go over the traps a problem as in the final policy we are kind of ignoring
