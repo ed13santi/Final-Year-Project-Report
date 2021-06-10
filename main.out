@@ -21,15 +21,14 @@
 \BOOKMARK [1][-]{section.140}{Effect of the NN's size}{chapter.127}% 21
 \BOOKMARK [1][-]{section.142}{Initial results}{chapter.127}% 22
 \BOOKMARK [1][-]{section.144}{A simple approach to decomposition: 'DeltaSwitch'}{chapter.127}% 23
-\BOOKMARK [2][-]{subsection.157}{Applying 'DeltaSwitch' to non-prefectly decomposable environment}{section.144}% 24
-\BOOKMARK [2][-]{subsection.162}{Effect of using reduced encoding}{section.144}% 25
-\BOOKMARK [2][-]{subsection.166}{Effect of wall}{section.144}% 26
-\BOOKMARK [1][-]{section.171}{A different approach based on transfer learning}{chapter.127}% 27
-\BOOKMARK [1][-]{section.191}{Techniques to learn the 'switch'}{chapter.127}% 28
-\BOOKMARK [0][-]{chapter.199}{Applicability of the proposed technique}{}% 29
-\BOOKMARK [0][-]{chapter.209}{Conclusions and Further Work}{}% 30
-\BOOKMARK [1][-]{section.210}{Findings}{chapter.209}% 31
-\BOOKMARK [1][-]{section.215}{Discussion}{chapter.209}% 32
-\BOOKMARK [1][-]{section.222}{Extensions}{chapter.209}% 33
-\BOOKMARK [0][-]{appendix.232}{Performance graphs}{}% 34
-\BOOKMARK [0][-]{appendix.234}{Code}{}% 35
+\BOOKMARK [2][-]{subsection.156}{Applying 'DeltaSwitch' to non-prefectly decomposable environment}{section.144}% 24
+\BOOKMARK [2][-]{subsection.161}{Effect of using reduced encoding}{section.144}% 25
+\BOOKMARK [2][-]{subsection.165}{Effect of wall}{section.144}% 26
+\BOOKMARK [1][-]{section.170}{A different approach based on transfer learning}{chapter.127}% 27
+\BOOKMARK [1][-]{section.190}{Techniques to learn the 'switch'}{chapter.127}% 28
+\BOOKMARK [0][-]{chapter.198}{Applicability of the proposed technique}{}% 29
+\BOOKMARK [0][-]{chapter.208}{Conclusions and Further Work}{}% 30
+\BOOKMARK [1][-]{section.209}{Findings}{chapter.208}% 31
+\BOOKMARK [1][-]{section.214}{Discussion}{chapter.208}% 32
+\BOOKMARK [1][-]{section.221}{Extensions}{chapter.208}% 33
+\BOOKMARK [0][-]{appendix.231}{Performance graphs}{}% 34

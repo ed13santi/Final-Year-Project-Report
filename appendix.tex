@@ -5,6 +5,13 @@
 
 \begin{figure}[H]
     \centering
+    \includegraphics[width=0.6\linewidth]{figures/Taxi2_DQN_and_DeltaSwitch.pdf}
+    \caption{Comparison of DQN and DeltaSwitch with $\delta=0$ in the 'Taxi2' environment.}
+    \label{fig:Taxi2-dqn-deltaSwitch}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
     \includegraphics[width=0.6\linewidth]{figures/DeltaSwitch_oneHot.pdf}
     \caption{Performance of DQN and 'DeltaSwitch' when the state is one-hot encoded.}
     \label{fig:one-hot}
@@ -13,16 +20,16 @@
 
 
 
-\chapter{Code}
-\label{appendix-code}
+%\chapter{Code}
+%\label{appendix-code}
 
-\lstset{language=Python, basicstyle=\small,breaklines=true}
+%\lstset{language=Python, basicstyle=\small,breaklines=true}
 
-\paragraph{Function for State Decomposition}
-\input{code/state-decomposition}
+%\paragraph{Function for State Decomposition}
+%\input{code/state-decomposition}
 
-\paragraph{Function for State Decomposition given target number of subspaces}
-\input{code/state-decomposition-ngroups}
+%\paragraph{Function for State Decomposition given target number of subspaces}
+%\input{code/state-decomposition-ngroups}
 
-\paragraph{Class for State Decomposition DQN Agent}
-\input{code/state-decomposition-agent}
+%\paragraph{Class for State Decomposition DQN Agent}
+%\input{code/state-decomposition-agent}
