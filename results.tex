@@ -19,7 +19,7 @@ values averaged over multiple trials.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\linewidth]{figures/grid_samples.pdf}
+    \includegraphics[width=0.8\linewidth]{figures/grid_samples.pdf}
     \caption{An example of an 'average reward' vs 'samples' graph. The black line indicates the length of the shortest trial. Moving to the right of the line, the quality of the graph decreases and the average reward counterintuitively decreases due to the bias of only "bad" trials having such a high sample count.}
     \label{fig:samples-graph}
 \end{figure}
@@ -63,7 +63,7 @@ in large state-spaces. Thus, it was decided the encode the state in three altern
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\linewidth]{figures/encodings.pdf}
+    \includegraphics[width=0.8\linewidth]{figures/encodings.pdf}
     \caption{Effect of different state encoding methods on the performance of the baseline DQN agent in the 'Grid' environment.}
     \label{fig:effect-state-encoding}
 \end{figure}
@@ -99,7 +99,7 @@ trainable parameters demonstrates that this is unlikely to have an important eff
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\linewidth]{figures/effect_NN_dimension.pdf}
+    \includegraphics[width=0.8\linewidth]{figures/effect_NN_dimension.pdf}
     \caption{Performance of DQN with NNs of different sizes in the Taxi2 environment. 'medium2' has twice the number of trainable weights of 'medium'.}
     \label{fig:effect_NN_dimension}
 \end{figure}
@@ -115,7 +115,7 @@ second part, thus not contributing to any faster learning in the second stage.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\linewidth]{figures/two_stage.pdf}
+    \includegraphics[width=0.8\linewidth]{figures/two_stage.pdf}
     \caption{Performance of the original two-stage state-decomposition method. The networks are combined at episode 100, where the rewards fall to 'untrained agent' levels and take long to convergence, not any faster than a DQN agent.}
     \label{fig:two_stage}
 \end{figure}
@@ -157,7 +157,7 @@ for through the use of a combining NN.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\linewidth]{figures/deltaSwitch.pdf}
+    \includegraphics[width=0.8\linewidth]{figures/deltaSwitch.pdf}
     \caption{'DeltaSwitch' architecture with $\delta=0$. In this case, the weighted sum effectively acts as a switch, which selects the output of the network corresponding to the sub-space of the input state.}
     \label{fig:delta-switch}
 \end{figure}
@@ -177,7 +177,7 @@ the upper-left triangle of the Grid, while the other sub-space is formed by thos
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\linewidth]{figures/GridNoWall_dqn_DeltaSwitch.pdf}
+    \includegraphics[width=0.8\linewidth]{figures/GridNoWall_dqn_DeltaSwitch.pdf}
     \caption{Comparison of DQN and DeltaSwitch with $\delta=0$ in the Grid environment.}
     \label{fig:gridNoWall-dqn-deltaSwitch}
 \end{figure}
@@ -217,7 +217,7 @@ found out that this should be allowed, meaning that there is no reason to set $\
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\linewidth]{figures/GridNoWall_dqn_DeltaSwitch_compare_delta.pdf}
+    \includegraphics[width=0.8\linewidth]{figures/GridNoWall_dqn_DeltaSwitch_compare_delta.pdf}
     \caption{Comparison of DeltaSwitch with different $\delta$.}
     \label{fig:gridNoWall-deltaSwitch-compareDelta}
 \end{figure}
@@ -236,13 +236,13 @@ due to the fact that the environment is not as decomposable anymore, as the tran
 larger.
 
 \begin{figure}
-    \centering
+    \hspace{-1cm}
     \begin{tabular}{cc}
-      \includegraphics[width=0.45\linewidth]{figures/geps2_0.png} & \includegraphics[width=0.45\linewidth]{figures/geps2_001.png} \\
+      \includegraphics[width=0.6\linewidth]{figures/geps2_0.png} & \includegraphics[width=0.6\linewidth]{figures/geps2_001.png} \\
       (a) $\delta=0\%$ & (b) $\delta=1\%$ \\
-      \includegraphics[width=0.45\linewidth]{figures/geps2_002.png} & \includegraphics[width=0.45\linewidth]{figures/geps2_003.png} \\
+      \includegraphics[width=0.6\linewidth]{figures/geps2_002.png} & \includegraphics[width=0.6\linewidth]{figures/geps2_003.png} \\
       (c) $\delta=2\%$ & (d) $\delta=3\%$ \\
-      \includegraphics[width=0.45\linewidth]{figures/geps2_004.png} & \includegraphics[width=0.45\linewidth]{figures/geps2_005.png} \\
+      \includegraphics[width=0.6\linewidth]{figures/geps2_004.png} & \includegraphics[width=0.6\linewidth]{figures/geps2_005.png} \\
       (e) $\delta=4\%$ & (f) $\delta=5\%$ \\
     \end{tabular}
     \caption{DeltaSwitch vs DQN in 'GridEps' with $0 \leq \epsilon \leq 5\%$.}
@@ -274,7 +274,7 @@ caused by the randomness of the trials.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\linewidth]{figures/effectReduced.pdf}
+    \includegraphics[width=0.8\linewidth]{figures/effectReduced.pdf}
     \caption{Effect of reducing the input size.}
     \label{fig:reduced-effect}
 \end{figure}
@@ -305,7 +305,7 @@ randomness of the training, as they are not consistent throughout the graph, wit
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\linewidth]{figures/Wall-DQN-deltaSwitch.pdf}
+    \includegraphics[width=0.8\linewidth]{figures/Wall-DQN-deltaSwitch.pdf}
     \caption{Performance of DQN and DeltaSwitch with different decomposition in the 'Grid' environment with wall.}
     \label{fig:wall}
 \end{figure}
@@ -338,7 +338,7 @@ architecture.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\linewidth]{figures/combining-network.pdf}
+    \includegraphics[width=0.8\linewidth]{figures/combining-network.pdf}
     \caption{Combining 'NN0' and 'NN1' using another NN.}
     \label{fig:combined-network}
 \end{figure}
@@ -359,7 +359,7 @@ of $\epsilon$. This means that this method is unsuccessful in leveraging the kno
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\linewidth]{figures/learnSwitch1.pdf}
+    \includegraphics[width=0.8\linewidth]{figures/learnSwitch1.pdf}
     \caption{Performance of combining 'NN0' and 'NN1' using another NN that is also fed the current state as input in a 'GridEps' environment with $\epsilon=0\%, \;1\%$.}
     \label{fig:learnSwitch1}
 \end{figure}
@@ -382,7 +382,7 @@ network used is actually bigger than that in DQN.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\linewidth]{figures/initialisedLearnSwitch.pdf}
+    \includegraphics[width=0.8\linewidth]{figures/initialisedLearnSwitch.pdf}
     \caption{Performance of combining 'NN0' and 'NN1' with another NN when initialising the combined network to behave as the original 'DeltaSwitch'. Tested with different network sizes}
     \label{fig:initialisedLearnSwitch}
 \end{figure}
@@ -410,7 +410,7 @@ to DQN, as this method does not reach convergence earlier than DQN, thus the pro
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\linewidth]{figures/Sarsa.pdf}
+    \includegraphics[width=0.8\linewidth]{figures/Sarsa.pdf}
     \caption{Comparison of using Expected SARSA after combining, progressive combined network and standard DQN.}
     \label{fig:SARSA-progressive}
 \end{figure}

@@ -73,6 +73,8 @@ A limitation of the experimental technique is that some of the results were obta
 are considered statistically relevant and it is unlikely that running further trials would have affected to conclusions of this
 report.
 
+\section{Extensions}
+
 \paragraph{Finding the state-transition matrix}
 The first step in the state-decomposition method is to obtain the state-transition matrix. Since we are testing the algorithm in
 software simulations, the state-transition matrix can be easily obtained from the source code of the environments and it can be
@@ -84,8 +86,6 @@ the most general possible policy to obtain the state-transition table, that is, 
 independently of the current state. The number of iterations required to construct the state-transition matrix is dependant on the
 number of states, actions, the probability of visiting each different state and the required level of accuracy of the
 state-transition matrix estimate. 
-
-\section{Extensions}
 
 \paragraph{Compression and embeddings of states} The state-decomposition algorithm divides the original state-space of the system
 into smaller groups of states. It can be supposed that the variance of the states within these sub-spaces is smaller than in the
