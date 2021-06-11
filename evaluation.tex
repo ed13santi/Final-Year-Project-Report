@@ -2,9 +2,9 @@
 
 \paragraph{} The previous section shows that given certain conditions, the state-decomposition method can give a performance gain
 in terms of the speed of learning of a reinforcement learning agent. Additionally, such methods are able to leverage information
-from simpler environments to learn faster in a more complicated version of said environments. This secion aims to provide a more
+from simpler environments to learn faster in a more complicated version of said environments. This section aims to provide a more
 real-life like examples to illustrate to potential of the state-decomposition method in scenarios where using a single global
-agent could be deemed wasteful, given the better efficeincy of the proposed methods.
+agent could be deemed wasteful, given the better efficiency of the proposed methods.
 
 \paragraph{} In general, techniques based on the state-decomposition method could be developed for any kind of problem that is
 decomposable. Usually, such a characteristic occurs in systems composed of multiple sub-systems, where the various components
@@ -23,8 +23,8 @@ Figure-\ref{fig:data-centres}. Each of these data centres receives tasks (jobs) 
 completed. Each of these jobs requires a random time to process on its allocated machine. At each time-step there can be no task
 or 1 task arriving to one of the data centres. The resource allocation problem deals with assigning these tasks to machines in the
 two data centres in order to minimise the average waiting time to completion of the tasks. Most of the time it is most efficient
-for the data-centre that receives the task to fullfil it, as sending the task to the other data-centres incurs in additional
-delays. However, sometimes a data-centre is busy enough to justify the additional delay incurred in trasferring tasks between
+for the data-centre that receives the task to fulfill it, as sending the task to the other data-centres incurs in additional
+delays. However, sometimes a data-centre is busy enough to justify the additional delay incurred in transferring tasks between
 data-centres. This problem can be carefully formulated as a Markov Decision Process and solved using reinforcement learning. The
 MDP can be defined as follows:
 \begin{itemize}
@@ -50,9 +50,8 @@ state transitions below a certain threshold. In this case, an intuitive decompos
 as such is used.
 
 \paragraph{} In the case where the difference in rewards between completing a task locally or remotely is infinite, the tasks
-would always be solved locally. In this case the problem of deciding which data centre the task should be processed in is
-inexistant. In this case we could simply have two separate agents for the two data centres that learn how to assign tasks within
-the data centres, without dealing with their interconnection. Howver, as the difference in rewards decreases, it becomes optimal
+would always be solved locally. In this case the problem of deciding which data centre the task should be processed does not exist. In this case we could simply have two separate agents for the two data centres that learn how to assign tasks within
+the data centres, without dealing with their interconnection. However, as the difference in rewards decreases, it becomes optimal
 to use the interconnection. The 'learn the switch' and transfer learning techniques discussed in the previous chapter in this case
 would be useful. The networks trained to assign tasks internally within the two data-centres can be combined in order to learn a
 global agent that can assign tasks in both in the most optimal manner. This architectures is illustrated in
@@ -66,11 +65,11 @@ Figure-\ref{fig:data-centres-decomposition-agent}.
 \end{figure}
 
 \paragraph{} This last methodology is very similar to what would be done in a hierarchical architecture. This would have an agent
-that explicitely decides whether a task should be assigned to data centre 1 or 2. Given this knowledge a sub-agent trained to
+that explicitly decides whether a task should be assigned to data centre 1 or 2. Given this knowledge a sub-agent trained to
 decide how to assign the task internally within the data centre would be used and the outputs of these two would be combined to
 give the full action description. The difference with the state-decomposition method is that while in the latter the full-action
 description is given by the combination network and all other components merely provide implicit information to it, in the
-hierarchical approach the action description is formed explicitely by combining the outputs of multiple 'layers' of sub-agents.
+hierarchical approach the action description is formed explicitly by combining the outputs of multiple 'layers' of sub-agents.
 Additionally, the hierarchical approach deals with the problem on 'high level' to 'low level' approach, in which 'high level'
 actions are decided first and 'low level' actions are determined using the 'high level' actions, while the state-decomposition
 approach feeds the knowledge of the possible 'low level' agents to a global agent that deals with all levels of action.
@@ -80,7 +79,7 @@ efficiency, there is an increase in complexity of the design of the agent. The m
 not normally known in applications that use reinforcement learning, meaning that if the decomposition is not "intuitive" as seen
 in previous examples, this would have to be estimated before being able to apply state-decomposition. Additionally, there are
 cases in which there might be different types of possible decompositions and there does not seem to be a systematic way to predict
-which one is most efficient. Lastly, while it was shown that the state-decomposition techniques achieve performane gains in
-certain environment, this is not guaranteed for any scenario, thus the extra design effore might not be rewarded by increased
+which one is most efficient. Lastly, while it was shown that the state-decomposition techniques achieve performance gains in
+certain environment, this is not guaranteed for any scenario, thus the extra design effort might not be rewarded by increased
 efficiency is some cases.
 

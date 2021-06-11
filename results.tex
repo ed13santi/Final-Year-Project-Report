@@ -86,9 +86,9 @@ any number of episodes compared to other networks. In the figure, the three bigg
 convergence, however the biggest one does so quicker. This might be due to increased flexibility and the existence of multiple
 sets of weights that achieve the same optimal function representation. While this leads to faster convergence and is not a problem
 in the environments used in this report, it might lead to problems in complex environments that rely on generalisation of unseen
-states. This is because using an overly big network can easily cause overfitting, thus hurting the generalisation propertiesof the
+states. This is because using an overly big network can easily cause overfitting, thus hurting the generalisation properties of the
 network to unseen states. In this project, it was decided to use networks that are complex enough to capture the dynamics of the
-environment, while limiting the size so that the project could be relevant in other scenarios where generalisation is imporant.
+environment, while limiting the size so that the project could be relevant in other scenarios where generalisation is important.
 The figure also shows that the difference in performance of 'medium2', which has twice the number of trainable weights of 'medium'
 is not very significant. I chose to show this comparison because in the environments used in this project, the decomposition
 divides the state-space into two sub-spaces, which means that there are two NNs corresponding to the sub-spaces instead of the one
@@ -139,11 +139,11 @@ method, which made the first stage of training effectively useless. In fact, all
 predefined manner, as $\delta$ is a non-learned constant. The combining by weighed average effectively substitutes the combining
 neural network and acts as a switch when $\delta=0$, as it effectively selects the output of the network corresponding to the
 sub-space of the input space, thus the name 'DeltaSwitch'. The idea of this approach is that it might not be necessary to combine
-the action-values of the networks in a complicated manner and that doing so using another neurla network might be complicated and
+the action-values of the networks in a complicated manner and that doing so using another neural network might be complicated and
 lead to stability issues and lack of convergence. The updates of the network are carried out by treating the whole network as a
 single unit. $\delta$ is chosen to be small, so that networks others than the one corresponding to the input state only have a
 small impact on the output values. As a results, each sample used in an update of the network causes significant change in the
-weights of the network the correspodning sub-space, while only slightly changing those of other networks. This can be confirmed by
+weights of the network the corresponding sub-space, while only slightly changing those of other networks. This can be confirmed by
 deriving the formulas of the updated of weights given the loss function and optimiser, however it is sufficient to understand that
 those weights that have a smaller effect on the output are updated by a smaller amount in the backpropagation update. As the
 network is always treated as a whole, the target values required in the update of the network are generated using all the possible
@@ -439,7 +439,7 @@ network to all the previously trained networks that correspond to the sub-spaces
 weights and I connect the outputs of all their layers to every input of a new network. This new network has thus the same number
 of layers as 'NN0' and 'NN1'. The architecture is shown in Figure-\ref{fig:modified-progressive}. This was initially tested with
 random initialisation of the combined network, leading to slow convergence and worse performance than DQN. However, when
-initalising the combined network similarly to what was previously done in the other combining methodology, the performance is
+initialising the combined network similarly to what was previously done in the other combining methodology, the performance is
 similar to what was achieved in the other methodology using expected SARSA, as shown in Figure-\ref{fig:SARSA-progressive}. Thus,
 this technique also seems to not provide an important transfer of knowledge and solve "forgetting".
 

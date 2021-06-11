@@ -138,12 +138,14 @@ There are many applications of reinforcement learning in which state-space and a
 is not finite as there is an infinite number of possible states and actions. This will not be discussed as it is outside of the
 scope of this project, which only deals with discrete state and action spaces.
 
-\section{Neural networks}
-Should I give a bried intrdoction to neural networks
+\section{Artificial Neural Networks}
+
+Artificial neural networks are a type a function approximators that have been very popular in the last years thanks to improvements in computational power which made them a favourite choice in many data-driven applications, such as pattern recognition, computer vision, etc... in which they achieve state-of-the-art performance. They are especially useful as they are able to 'learn' the underlying structure of very large dimensional data when fed enough training samples.
+
+\paragraph{}
+The building block of artificial neural networks is the \italic{perceptron}. 
 
 \section{Q-learning and Deep Q-learning}
-
-SHOULD ADD A BIT OF INFORMATION ABOUT NEURAL NETWORKS
 
 \paragraph{}
 Many RL algorithms deal with the problem of solving an MDP without being given the optimal policy and the dynamics of the system.
@@ -230,7 +232,7 @@ higher-level action. Examples of hierarchical reinforcement learning algorithms 
 
 \paragraph{}
 Model-based reinforcement learning \cite{moerland_model-based_2020} has been receiving increasing attention lately. This class of
-algorithms is at the intersubsection of planning algorithms and model-free reinforcement learning as it approximates the model of the
+algorithms is at the intersection of planning algorithms and model-free reinforcement learning as it approximates the model of the
 environment during the learning process, which can be used to more efficiently learn from new samples. Dyna
 \cite{sutton_dyna_1991} learns a model of the environment and uses it to simulate samples for Q-learning other than those obtained
 by actual interaction with the environment. AlphaZero \cite{silver_mastering_2017}, which achieved state-of-the-art performance in

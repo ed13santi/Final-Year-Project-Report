@@ -174,15 +174,15 @@ but it will be shown that is has a great impact on the effect of different state
 %transitions because we actively avoid them?
 
 \paragraph{}
-This environemnt is an example of a scenario in which the decomposition is "intuitive", as mentioned in
+This environment is an example of a scenario in which the decomposition is "intuitive", as mentioned in
 section-\ref{sec:decomposing-trans-matrix}. It is clear here that one possible decomposition is given by creating one sub-space
 for each possible destination, as at each-time the probability of changing destination is very small, being either $0$ or
-$\epsilon$. Another kind of decomposition that was tested, altough it doesn't necessarily follow the procedure previously
-described for decompositing the state-transition matrix for $\epsilon > 0$, is to assign states corresponding to positions in the
+$\epsilon$. Another kind of decomposition that was tested, although it doesn't necessarily follow the procedure previously
+described for decomposing the state-transition matrix for $\epsilon > 0$, is to assign states corresponding to positions in the
 upper-left "triangle" of the grid to one sub-space and positions in other other "triangle" to the other sub-space. The reasoning
 is that when $\epsilon$ is 0, following the optimal policy would lead to never crossing the boundary between these two
 "triangles", meaning that they form two independent sub-spaces. When $\epsilon > 0$, this can happen and the transitions between
-the two sub-spaces are not small, thus it is an intersting counter-example of using a different kind of decomposition.
+the two sub-spaces are not small, thus it is an interesting counter-example of using a different kind of decomposition.
 
 \paragraph{}
 As the environments' model dynamics are set by the code, they are known. Thus it is possible to use policy iteration to determine
@@ -201,7 +201,7 @@ providing a fair comparison can be a non-trivial task, as discussed in section-\
 
 \paragraph{}
 The chosen benchmark agent is a basic DQN agent. The value updates occur with discount factor $\gamma=0.95$. It would be possible
-to use $\gamma=1$, as the algorithm in tested in environments with finite length episodes, however, using a slighlty smaller
+to use $\gamma=1$, as the algorithm in tested in environments with finite length episodes, however, using a slightly smaller
 discount factor enhances the stability of the algorithm, giving more consistent results. The agent acts according to an
 $\epsilon$-greedy policy. This means that at each agent-environment interaction, the agent picks the value that currently has the
 highest estimated action value with probability $1-\epsilon$ or a random action with probability $\epsilon$. $\epsilon$ is
@@ -224,7 +224,7 @@ mapping any state to any possible action-value. The network is updated using "Mi
 at each update step, the network weights are updated to reduce the function $L = \sum_{i=1}^n (y_i-f_{\theta}(x_i))^2$ where $x_i$
 are the inputs, $y_i$ the corresponding outputs and $f_{\theta}$ is the function implemented by the neural network with weights
 $\theta$. The network updates are done using the optimiser Adam \cite{kingma_adam_2017}, a commonly used optimiser that achieves
-better performance than gradient descent in many applications, thanks to the use of weight momentums.
+better performance than gradient descent in many applications through the use of moments.
 
 \begin{figure}[H]
     \centering
