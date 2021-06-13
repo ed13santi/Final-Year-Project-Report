@@ -116,6 +116,10 @@ Andrei~A. Rusu, Neil~C. Rabinowitz, Guillaume Desjardins, Hubert Soyer, James
   Kirkpatrick, Koray Kavukcuoglu, Razvan Pascanu, and Raia Hadsell.
 \newblock Progressive neural networks.
 
+\bibitem{sharma_what_2019}
+{SAGAR} {SHARMA}.
+\newblock What the hell is perceptron?
+
 \bibitem{silver_mastering_2017}
 David Silver, Thomas Hubert, Julian Schrittwieser, Ioannis Antonoglou, Matthew
   Lai, Arthur Guez, Marc Lanctot, Laurent Sifre, Dharshan Kumaran, Thore

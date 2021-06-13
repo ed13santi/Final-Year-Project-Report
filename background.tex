@@ -140,10 +140,54 @@ scope of this project, which only deals with discrete state and action spaces.
 
 \section{Artificial Neural Networks}
 
-Artificial neural networks are a type a function approximators that have been very popular in the last years thanks to improvements in computational power which made them a favourite choice in many data-driven applications, such as pattern recognition, computer vision, etc... in which they achieve state-of-the-art performance. They are especially useful as they are able to 'learn' the underlying structure of very large dimensional data when fed enough training samples.
+\paragraph{}
+Artificial neural networks are a type a function approximators that have been very popular in the last years thanks to
+improvements in computational power which made them a favourite choice in many data-driven applications, such as pattern
+recognition, computer vision, etc... in which they achieve state-of-the-art performance. They are especially useful as they are
+able to 'learn' the underlying structure of very large dimensional data when fed enough training samples.
 
 \paragraph{}
-The building block of artificial neural networks is the \italic{perceptron}. 
+The building block of artificial neural networks is the \textit{perceptron}. The \textit{perceptron} learns the values $w_i$ with
+$i=0,1,...,n$ so that it successfully learns how to classify the inputs into two classes. The \textit{perceptron} applies the
+function $w_0+\sum_i=1^n x_i w_i$, where $x_i$ for $i=1,2,..,n$ are the elements of the input vector. The output of this functions
+is then passed through a step function which maps all values to two possible values.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{figures/perceptron.png}
+    \caption{Graphical representation of a perceptron. Figure taken from \cite{sharma_what_2019}.}
+    \label{fig:perceptron}
+\end{figure}
+
+\paragraph{}
+Fully-connected neural networks are formed by combining multiple perceptrons together. By combining multiple perceptrons we are
+able to learn a function that maps from the inputs to multiple outputs. In general, fully-connected neural networks are formed by
+many layers, where each layers is formed by many perceptrons in parallel and the outputs of one layer are fed as inputs of the
+next layer. Fully-connected neural networks are called this way because all the outputs of a layer are fed as inputs to all the
+perceptrons of the next layer. By combining multiple layer together we are able to learn a wider range of function than if we were
+only using one layer, making the neural network a more powerful and general approximator. While in the original perceptron we
+apply a step function to the intermediate function, in neural network a variety of non-linear functions is used instead. This is
+called the activation function and it is useful as it allows the network to be more powerful by making it able to learn
+non-linearities. If there were no activation function, the neural network would simply learn a linear mapping between input and
+output, thus not being more powerful than a simple perceptron without step function. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{figures/Multi-Layer_Neural_Network-Vector.pdf}
+    \caption{Fully-connected neural network.}
+    \label{fig:fully-connected}
+\end{figure}
+
+\paragraph{}
+As neural networks aim to learn a mapping function, they need to be trained using a training dataset. This is done by choosing a
+loss function, which penalises differences between what the network's outputs currently are for a given input sample in the
+dataset and its correponding output in the training dataset. A common example of loss function is the mean square error, given by
+$||y-\hat{y}||^2$, where $\hat{y}$ is the current output of the neural network while $y$ is the "correct" output in the dataset.
+The most basic way to train a neural network is to iterate through the training samples multiple times, and for each of them
+adjust the weights of the perceptrons in the network in order to reduce the loss function. This can be done by using gradient
+descent, however nowadays there are many different optimisers that have shown to have better rate of convergence. Running
+optimisation steps using single sample leads to high variance, thus we normally run optimisation steps based on the loss function
+of batches, that is each optimisation step aims to minimise the loss function for a batch of samples rather than single samples.
 
 \section{Q-learning and Deep Q-learning}
 

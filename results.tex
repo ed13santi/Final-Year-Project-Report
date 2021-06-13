@@ -1,21 +1,22 @@
 \chapter{Results} \label{chap:results}
 
-This section presents the most important results that I obtained during this project, using different variations of the
+This section presents the most important results obtained during this project, using different variations of the
 state-decomposition method and comparing them with the baseline DQN algorithm.
 
 \section{Evaluation method}
 
 \paragraph{}
-This project mainly deals with evaluating the sample efficiency of the state-decomposition method, which is how efficiently the
-experienced samples (time-steps) are used to learn a policy. The sample efficiency affects how quickly the algorithm can learn an
-optimal policy and it can be illustrated by plotting the average total reward in each episode versus the number of the episode
-during training, which shows the improvement in rewards during training, as in Figure-\ref{fig:effect-state-encoding}. Another way
-to illustrate the performance of a reinforcement learning agent is to plot the total reward obtained in the corresponding episode
-versus the number of experienced samples, as in Figure-\ref{fig:samples-graph}. This is the more standard method used to compare
-the sample efficiency of different algorithms. However, plotting against the number of episodes should give equivalent
-conclusions,as better performance in one type of graph implies better performance in the other. It is also important to consider
-the fact that the learning process is stochastic and the performance varies between trials hence the graphs were plotted using
-values averaged over multiple trials.
+This project mainly deals with evaluating the sample efficiency of the state-decomposition method, which is how many experience
+samples are needed to attain a certain level of performance. During testing, the various agents were trained in the environments
+for multiple episodes. The sample efficiency affects how quickly the algorithm can learn an optimal policy and it can be
+illustrated by plotting the average total reward in each episode versus the number of experienced episodes, as in
+Figure-\ref{fig:effect-state-encoding}. Another way to illustrate the performance of a reinforcement learning agent is to plot the
+total reward obtained in the corresponding episode versus the number of experienced samples, as in Figure-\ref{fig:samples-graph}.
+This is the more standard method used to compare the sample efficiency of different algorithms. However, plotting against the
+number of episodes should give equivalent conclusions, as better performance in one type of graph, meaning higher rewards in at
+least some sections of the graph, implies better performance in the other. It is also important to consider the fact that the
+learning process is random and the performance varies between trials hence the graphs were plotted using values averaged over
+multiple trials.
 
 \begin{figure}[H]
     \centering
@@ -25,37 +26,38 @@ values averaged over multiple trials.
 \end{figure}
 
 \paragraph{}
-The main method of presenting the results in this report is using the 'total reward' vs 'episode' graphs. The reasoning for
-relying less on the 'total reward' vs 'sample' graphs is that the data was collected in experiments with a fixed number of
-episodes rather than a fixed number of samples. As the number of samples in each episode varies, each trial has a different number
-of samples. Thus, an average graph can be plotted only for the length of the shortest trial. Plotting for any longer length would
-mean that the right section of the graph is an average calculated on fewer trials. This obviously increases its variance, but also
-introduces a bias. This is because a higher number of samples for the same number of episodes occurs when the episodes are longer,
-which is when the agent performs worse because successfully completing a task early ends the episode. As a result, if the graph is
-plotted for more than the length in samples of the shortest trial, the rewards values for high sample counts are negatively biased
-and as some of the trials last a very short number of samples, the number of reliable samples is small in these graphs.
+The main method of presenting the results in this report is using the 'total episode reward' vs 'episode' graphs. The reasoning
+for relying less on the 'total episode reward' vs 'sample' graphs is that the data was collected in experiments with a fixed
+number of episodes rather than a fixed number of samples. As the number of samples in each episode varies, each trial has a
+different number of samples. Thus, a graph of the average rewards can only be plotted for the length of the shortest trial.
+Plotting for any higher number of experienced would mean that the right section of the graph is an average calculated over fewer
+trials. This obviously increases its variance, but also introduces a bias. This is because a higher number of samples for the same
+number of episodes occurs when the episodes are longer, which is when the agent performs worse, as successfully completing a task
+early ends the episode. As a result, if the graph is plotted for more than the length in samples of the shortest trial, the
+rewards values for high sample counts are negatively biased and as some of the trials last a very short number of samples, the
+number of reliable samples is small in these graphs.
 
 \section[Effect of state representations]{Effect of different state representations on the performance.}
 
 \paragraph{}
-Although it doesn't necessarily impact the state-decomposition method, it was initially necessary to decide how to encode the
-states to be fed into the neural network. As a first approach, the state was fed directly as an integer representing the index of
-the state. This is the most compact encoding of the state, which is what would be used in standard Q-learning, in which the state
-is used merely as an index in a look-up table rather than as the input of a neural network. Though extremely compact, this
-representation of the state is very hard to decode for the neural network and its structure does not directly reveal aspects of
-the state directly\footnote{As the state is represented by an integer, this has no physical meaning before decoding. However, the
-state could be represented for example by a vector of values, each having a physical meaning such as horizontal position, etc.}
-and led to difficulties in achieving convergence in a reasonable number of iterations. The lack of physical meaning of the state
-representation also would make it very hard for the neural network to generalise to unseen states, which is an important feature
-in large state-spaces. Thus, it was decided the encode the state in three alternative representations:
+It was initially necessary to decide how to encode the states to be fed into the neural networks of the agents. As a first
+approach, the state was fed directly as an integer representing the index of the state. This is the most compact encoding, which
+is what would be used in standard Q-learning, in which the state is used merely as the index of a look-up table rather than as the
+input of a neural network. Though extremely compact, this representation of the state is very hard to decode for the neural
+network and its structure does not directly represent aspects of the state\footnote{As the state is represented by an integer,
+this has no physical meaning before decoding. However, the state could be represented for example by a vector of values, each
+having a physical meaning such as horizontal position, etc.}, leading to convergence requiring too many experience time-steps.
+Thus, it was decided the encode the state in three alternative representations:
 
 \begin{enumerate}
     \item \textbf{Compact} The idea is to give a physical meaning to the state representation. The state is given by a vector of
     values, each representing a different aspect of the physical meaning of the state. In the 'Grid' environment, these are the
-    row in which the Taxi is currently located, the column and its current destination.
+    row in which the Taxi is currently located, the column and its current destination. A lack of physical meaning of the state
+    representation also would make it difficult for the neural network to generalise to unseen states, which is an important
+    feature in large state-spaces. Thus this representation could be the most useful in very large state-spaces.
     \item \textbf{One-hot encoding} This aims to make it easier for the neural network to learn to decode the state. The state is
-    in this method simply converted to a one-hot encoded version, which is a vector of length the number of possible states, where
-    all but one elements have value 0, whereas the other one has value 1.
+    simply converted to a one-hot encoded version, which is a vector of length the number of possible states, where
+    all elements have value 0 except one which has value 1.
     \item \textbf{Hybrid encoding} This combines the previous two methods. The destination is represented by a single bit, taking
     value 0 or 1, while the position of the state is represented by a one-hot-encoded vector. This results in a state
     representation that is a vector of size one bit greater than the number of possible positions in the environment.
@@ -70,32 +72,32 @@ in large state-spaces. Thus, it was decided the encode the state in three altern
 
 \paragraph{}
 Figure-\ref{fig:effect-state-encoding} shows that in the 'Grid' environment the hybrid encoding achieves the best performance, as
-the rewards are higher during the training phase, while they are similar upon convergence when compared to standard on-hot
-encoding. The compact encoding shows the worst performance at all points in time. Thus, it was decided to use the hybrid encoding
-for all experiments to expedite training times and hence experimentation times. This was actually a major issue during the
-project, as the training time of the algorithms is long and any increase in performance is welcome as it allows to run more trials
-to obtain higher quality results and to also run more experiments.
+the rewards are higher during the training phase, while they are similar upon convergence when compared to standard one-hot
+encoding. The compact encoding shows the worst performance at all points in time. It was decided to use the hybrid encoding for
+all experiments to expedite training times and hence experimentation times. Long training times were a major issue in this
+project, thus increases in performance are welcome as they allow to run more trials to obtain higher quality results and to also
+run more experiments.
 
 \section[Effect of the NN's size]{Effect of varying the neural network's size}
 
 The size of the neural network is another factor that influences the speed of learning of deep reinforcement learning algorithms.
 Figure-\ref{fig:effect_NN_dimension} shows that for a DQN agent in the 'Grid' environment, the performance improves as the network
-size increases, at least for tested range of dimensions. When the network is too small, performance degrades as the network is not
-complex enough to represent the function that maps from states to action-values of the environment, thus rewards are lower after
-any number of episodes compared to other networks. In the figure, the three bigger networks are all complex enough to reach
-convergence, however the biggest one does so quicker. This might be due to increased flexibility and the existence of multiple
-sets of weights that achieve the same optimal function representation. While this leads to faster convergence and is not a problem
-in the environments used in this report, it might lead to problems in complex environments that rely on generalisation of unseen
-states. This is because using an overly big network can easily cause overfitting, thus hurting the generalisation properties of the
-network to unseen states. In this project, it was decided to use networks that are complex enough to capture the dynamics of the
-environment, while limiting the size so that the project could be relevant in other scenarios where generalisation is important.
-The figure also shows that the difference in performance of 'medium2', which has twice the number of trainable weights of 'medium'
-is not very significant. I chose to show this comparison because in the environments used in this project, the decomposition
-divides the state-space into two sub-spaces, which means that there are two NNs corresponding to the sub-spaces instead of the one
-original NN. To make the comparison fair, I made the total number of trainable parameters approximately equal in any architectures
-that being directly compared. It is arguable whether this is a fair comparison, as there are more factors affecting the rate of
-learning, such as the structure of the network, but the fact that the performance hardly varies when doubling the number of
-trainable parameters demonstrates that this is unlikely to have an important effect on the results.
+size increases, at least for the tested range of dimensions. When the network is too small, performance degrades as the network is
+not complex enough to represent the function that maps from states to action-values of the environment. In the figure, the three
+bigger networks are all complex enough to reach convergence, however the biggest one does so quicker. This might be due to having
+more weight combinations giving the correct outputs for the possible statese. While this leads to faster convergence and is not a
+problem in the environments used in this report, due to being able to visit all the states multiple times, it might lead to
+problems in environments with very large state-spaces that rely on generalisation to unseen states. This is because using bigger
+networks can cause overfitting, which hurts the generalisation properties of the network to unseen states. In this project, the
+neural networks are large enough to capture the dynamics of the environment, but not excessively large as this is what would be
+needed to avoid overfitting in more complex environments. The figure also shows that the difference in performance of 'medium2'
+and 'medium', which has half the number of trainable weights of 'medium2' is not very significant. This demonstrates that a change
+in number of parameters by a factor of 2 does not have a significant effect on the performance. In this project, I kept the total
+number of parameters approximately equal between different experiments. For example, when comparing an architecture having 1 NN
+with another having 2 NN, I would make the networks of the latter smaller so that the total number of parameters would be
+approximately equal. This approach does not provide a mathematically fair comparison, however, as previously shown, small
+differences in number of parameters don't have a significant impact, thus it is unlikely that this affects the results enough to
+invalidate them. 
 
 \begin{figure}[H]
     \centering
@@ -107,11 +109,11 @@ trainable parameters demonstrates that this is unlikely to have an important eff
 \section[Initial results]{Initial results with 'Taxi2' and original state decomposition architecture}
 
 The original state decomposition architecture proposed in the previous chapter was initially tested in the 'Taxi2' environment.
-The results are shown in Figure-\ref{fig:two_stage}, where the networks are combined at episode 100. In the first part of
+The results are shown in Figure-\ref{fig:two_stage}, where the networks are combined at episode 100. In the first stage of the
 training, convergence is not achieved, as the transitions between sub-spaces are not considered. In the second part of training
 (starting at episode 100, when the networks are combined), the average reward starts at the same levels as an untrained agent and
-they as long as a DQN agent to converge. This means that the knowledge learned in the first part of training is 'forgotten' in the
-second part, thus not contributing to any faster learning in the second stage.
+the reward graph is not any better than that of a standard DQN agent. This means that the knowledge learned in the first part of
+training is 'forgotten' in the second part, thus not contributing to any faster learning in the second stage.
 
 \begin{figure}[H]
     \centering
@@ -126,9 +128,9 @@ second part, thus not contributing to any faster learning in the second stage.
 Following the failure to obtain positive results using the original method that involves the use of a combining neural network on
 top of the neural networks corresponding to each one of the sub-spaces, I decided to experiment with a simpler approach in order
 to first validate the idea of state-decomposition in the simplest possible application. For this purpose, I introduced a network
-architecture that I called 'DeltaSwitch'. This consists of one neural network corresponding to each sub-space, as in the
-originally proposed architecture. The main difference is that the action-values are combined using a simple weighed sum, so that
-the output action-values of the combined architecture are given by
+architecture called 'DeltaSwitch'. This consists of one neural network corresponding to each sub-space, as in the originally
+proposed architecture. The main difference is that the action-values are combined using a simple weighed sum, so that the output
+action-values of the combined architecture are given by
 \begin{equation}
     q(s,a)=\sum_{i=1}^N\delta q_i(s,a) + (1-N\delta) \cdot q_{\{j:s\in\mathcal{S}_j\}}(s,a)
 \end{equation}
@@ -141,19 +143,18 @@ neural network and acts as a switch when $\delta=0$, as it effectively selects t
 sub-space of the input space, thus the name 'DeltaSwitch'. The idea of this approach is that it might not be necessary to combine
 the action-values of the networks in a complicated manner and that doing so using another neural network might be complicated and
 lead to stability issues and lack of convergence. The updates of the network are carried out by treating the whole network as a
-single unit. $\delta$ is chosen to be small, so that networks others than the one corresponding to the input state only have a
+single unit. $\delta$ is chosen to be small, so that networks other than the one corresponding to the input state only have a
 small impact on the output values. As a results, each sample used in an update of the network causes significant change in the
-weights of the network the corresponding sub-space, while only slightly changing those of other networks. This can be confirmed by
-deriving the formulas of the updated of weights given the loss function and optimiser, however it is sufficient to understand that
-those weights that have a smaller effect on the output are updated by a smaller amount in the backpropagation update. As the
-network is always treated as a whole, the target values required in the update of the network are generated using all the possible
-networks. For example, if a transition is from a state in sub-space 0 to a state in sub-space 1, even with $\delta=0$, although
-the network that is updated most significantly by this sample is the one corresponding to sub-space 0, the target value is
-generated also using the outputs of the network of sub-space 1. This means that each network is trained using target values
-generated by other networks, thus the networks are not independent during the training stage. This is required because
-'DeltaSwitch' is a one stage method, thus the transitions between must be accounted for since the start of the training.
-Contrarily, the originally proposed algorithm could initially ignore transitions between sub-space as they were later accounted
-for through the use of a combining NN.
+weights of the network of the corresponding sub-space, while only slightly changing those of other networks. This can be confirmed
+by deriving the formulas of the updates of weights given the loss function and optimiser, however it is sufficient to understand
+that those weights that have a smaller effect on the output are updated by a smaller amount. As the network is always treated as a
+whole, the target values required in the update of the network are generated using all the possible networks. For example, if a
+transition is from a state in sub-space 0 to a state in sub-space 1, the network that is updated most significantly by this sample
+is the one corresponding to sub-space 0 while the target value is generated also using the outputs of the network of sub-space 1.
+This means that each network is trained using target values generated by other networks, thus the networks are not independent
+during the training stage. This is required because 'DeltaSwitch' is a one stage method, thus the transitions between sub-spaces
+must be accounted for since the start of the training. Contrarily, the originally proposed algorithm could initially ignore
+transitions between sub-spaces as they were later accounted by using a combining NN.
 
 \begin{figure}[H]
     \centering
@@ -163,17 +164,19 @@ for through the use of a combining NN.
 \end{figure}
 
 \paragraph{}
-The first environment where this was tested is the 'Taxi2' environment. In this environment there is no significant difference in
-performance between DQN and 'DeltaSwitch' with differing $\delta$ values, as shown in Figure-\ref{fig:Taxi2-dqn-deltaSwitch} in the Appendix.
+The first environment where this was tested is the 'Taxi2' environment. The state space was decomposed into two sub-spaces, by
+assigning each state to the sub-space corresponding to the closest destination. In this environment there is no significant
+difference in performance between DQN and 'DeltaSwitch' with differing $\delta$ values, as shown in
+Figure-\ref{fig:Taxi2-dqn-deltaSwitch} in the Appendix.
 
 \paragraph{}
 While this doesn't show that state-decomposition can lead to a performance gain, it shows that it can at least have equivalent
-performance to a simple DQN agent. The experiment was then repeated in the 'Grid' environment, for easier interpretability of the
-results. This experiment was repeated in the 'Grid' environment, in which Figure-\ref{fig:gridNoWall-dqn-deltaSwitch} shows that
-'DeltaSwitch' presents some performance gain compared to DQN when decomposing by destination, as the rewards during the training
-process are higher. Decomposing by destination means that the possible states are divided in two sub-spaces, corresponding to the
-two destinations. Decomposing by position means that one sub-space is formed by all those states in which the current position in
-the upper-left triangle of the Grid, while the other sub-space is formed by those positions in the lower-right triangle.
+performance to a simple DQN agent. The experiment was then repeated in the 'Grid' environment for easier interpretability of the
+results. Figure-\ref{fig:gridNoWall-dqn-deltaSwitch} shows that here 'DeltaSwitch' achieves higher rewards compared to DQN when
+decomposing by destination. Decomposing by destination means that the possible states are divided in two sub-spaces, corresponding
+to the two destinations. Decomposing by position means that one sub-space is formed by all those states in which the current
+position in the upper-left triangle of the Grid, while the other sub-space is formed by those positions in the lower-right
+triangle.
 
 \begin{figure}[H]
     \centering
@@ -184,16 +187,14 @@ the upper-left triangle of the Grid, while the other sub-space is formed by thos
 
 \paragraph{}
 A possible reason for the performance gain is that the neural networks of 'DeltaSwitch' represent simpler functions when the
-decomposition is done by destination. The main difficulty in the function representation is due to states which have the same
-position having very different action values depending on the destination. The difference given by the value of the destination
-differs depending on the position. Decomposing by destination is the only of the three methods that makes it so that each network
-simply deals with assigning action-values to positions, without having to deal with the position. The fact that the neural
-networks have to learn a significantly simpler target function could justify the increased performance. The experiment was
-repeated using standard one-hot-encoding, as shown by Figure-\ref{fig:one-hot} in Appendix-\ref{appendix-graphs}. Here the
-differences between DQN and 'DeltaSwitch' decomposed by destination are even more marked, as when decomposing by destination, the
-networks can ignore half of the elements of the input vector, while DQN and 'DeltaSwitch' with decomposition by position need to
-learn to decode the one-hot encoded vector to determine the destination, which is even harder than having the destination given.
-Additionally, 'DeltaSwitch' by position only has half of the training samples for each network to learn to do so compare to DQN,
+decomposition is by destination. The main difficulty in the function representation is that states which have the same position
+but different destinations have very different action values. This difference is dependent on the position. Decomposing by
+destination allows each network to only deal with states with the same destination, thus greatly simplifying the function that the
+networks have to learn and leading to faster learning. The experiment was repeated using standard one-hot-encoding, as shown by
+Figure-\ref{fig:one-hot} in Appendix-\ref{appendix-graphs}. Here the differences between DQN and 'DeltaSwitch' decomposed by
+destination are even more marked, as QN and 'DeltaSwitch' with decomposition by position need to learn to decode the one-hot
+encoded vector to determine the destination, which is even harder than having the destination given as in the hybrid encoding.
+Additionally, 'DeltaSwitch' by position only has half of the training samples of DQN for each network to learn to do so,
 leading to a further decrease in performance.
 
 \paragraph{}
@@ -201,9 +202,9 @@ This result shows that 'DeltaSwitch' can present some performance gains compared
 decomposable environment. This environment is perfectly decomposable by destination, as the destination never changes, meaning
 that there are no possible transitions between states having different destinations. It is also perfectly decomposable by
 position, as when adopting the optimal policy, the agent never moves from one of the triangles to the other, since the destination
-is always the one closest to the current position. This experiment validates the idea of the state decomposition as having a
-performance gain in such specific environment mean that it might be possible to also have a performance gain in other environments
-that are not perfectly decomposable.
+is always the one closest to the current position. This experiment validates the idea of the state decomposition having a
+performance gain in such a specific environment and thus it might be possible to also have a performance gain in
+environments that are not perfectly decomposable.
 
 \paragraph{}
 For this kind of perfectly decomposable environment there is no reason to set $\delta \neq 0$ as the two sub-spaces are completely
@@ -226,7 +227,7 @@ found out that this should be allowed, meaning that there is no reason to set $\
 
 \paragraph{}
 After determining that a 'DeltaSwitch' agent with $\delta=0$ can lead to faster training, we shall explore the
-performance of such an agent in environments that are not perfectly decomposable. This is done by running experiments in the
+performance of such an agent in environments that are not perfectly decomposable. This was done by running experiments in the
 'GridEps' environment with $\epsilon>0$. Figure-\ref{fig:deltaSwitch-GridEps} compares the performance of training a DQN agent and
 'DeltaSwitch' agents, decomposing by destination and by position. It can be seen that for for $\epsilon \leq 3\%$ 'DeltaSwitch'
 with decomposition by destination learns noticeably faster than the other two algorithms. The difference is especially large for
@@ -255,20 +256,31 @@ environments, or environments that are almost fully-decomposable, the performanc
 probabilities between the sub-spaces are too large.
 
 \paragraph{}
-Though these experiments shows that the state-decomposition can be a viable way to reduce training times in certain environments,
-it does not explain the meachanism in which it does so. The following subsections highlight some of the experiments that were used
-to shed light on this mechanism. 
+Similar results were also obtained in the 'GridEps2' environment, which has slightly different state transition probabilities. In
+this case though, the decomposition by position was actually the most effective. It is not easy to reason why this is case,
+however it is an interesting result. This is because the decomposition by position is a different type of decomposition that
+doesn't rely on ignoring transitios with small probability in order to decompose the state-space, but it simply decomposes the
+state-space in order to divide the problem into two sub-problems, without considering state transition probabilities. This
+environment thus shows that in 'DeltaSwitch' the originally proposed way to decompose state-spaces is not always necessarily the
+best. This is because as the networks are allowed to "communicate" during training as previously explained, we have the freedom to
+choose different types of decomposition, without having to limit ourselves to semi-independent sub-spaces.
+
+\paragraph{}
+At this point we can theorise that the mechanism by which 'DeltaSwitch' increases the efficiency of learning is by simplifying the
+functions that the networks need to learn. Though these experiments shows that the state-decomposition can be a viable way to
+reduce training times in certain environments, it does not explain the mechanism in which it does so. The following subsections
+highlight some of the experiments that were used to validate this theory. 
 
 \subsection{Effect of using reduced encoding}
 
 \paragraph{}
-As I used the 'hybrid' encoding described in a previous subsection, the input to the first layer of the network is a vectors of
+As I used the 'hybrid' encoding described in a previous subsection, the input to the first layer of the network is a vector of
 '0's and '1's of size the number of possible positions in the grid plus one. However, since I am using $\delta=0$ and each network
 only contributes to the output when the input state is in the network's sub-space, it is possible to reduce the size of the input
 vector to only account for the states that are relevant to each network. For example, when decomposing 'Grid' by position, the two
 networks only deal with 312 and 313 positions instead of the original 625. This means that instead of the original vector of
-$625+1=626$ elements, it is sufficient to feed the networks with vectors of $312+1=313$ and $313+1=314$ elements respectively. I
-then ran experiments to determine whether such a reduction in input size would improve the performance.
+$625+1=626$ elements, it is sufficient to feed the two networks with vectors of $312+1=313$ and $313+1=314$ elements respectively.
+I then ran experiments to determine whether such a reduction in input size would improve the performance.
 Figure-\ref{fig:reduced-effect} shows that the performance gain when reducing the input size seems to be marginal and might be
 caused by the randomness of the trials.
 
@@ -280,16 +292,16 @@ caused by the randomness of the trials.
 \end{figure}
 
 \paragraph{}
-This result suggests that the change in size of the input of the network does not significantly affect its abilty to represent a
-mapping, as long as the number of inputs for which it has to learn this stays constant. Effectively, when using the full input
-vector size, although the number of inputs is greater, almost half of these are always 0 when the network is active, thus these
-inputs mathematically have no effect on the network and it is intuitive that the results should be similar when using the reduced
-input vector.
+Effectively, when using the full input vector size, although the input vector is longer, almost half of its elements are always 0
+when the network is active, meaning when the input state is in the network's sub-space, so that the network affects the
+output\footnote{Note that $\delta=0$, so for other state the network does not affect the output and can be referred to as
+inactive.}, thus these inputs mathematically have no effect on the network and it is intuitive that the results should be similar
+when using the reduced input vector.
 
 \subsection[Effect of wall]{Effect of adding a wall to separate sub-spaces}
 
 \paragraph{}
-The experiments with DeltaSwitch were repeated in a modified version of the 'Grid' environment. This version has a wall that
+The experiments with 'DeltaSwitch' were repeated in a modified version of the 'Grid' environment. This version has a wall that
 separates the upper-left triangle of the grid from the other triangle. This was done to test the effect of having decomposition
 upon convergence, versus having decomposition with any possible policy. When there is no wall, the decomposition by position only
 occurs upon convergence, that is when the optimal policy is being used, as there is no reason why the agent would act to cross the
@@ -299,8 +311,8 @@ the policy.
 
 \paragraph{}
 It is intuitive that when the wall is present, the learning process is faster, as it impedes the agent from moving further from
-the its destination. It is interesting to notice that as shown in Figure-\ref{fig:wall}, the performance of 'DeltaSwitch' and the
-benchmark DQN algorithm is equivalent in this environment. Any differences in the figure are small enough to be attribute to the
+its destination. It is interesting to notice that as shown in Figure-\ref{fig:wall}, the performance of 'DeltaSwitch' and the
+benchmark DQN algorithm is equivalent in this environment. Any differences in the figure are small enough to be attributed to the
 randomness of the training, as they are not consistent throughout the graph, with the lines crossing each other multiple times.
 
 \begin{figure}[H]
@@ -319,22 +331,20 @@ the grid there is only one possible destination, meaning that the function to be
 for DQN and that applying the decomposition does not simplfy it further, and thus the performance is equivalent for the three
 methods.
 
-(COULD TALK ABOUT GridEps2 but it's not necessary)
-
 \section{A different approach based on transfer learning}
 
 \paragraph{}
-The idea of decomposition exploits the fact that the optimal policy to be followed in a perfectly decomposable environment should
-be similar to that of a similar environment, having a small probability of transitions between states of the different sub-spaces.
-Another class of techniques that leverages similarity between environments is transfer learning. Using transfer learning in
-reinforcement learning means to use the knowledge obtained by having trained an RL agent in a certain environment in order to more
-efficiently learn in a new similar environment. The 'DeltaSwitch' algorithm demonstrates how it is possible to achieve some
-performance gain by state-decomposition and it does so in one stage of training. The original idea was to first train multiple
-agents that deal with each of the sub-spaces and then combine them using another neural network. This idea is very similar to
-training an agent in the perfectly decomposable environment and then using its knowledge, more efficienlty learn in the more
-complex environment. Effectively this two stage approach is transfer learning from a simpler fully decomposable environment. Thus,
-exploring transfer learning techniques could give insight about possible ways to apply state-decomposition using a 2-stage
-architecture.
+The original idea of state-decomposition based on small transition probabilities exploits the fact that the optimal policy to be
+followed in a perfectly decomposable environment should be similar to that of a similar environment, having a small probability of
+transitions between states of the different sub-spaces. Another class of techniques that leverages similarity between environments
+is transfer learning. Using transfer learning in reinforcement learning means to use the knowledge obtained by having trained an
+RL agent in a certain environment in order to more efficiently learn in a new similar environment. The 'DeltaSwitch' algorithm
+demonstrates how it is possible to achieve some performance gain by state-decomposition and it does so in one stage of training.
+The original idea was to first train multiple agents that deal with each of the sub-spaces and then combine them using another
+neural network. This idea is very similar to training an agent in the perfectly decomposable environment and then using its
+knowledge, more efficienlty learn in the more complex environment. Effectively this two stage approach is transfer learning from a
+simpler fully decomposable environment. Thus, exploring transfer learning techniques could give insight about possible ways to
+apply state-decomposition using a 2-stage architecture.
 
 \begin{figure}[H]
     \centering
@@ -345,17 +355,18 @@ architecture.
 
 \paragraph{}
 The following methods were all tested by using the two networks from a 'DeltaSwitch' agent that was previously trained in a 'Grid'
-environment, decomposed by position \footnote{This kind of decomposition was chosen as it has better performance in the 'GridEps2'
-environment (COULD SHOW IN APPENDIX).}, which gives two neural networks, called 'NN0' and 'NN1', which correspond to the two
-sub-spaces. The transfer learning techniques were then tested in a 'GridEps2' environment.
+environment, decomposed by position\footnote{This kind of decomposition was chosen as it has the best performance in the
+'GridEps2' environment.}, which gives two neural networks, 'NN0' and 'NN1', which correspond to the two sub-spaces. The
+transfer learning techniques were then tested in a 'GridEps2' environment.
 
 \paragraph{}
 The first approach was to combine 'NN0' and 'NN1' using another neural network. The weights of 'NN0' and 'NN1' are set to be
-fixed. The combining network is also fed the input state. The idea is that this network can act as a clever switch instead of the
-'rudimentary' switch used in 'DeltaSwitch', in order to take into account the transition between sub-spaces. This algorithm gives
-the results in Figure-\ref{fig:learnSwitch1}, which shows that this algorithm, despite using 'NN0' and 'NN1' which were previously
-trained, achieves lower rewards than a standard DQN algorithm for both values of $\epsilon$. This gap increases for higher values
-of $\epsilon$. This means that this method is unsuccessful in leveraging the knowledge obtained from 'NN0' and 'NN1'
+fixed. This is basically the architecture proposed in the original state-decomposition method, with the combining network also
+being fed the input state. The idea is that this network can act as a clever switch instead of the 'rudimentary' switch used in
+'DeltaSwitch', in order to take into account the transition between sub-spaces. This algorithm gives the results in
+Figure-\ref{fig:learnSwitch1}, which shows that this algorithm, despite using 'NN0' and 'NN1' which were previously trained,
+achieves lower rewards than a standard DQN algorithm for both values of $\epsilon$. This gap increases for higher values of
+$\epsilon$. This means that this method is unsuccessful in leveraging the knowledge obtained from 'NN0' and 'NN1'
 
 \begin{figure}[H]
     \centering
@@ -367,18 +378,17 @@ of $\epsilon$. This means that this method is unsuccessful in leveraging the kno
 \paragraph{}
 As the $\epsilon$ of the 'GridEps2' environment is set to be small, it is fair to assume that directly using the original
 'DeltaSwitch' agent that 'NN0' and 'NN1' are taken from should give near-optimal performance. Thus, at least in the start, the
-transfer learning method should achieve much higher rewards than a standard DQN. This was achieved by 'forcing' the initialisation
-of the combining network, whereas before this was randomly initialised. This is done by training the combining NN in a supervised
-manner so that the combined network ('NN0','NN1' and combining network) is initialised to behave exactly as the 'DeltaSwitch' of
-'NN0' and 'NN1'. The training samples have as inputs all the possible states and as outputs the correspodning outputs of
-'DeltaSwitch'. After training for multiple epochs\footnote{In the experiment, the network was trained for 1000 epochs, in order to
-ensure an accurate initialisation. However, such high accuracy might not be needed.}, with MSE as the loss function, the combined
-network can be utilised in the environment as before and RL process can be started. The initial exploration rate is set to be
-low\footnote{The $\epsilon$ of $\epsilon$-greedy} as it is assumed that it is not needed to perform lots of exploration.
-Figure-\ref{fig:initialisedLearnSwitch} shows the results of doing so with different NN sizes. The performance is much better than
-without initialisation in the start. Using the smallest network does not allow to capture the environment's dynamics and fails to
-converge. Only the biggest NN allows to achieve performance comparable to DQN in the last part of training and in this case the
-network used is actually bigger than that in DQN. 
+transfer learning method should achieve much higher rewards than a standard DQN. This could be achieved by "forcing" the
+initialisation of the combining network, whereas before this was randomly initialised. This was done by training the combining NN
+in a supervised way so that the combined network ('NN0','NN1' and combining network) is initialised to behave exactly as the
+'DeltaSwitch' agent that 'NN0' and 'NN1' are taken from. The training dataset for the "forced initialisation" has as inputs all
+the possible states and as outputs the corresponding outputs of 'DeltaSwitch'. After training for multiple epochs\footnote{In the
+experiment, the network was trained for 1000 epochs, in order to ensure an accurate initialisation. However, such high accuracy
+might not be needed.}, with MSE as the loss function, the combined network can be utilised in the environment as before and the RL
+process can be started. The initial exploration rate is set to be low\footnote{The $\epsilon$ of $\epsilon$-greedy} as it is
+assumed that it is not needed to perform lots of exploration, due to the good initialisation.
+Figure-\ref{fig:initialisedLearnSwitch} shows the results of this methodology with different NN sizes. The performance is much
+better than with random initialisation of the combining network. 
 
 \begin{figure}[H]
     \centering
@@ -388,19 +398,21 @@ network used is actually bigger than that in DQN.
 \end{figure}
 
 \paragraph{}
-Requiring a combining network of a similar size to that of the DQN agent means that the function that this NN has to represent is
-similarly difficult to that of the DQN's network. Thus it seems that the initialisation of the network only serves the purpose of
-limiting negative rewards at the start of training, but it doesn't have a lasting effect in making the learning easier. The issue
-could be that, though Q-learning is guaranteed to converge after sufficient amounts of exploration, it always finds the optimal
-policy, so it is likely to completely discard the initial policy provided when initialising the combined network, causing so
-called "forgetting". I thus experimented with SARSA, as its updates are given by the formula 
+Using the smallest network does not allow to capture the environment's dynamics and fails to converge. Only the biggest NN allows
+to achieve performance comparable to DQN in the last part of training and in this case the network used is actually bigger than
+that in DQN. Requiring a combining network of a similar size to that of the DQN agent means that the function that this NN has to
+represent is similarly difficult to that of the DQN's network. Thus it seems that the initialisation of the network only serves
+the purpose of limiting negative rewards at the start of training, but it doesn't have a lasting effect in making the learning
+easier. The issue could be that, though Q-learning is guaranteed to converge after sufficient amounts of exploration, it always
+finds the optimal policy, so it is likely to completely discard the initial policy provided when initialising the combined
+network, causing so called "forgetting". I thus experimented with SARSA, as its updates are given by the formula 
 \begin{equation}
     Q(S_t, A_t) \leftarrow Q(S_t, A_t) + \alpha[R_{t+1}+\gamma Q(S_{t+1},A_{t+1}) - Q(S_t,A_t)]
 \end{equation}
-that is, SARSA is an on-policy algorithm, meaning that the action values of the states are updated using the action values that
-were actually taken (UNCLEAR). My intuition is that doing so is more likely to preserve the initial policy provided by the
-initialisation of the combined network, which would increase the speed of learning at the expense of the performance upon
-convergence. However, using SARSA failed to convergence, thus I tried with expected SARSA, which has the updates
+that is, SARSA is an on-policy algorithm, meaning that it updates its action values based on the current policy, rather than using
+the maximum action value in the next state. My intuition was that doing so is more likely to preserve the initial policy provided
+by the initialisation of the combined network, which would increase the speed of learning. However, using SARSA failed to
+convergence, thus I tried with expected SARSA, which has the updates
 \begin{equation}
     Q(S_t, A_t) \leftarrow Q(S_t, A_t) + \alpha \{R_{t+1}+\gamma \E_{\pi}[Q(S_{t+1},A_{t+1})] - Q(S_t,A_t) \}
 \end{equation}
@@ -418,13 +430,14 @@ to DQN, as this method does not reach convergence earlier than DQN, thus the pro
 \paragraph{}
 Subsequently, I experimented with the idea of 'progressive neural networks' \cite{rusu_progressive_2016}. This is a kind of neural
 network that was devised for transfer learning, as it shows better performance in transferring knowledge between tasks and it
-avoids "forgetting". The progressive neural network was devised for learning successive related tasks. In the first task, a neural
-network is used as normal. Then, in the second task, the neural network is formed by the neural network trained in the first task
-with its weights frozen and a new 'column' of layers. Each layer in the new column receives in input the outputs of the previous
-activation layer of the same column and the outputs of the activation layer of the network of the previous task. This combined
-network is then trained in the new task and the process is repeated for all the tasks, each new column receiving in input the
-outputs of all the previously trained networks. Figure-\ref{fig:progressive-3-tasks} shows the structure of a progressive network
-used on a third task when transferring knowledge from two previously trained tasks.
+avoids "forgetting". The progressive neural network was conceived for learning successive related tasks. In the first task, a
+neural network is used as in normal DQN. Then, in the second task, the neural network is formed by the neural network trained in
+the first task with its weights frozen\footnote{By frozen it is meant that the weights are not trainable.} and a new "column" of
+neural network layers. Each layer in the new column receives in input the outputs of the previous activation layer of the same
+column and the outputs of the activation layer of the network of the previous task. This combined network is then trained in the
+new task and the process is repeated for all the tasks, each new column receiving in input the outputs of all the previously
+trained networks. Figure-\ref{fig:progressive-3-tasks} shows the structure of a progressive network used on a third task when
+transferring knowledge from two previously trained tasks.
 
 \begin{figure}[H]
     \centering
@@ -436,12 +449,13 @@ used on a third task when transferring knowledge from two previously trained tas
 \paragraph{}
 The architecture that I propose is very similar. Instead of connecting the networks one after the other, I simply connect one new
 network to all the previously trained networks that correspond to the sub-spaces. That is, I take 'NN0' and 'NN1', I freeze their
-weights and I connect the outputs of all their layers to every input of a new network. This new network has thus the same number
-of layers as 'NN0' and 'NN1'. The architecture is shown in Figure-\ref{fig:modified-progressive}. This was initially tested with
-random initialisation of the combined network, leading to slow convergence and worse performance than DQN. However, when
-initialising the combined network similarly to what was previously done in the other combining methodology, the performance is
-similar to what was achieved in the other methodology using expected SARSA, as shown in Figure-\ref{fig:SARSA-progressive}. Thus,
-this technique also seems to not provide an important transfer of knowledge and solve "forgetting".
+weights and I connect the outputs of all their layers to the correponding layer inputs of a new network. This new network has thus
+the same number of layers as 'NN0' and 'NN1'. The architecture is shown in Figure-\ref{fig:modified-progressive}. This was
+initially tested with random initialisation of the combined network, leading to slow convergence and worse performance than DQN.
+However, when initialising the combined network similarly to what was previously done in the other combining methodology, the
+performance is similar to what was achieved in the other methodology using expected SARSA, as shown in
+Figure-\ref{fig:SARSA-progressive}. Thus, this technique successfully improves rewards in the initial training but also seems to
+not provide an important transfer of knowledge and solve "forgetting".
 
 \begin{figure}[H]
     \centering
@@ -460,32 +474,34 @@ almost optimal policy in the first stage, which takes many episodes to reach, th
 
 \paragraph{}
 While the transfer learning techniques in the previous subsection show superior performance to DQN, this is an unfair comparison,
-as they rely on the previously trained networks 'NN0' and 'NN1'. Moreover, the better performance seems to be due to a good
-initialisation which doesn't translate to a successful transfer of knowledge and earlier convergence. However, the two combining
-techniques can be modified to work in one stage, thus simply providing a decomposition rather than doing transfer learning. This,
-provides a more flexible architecture than 'DeltaSwitch' that could be used even when the networks of the sub-spaces don't account
-for all possible states, as could occur when using different types of state-decompositions as described in the next chapter.
+as they rely on the previously trained networks 'NN0' and 'NN1'. Moreover, the better performance is due to a good initialisation
+which doesn't translate to a successful transfer of knowledge and earlier convergence. However, the two combining techniques can
+be modified to work in one stage, thus simply providing a state-decomposition technique rather than doing transfer learning. This,
+provides a more flexible architecture than 'DeltaSwitch' that could be used even when the networks of the sub-spaces\footnote{In
+the examples, 'NN0' and 'NN1'.} don't account for all possible states, as could occur when using different types of
+state-decompositions as described in the next chapter.
 
 \paragraph{}
-The first proposed technique is to use a combination neural network right from the start, instead of training 'NN0' and 'NN1'
-first using a 'DeltaSwitch' agent. 'NN0' and 'NN1' are forced to learn the action values corresponding to the decomposed
-sub-spaces by including their outputs in the the combined network's output and thus in the loss function. Understanding this
-requires some detail on how target values are normally generated. In the standard DQN algorithm, at each update step, a batch of
-samples is selected from the replay memory. Each sample provides information about what the target value \footnote{Target value
-refers to the values used at the output to calculated the loss function, as the neural network is trained in a supervised manner.}
-of a state-action pair. The target value of those state-action pairs that are not in any of the batch's samples are simply set to
-be equal to current output of the network for the corresponding states. This way, the network tends to improve for the
-state-action pairs in the batch's samples, while penalising changes in other pairs. A similar method is used to deal with the fact
-that only certain samples should update 'NN0' and the others should update 'NN1'. For those transitions samples that start in a
-state that is in sub-space 0, the target value for the output of 'NN0' is set as normal using the formula of Q-learning updates,
-while the target value of 'NN1' is simply set to be what 'NN1' currently outputs for the considered state. The same is true the
-other way around. The output of the combining network is treated the same way as the output of the network in DQN. This
-methodology allows the combining network to learn the true action-values for all states, while 'NN0' and 'NN1' learn them for the
-states in the assigned sub-space. However, as seen in the previous subsection, the combining neural network did not seem to be
-able to make use of the information provided by 'NN0' and 'NN1'. As here 'NN0' and 'NN1' are not provided pre-trained, one can
-only expect the results to be worse. This is confirmed by Figure-\ref{fig:progressive-combining-simultaneous}\footnote{All the
-experiments in this figure were run by applying decomposition by position.}, which shows that in 'GridEps2' with $\epsilon=1\%$,
-this architecture performs worse than standard DQN. 
+The first proposed technique is to use a combining neural network right from the start, instead of training 'NN0' and 'NN1' first
+using a 'DeltaSwitch' agent. 'NN0' and 'NN1' are forced to learn the action values corresponding to the decomposed sub-spaces by
+including their outputs in the the combined network's output and thus in the loss function. Understanding this requires some
+detail on how target values are normally generated. In the standard DQN algorithm, at each update step, a batch of samples is
+selected from the replay memory. Each sample provides information about how a the action-value of a state-action pair should be
+updated, which can be used to set the target value of the state-action pair\footnote{The target value refers to the output values
+used to calculated the loss function to run the update step of the the neural network.}. The target value of those state-action
+pairs that are not in any of the batch's samples are simply set to be equal to current output of the network for the corresponding
+states. This way, the network tends to improve for the state-action pairs in the batch's samples, while penalising changes in
+other pairs. A similar method is used to deal with the fact that only certain samples should update 'NN0' and the others should
+update 'NN1'. For those transitions samples that start in a state that is in sub-space 0, the target value for the output of 'NN0'
+is set as normal using the formula of Q-learning updates, while the target value of 'NN1' is simply set to be what 'NN1' currently
+outputs for the considered state. The same is true the other way around. The output of the combining network is treated the same
+way as the output of the network in DQN, meaning that all samples are used to update it. This methodology allows the combining
+network to learn the true action-values for all states, while 'NN0' and 'NN1' learn them for the states in the assigned sub-space.
+However, as seen in the previous subsection, the combining neural network architecture did not seem to be able to make use of the
+information provided by 'NN0' and 'NN1'. As here 'NN0' and 'NN1' are not pre-trained, one can only expect the results to be worse.
+This is confirmed by Figure-\ref{fig:progressive-combining-simultaneous}\footnote{All the experiments in this figure were run by
+applying decomposition by position.}, which shows that in 'GridEps2' with $\epsilon=1\%$, this architecture performs worse than
+standard DQN. 
 
 \begin{figure}[H]
     \centering
@@ -496,25 +512,26 @@ this architecture performs worse than standard DQN.
 
 \paragraph{}
 The second proposed technique is based on the modified progressive network from the previous subsection. 'NN0' and 'NN1' instead
-of being pre-trained and having frozen weights are trained in a similar fashion as what was done in the first proposed tehcnique
-in this subsection. That is, the progressive network is composed of three columns, 'NN0', 'NN1' and the combining network which at
-every layer also receives the outputs of the previous layer in 'NN0' and 'NN1'. This is essentially, the same as the architecture
-shown in shown by Figure-\ref{fig:modified-progressive}, but 'NN0' and 'NN1' are now not frozen. The only difference between this
-method and the first proposed method is given by the connections between 'NN0', 'NN1' and the combining network, but the way the
-target values are generated is completely equivalent. This second technique achieves better results than the previous one,
-probably due to the greater number of connections between the networks, acting at all the layers, which allows for a better flow
-of information from 'NN0' and 'NN1'. Figure-\ref{fig:progressive-combining-simultaneous} shows that the performance is slightly
-better than DQN and slightly worse the 'DeltaSwitch'. This means that this technique is capable of leveraging the state
-decomposition in order to speed up the training. In the previous technique, the only connection between 'NN0', 'NN1' and the
-combining network was given by the outputs of 'NN0' and 'NN1'. This makes it easy for the combining network to completely ignore
-'NN0' and 'NN1', thus making the training of 'NN0' and 'NN1' something tha complicates the training without helping it in any way,
-thus slowing it down.
+of being pre-trained and having frozen weights are trained in a similar fashion as what was done in the technique in the previous
+paragraph. That is, the progressive network is composed of three columns, 'NN0', 'NN1' and the combining network which at every
+layer also receives the outputs of the previous layer of 'NN0' and 'NN1'. This is essentially, the same as the architecture shown
+by Figure-\ref{fig:modified-progressive}, but 'NN0' and 'NN1' are now not frozen and not-pretrained. The only difference between
+this method and the method in the previous paragraph is given by the connections between 'NN0', 'NN1' and the combining network,
+but the way the target values are generated is completely equivalent. This second technique achieves better results than the
+previous one, probably due to the greater number of connections between the networks, acting at all the layers, which allows for a
+better flow of information from 'NN0' and 'NN1' and to share intermediate data-representations.
+Figure-\ref{fig:progressive-combining-simultaneous} shows that the performance is slightly better than DQN and slightly worse the
+'DeltaSwitch'. This means that this technique is capable of leveraging the state decomposition in order to speed up the training.
+In the technique of the previous paragraph, the only connection between 'NN0', 'NN1' and the combining network was given by the
+outputs of 'NN0' and 'NN1'. This makes it easy for the combining network to completely ignore 'NN0' and 'NN1', thus making the
+training of 'NN0' and 'NN1' a useless complication that only harms the training performance.
 
 \paragraph{}
 At this point one could ask why even use these more complicated architectures when 'DeltaSwitch' seems to provide better
-performance. The reason is that while 'DeltaSwitch' works well when using the kind of state-decompositions that we consider in
-this project, there are also different way to decompose a state-space that would require the use of a combination network. For
-example, consider having a state-space represented by a $2n$-dimensional vector, composed of 2 $n$-dimensional vectors. The
-dynamics of the model are such that transitions in which both sub-vectors change are very rare. Using the original decomposition
-method, this would not decompose. However, using alternative decomposition methods we could for example decompose by simply
-splitting the vector into the two sub-vectors, such as each of two neural networks deals with changes in one of the sub-vectors.
+performance. The reason is that while 'DeltaSwitch' works well with certain kinds of state-decompositions, such as the
+decomposition by position in the 'GridEps2' environment, there are also different ways to decompose a state-space that would
+require the use of a combining network. For example, consider having a state-space represented by a $2n$-dimensional vector,
+composed of 2 $n$-dimensional vectors. The dynamics of the model are such that transitions in which both sub-vectors change are
+very rare. Using the original decomposition method, this would not decompose. However, we could for example decompose by simply
+splitting the vector into the two sub-vectors, so that each of two neural networks deals with changes in one of the sub-vectors. A
+practical example of such a situation is provided in the next chapter.

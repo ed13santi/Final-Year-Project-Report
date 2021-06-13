@@ -13,57 +13,66 @@ improves performance over DQN is by simplifying the functions that the neural ne
 
 \paragraph{}
 Two transfer learning techniques were also tested, in order to gain insight on what could be possible techniques to use in
-two-stage state-decomposition architectures. One of them uses a neural network to combine the netoworks of the sub-spaces, while
-the other combines them using the idea of a progressive neural network. We were successful in using the pretrained networks to
-provide a good initialisation in the training environment, however, the rate of convergence of these techniques was the same as
-for DQN. It was attempted to apply these techniques to a two-stage decomposition approach, however this proved to be difficult as
-a good initialisation of the second stage required a long training time in the first stage.
+two-stage state-decomposition architectures. One of them uses a neural network to combine the networks of the sub-spaces, while
+the other combines them using the idea of a progressive neural network. The pretrained networks were successfully used to provide
+a good initialisation in the training environment, however, the rate of convergence of these techniques was the same as for DQN,
+meaning that "forgetting" occurs and that knowledge is not successfully transferred from the pretrained networks to the final policy. It
+was attempted to apply these techniques to a two-stage decomposition approach, however this proved to be difficult as a good
+initialisation of the second stage required a long training time in the first stage.
+
+\paragraph{}
+After testing 'DeltaSwitch' in different environments it was also found that different decomposition types perform better in
+different scenarios. For example, in 'GridEps2', the best performance was achieved by decomposing by position, which is different
+from the initially proposed type of decomposition that relies applying a threshold to transition probabilities. This suggests that
+the decomposition doesn't necessarily have to separate semi-independent problems to provide a performance gain, as long as it
+simplifies the funcitons that the neural networks have to learn.
 
 \paragraph{}
 The two transfer learning techniques inspired two other techniques having only one-stage. These are basically the transfer
 learning techniques in which the pretrained networks are not pretrained, but are trained simultaneously with the combining network.
 The architecture using a simple combining network did not present any performance gain over DQN, while the one using a progressive
-network architecture did.
+network architecture showed performance gains in some environments.
 
 \paragraph{}
-It was thus found that the state-decomposition technique can lead to "cheaper" training, meaning that the rewards are higher during
-the training process. The 'DeltaSwitch' agent showed the best performance in my tests, while the progressive network architecture
-showed slightly lower performance but it can be used with a wider range of decompositions. A possible use is in the allocation of
-tasks to interconnected data-centres. A performance gain was only achieved using one stage approaches, however, two-stage
-approaches could be successful if a way to successfully transfer knowledge to the second stage is determined.
+It was thus found that the state-decomposition technique can lead to "cheaper" training, meaning that the rewards are higher
+during the training process. The 'DeltaSwitch' agent showed the best performance in my tests, while the progressive network
+architecture showed slightly lower performance but it can be used with a wider range of decompositions. A possible application of
+these techniques is in the allocation of tasks to interconnected data-centres. A performance gain was only achieved using one
+stage approaches, however, two-stage approaches could be successful if a way to successfully transfer knowledge to the second
+stage is determined.
 
 \section{Discussion}
 
 \paragraph{}
 One limitation of this project is that due to timing and computational constraints, the state-decomposition technique was only
-tested in relatively simple environments with small state-spaces. As this technique aims to aid in scenarios with very large
-state-spaces, it would be useful to test it in such environments. However, I predict that the performance gain of
+tested in relatively simple environments with relatively small state-spaces. As this technique aims to aid in scenarios with very
+large state-spaces, it would be useful to test it in such environments. However, I predict that the performance gain of
 state-decomposition could increase further for very large state-spaces. The reason is that the environments used in this project
 were small enough so that all states were likely to be visited multiple times and the neural networks approximating Q-values would
-not have to massively rely on generalisation. However, the generalisation properties of neural networks are increasingly important
+not have to rely on generalisation. However, the generalisation properties of neural networks are increasingly important
 as the size of the state-space increases, as it becomes harder to visit all the states during training. As the state-decomposition
 methods train a sub-agent for each sub-space, these agents only have to generalise over the smaller sub-spaces. It might be that
 this effect outweighs the fact that there are fewer samples for each sub-space than for the whole state-space, leading to better
-generalisation and thus faster convergence. 
+generalisation and thus faster convergence and even better performance improvement. 
 
 \paragraph{}
 Additionally, for the tested scenarios a higher performance was achieved using bigger neural networks, due to the small size of
 the state-spaces which leads to better learning with massive neural networks that simply memorize values for each possible state,
 thus overfitting. However, in scenarios with big state-spaces that rely on generalisation, overfitting is very harmful. The
-state-decomposition technique by simplifying the functions that the neural networks have to learn, could allow the use of smaller
-neural networks that are less likely to overfit.
+state-decomposition technique, by simplifying the functions that the neural networks have to learn, could allow the use of smaller
+neural networks that are less likely to overfit, leading to better performance in environment with very large state-spaces.
 
 \paragraph{}
 A limitation of the state-decomposition method, at least in the explored versions, is that it fails to exploit similarities
-between sub-spaces. This is because while diving the state-space into smaller sub-spaces, it also reduces the number of available
-training samples for each sub-space, as each sample is only used by one sub-space. However, some of these samples could provide
-information for many similar sub-spaces. For example, in the 'Grid' environment there are pair of states that are specular to each
-other, as in their action-values are almost identical for swapped actions. A more efficient technique would be able to identify
+between sub-spaces. This is because while dividing the state-space into smaller sub-spaces, it also reduces the number of
+available training samples for each sub-space, as each sample is only used by one sub-space. However, some of these samples could
+provide information for many similar sub-spaces. For example, in the 'Grid' environment, learning to navigate to one destination
+clearly could have some carry-over to learning how to navigate to the other. A more efficient technique would be able to identify
 these similarities and further improve sample-efficiency.
 
 \paragraph{}
 Another problem is that while it was shown that the state-decomposition method can lead to performance gains in certain
-environments, using certain network architectures and and hyperparameters, this doesn't necessarily imply that this would also
+environments, using certain network architectures and hyperparameters, this doesn't necessarily imply that this would also
 occur with different design choices. For example, all experiments shown in this report used an $\epsilon$-greedy policy and
 $\gamma=0.95$, however, different values of these might affect the results.
 
@@ -76,16 +85,15 @@ report.
 \section{Extensions}
 
 \paragraph{Finding the state-transition matrix}
-The first step in the state-decomposition method is to obtain the state-transition matrix. Since we are testing the algorithm in
-software simulations, the state-transition matrix can be easily obtained from the source code of the environments and it can be
-considered as given. This is usually not the case, so at a later stage we shall test methods to approximate the state-transition
-matrix. This can be done by interacting with the environment and sampling the $\langle S,A,R,S' \rangle$ tuples that are
-generated. Since the state-transition probabilities are dependent on the action, the state-transition matrix is dependent on the
-chosen policy. As we are conducting this before the training and we have no information about the optimal policy, we choose to use
-the most general possible policy to obtain the state-transition table, that is, the actions are all chosen with equal probability
-independently of the current state. The number of iterations required to construct the state-transition matrix is dependant on the
-number of states, actions, the probability of visiting each different state and the required level of accuracy of the
-state-transition matrix estimate. 
+The first step in the originally proposed state-decomposition method is to obtain the state-transition matrix, as this is usually
+unknown. A possible extension would be to investigate ways to efficiently estimate this for the purposes of state-decomposition.
+This could be done by interacting with the environment and sampling the $\langle S,A,R,S' \rangle$ tuples that are generated. Since
+the state-transition probabilities are dependent on the action, the state-transition matrix is dependent on the chosen policy. As
+this is conducted before the training, when we have no information about the optimal policy, we could choose to use the most general
+possible policy to obtain the state-transition table, that is, the actions are all chosen with equal probability independently of
+the current state. The number of iterations required to construct the state-transition matrix is dependant on the number of
+states, actions, the probability of visiting each different state and the required level of accuracy of the state-transition
+matrix estimate, which also would need to be determined. 
 
 \paragraph{Compression and embeddings of states} The state-decomposition algorithm divides the original state-space of the system
 into smaller groups of states. It can be supposed that the variance of the states within these sub-spaces is smaller than in the
@@ -97,32 +105,32 @@ reduction.
 \paragraph{Applying state-decomposition to continuous state-spaces} The state-decomposition method is only applicable to discrete
 state spaces. A possible extension would investigate methods to decompose continuous state-spaces. A state-transition matrix could
 be obtained by discretising the states and the state-space would be decomposed accordingly, while the agents could still be fed
-the original continuous states as input.
+the original continuous states as inputs.
 
 \label{sec:different-decompositions}
 \paragraph{Different types of decomposition} This project mostly focused on decomposition using transition probabilities, however
 this is not the only possible kind of decomposition, as seen in the data centres example. Example of different decompositions are:
 \begin{itemize}
-    \item \textbf{Applying threshold to transitions between whole sub-spaces} The original state-decomposition method in this
-    project consists of temporarily ignoring improbable state transitions by applying a threshold to the state-transition matrix.
-    There are scenarios in which groups of states are connected by state-transitions that have a high probability but it would
-    still be useful to consider them as separate sub-spaces. Consider for example Figure-\ref{fig:connected-states}, where an MDP
-    is composed of nearly independent sub-spaces that are only connected by the blue transitions. In such a scenario it could be
-    useful to determine the sub-spaces by limiting the number of possible non-zero transition probabilities between any two
-    sub-spaces rather than applying a probability threshold to every single transition. Alternatively, we could apply a threshold
-    to transition probabilities between sub-spaces instead of single states.
+    \item \textbf{Applying threshold to transitions between whole sub-spaces} The original state-decomposition method consists of
+    temporarily ignoring improbable state transitions by applying a threshold to the state-transition matrix. There are scenarios
+    in which groups of states are connected by state-transitions that have a high probability but it would still be useful to
+    consider them as separate sub-spaces. Consider for example Figure-\ref{fig:connected-states}, where an MDP is composed of
+    nearly independent sub-spaces that are only connected by the blue transitions. In such a scenario it could be useful to
+    determine the sub-spaces by limiting the number of possible non-zero transition probabilities between any two sub-spaces
+    rather than applying a probability threshold to every single transition. Alternatively, we could apply a threshold to
+    transition probabilities between whole sub-spaces instead of single states. 
     \item \textbf{Decomposing along the length of the state vector} This could be useful in a case like the example with
     data-centres, in which different transitions are only likely to affect different sections of the input state's representation
-    vector. Thus, different neural networks could deal with each of these sections separately.
+    vector. Thus, different neural networks could deal with each of these sections of the vector separately.
 \end{itemize}
 
 \paragraph{Sharing information between sub-agents} Consider a system composed of many identical sub-systems. The proposed
 decomposition method would be able to exploit the structure of the system to learn more efficiently. However, in this case, it
 would be possible to also exploit the similarity of the sub-systems in order to be even more efficient. This is because in this
 case, the sub-agents would basically be identical, meaning that the samples belonging to one sub-space could also be used to train
-the agents of the other sub-spaces. This is an extreme scenario, however, there are many common environments in which the
-sub-systems are similar if not identical. Studying ways to share learned information between sub-agents to exploit the similarity
-of the sub-spaces could further increasing the sample efficiency of training.
+the agents of the other sub-spaces. This is an extreme scenario, however, there are many environments in which the sub-systems are
+similar if not identical. Studying ways to share learned information between sub-agents to exploit the similarity of the
+sub-spaces could further increase the sample efficiency of training.
 
 \input{graphs/connected-states}
 

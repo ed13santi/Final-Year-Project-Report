@@ -5,7 +5,7 @@
 \contentsline {paragraph}{}{2}{section*.6}%
 \contentsline {section}{\numberline {1.2}Project Definition}{2}{section.7}%
 \contentsline {paragraph}{}{2}{section*.8}%
-\contentsline {paragraph}{}{2}{section*.9}%
+\contentsline {paragraph}{}{3}{section*.9}%
 \contentsline {section}{\numberline {1.3}Structure of the report}{3}{section.10}%
 \contentsline {paragraph}{}{3}{section*.11}%
 \contentsline {chapter}{\numberline {2}Background}{4}{chapter.12}%
@@ -14,128 +14,135 @@
 \contentsline {paragraph}{}{4}{section*.16}%
 \contentsline {paragraph}{}{4}{section*.19}%
 \contentsline {paragraph}{}{5}{section*.22}%
-\contentsline {paragraph}{}{5}{section*.27}%
-\contentsline {paragraph}{}{6}{section*.39}%
-\contentsline {paragraph}{}{6}{section*.42}%
-\contentsline {paragraph}{}{6}{section*.45}%
-\contentsline {paragraph}{}{7}{section*.48}%
-\contentsline {section}{\numberline {2.2}Neural networks}{7}{section.49}%
-\contentsline {section}{\numberline {2.3}Q-learning and Deep Q-learning}{7}{section.50}%
-\contentsline {paragraph}{}{7}{section*.51}%
-\contentsline {paragraph}{}{7}{section*.53}%
-\contentsline {paragraph}{}{7}{section*.54}%
-\contentsline {paragraph}{}{7}{section*.55}%
-\contentsline {paragraph}{}{8}{section*.57}%
-\contentsline {paragraph}{}{8}{section*.59}%
-\contentsline {section}{\numberline {2.4}Problem of large state-spaces}{8}{section.60}%
-\contentsline {paragraph}{}{8}{section*.61}%
-\contentsline {paragraph}{}{8}{section*.62}%
-\contentsline {paragraph}{}{8}{section*.63}%
-\contentsline {paragraph}{}{8}{section*.64}%
-\contentsline {chapter}{\numberline {3}State-Decomposition method}{10}{chapter.66}%
-\contentsline {paragraph}{}{10}{section*.67}%
-\contentsline {section}{\numberline {3.1}Originally proposed method}{10}{section.68}%
-\contentsline {paragraph}{}{10}{section*.69}%
-\contentsline {paragraph}{}{10}{section*.72}%
-\contentsline {paragraph}{}{11}{section*.74}%
-\contentsline {paragraph}{}{12}{section*.76}%
-\contentsline {paragraph}{}{12}{section*.78}%
-\contentsline {paragraph}{}{12}{section*.79}%
-\contentsline {section}{\numberline {3.2}Decomposing state trans. matrix, when this is known}{12}{section.80}%
-\contentsline {paragraph}{}{12}{section*.81}%
-\contentsline {paragraph}{}{13}{section*.84}%
-\contentsline {chapter}{\numberline {4}Design and testing}{14}{chapter.87}%
-\contentsline {paragraph}{}{14}{section*.88}%
-\contentsline {section}{\numberline {4.1}Tools}{14}{section.89}%
-\contentsline {paragraph}{Python}{14}{section*.90}%
-\contentsline {paragraph}{Google Colaboratory (Colab)}{14}{section*.91}%
-\contentsline {paragraph}{Keras}{14}{section*.93}%
-\contentsline {paragraph}{OpenAI Gym}{14}{section*.94}%
-\contentsline {section}{\numberline {4.2}Environments}{15}{section.96}%
-\contentsline {paragraph}{}{15}{section*.97}%
-\contentsline {paragraph}{}{15}{section*.100}%
-\contentsline {paragraph}{}{16}{section*.101}%
-\contentsline {paragraph}{}{16}{section*.105}%
-\contentsline {paragraph}{}{16}{section*.110}%
-\contentsline {paragraph}{}{17}{section*.111}%
-\contentsline {paragraph}{}{17}{section*.113}%
-\contentsline {paragraph}{}{17}{section*.114}%
-\contentsline {paragraph}{}{18}{section*.116}%
-\contentsline {paragraph}{}{18}{section*.117}%
-\contentsline {section}{\numberline {4.3}Benchmark DQN agent}{18}{section.118}%
-\contentsline {paragraph}{}{18}{section*.119}%
-\contentsline {paragraph}{}{18}{section*.120}%
-\contentsline {paragraph}{}{19}{section*.121}%
-\contentsline {paragraph}{}{19}{section*.125}%
-\contentsline {section}{\numberline {4.4}Ensuring fair comparison}{19}{section.126}%
-\contentsline {chapter}{\numberline {5}Results}{20}{chapter.127}%
-\contentsline {section}{\numberline {5.1}Evaluation method}{20}{section.128}%
-\contentsline {paragraph}{}{20}{section*.129}%
-\contentsline {paragraph}{}{21}{section*.131}%
-\contentsline {section}{\numberline {5.2}Effect of state representations}{21}{section.132}%
-\contentsline {paragraph}{}{21}{section*.133}%
-\contentsline {paragraph}{}{22}{section*.139}%
-\contentsline {section}{\numberline {5.3}Effect of the NN's size}{22}{section.140}%
-\contentsline {section}{\numberline {5.4}Initial results}{23}{section.142}%
-\contentsline {section}{\numberline {5.5}A simple approach to decomposition: 'DeltaSwitch'}{24}{section.144}%
-\contentsline {paragraph}{}{24}{section*.145}%
-\contentsline {paragraph}{}{25}{section*.148}%
-\contentsline {paragraph}{}{25}{section*.149}%
-\contentsline {paragraph}{}{26}{section*.151}%
-\contentsline {paragraph}{}{26}{section*.152}%
-\contentsline {paragraph}{}{26}{section*.153}%
-\contentsline {subsection}{\numberline {5.5.1}Applying 'DeltaSwitch' to non-prefectly decomposable environment}{27}{subsection.156}%
-\contentsline {paragraph}{}{27}{section*.157}%
-\contentsline {paragraph}{}{27}{section*.159}%
-\contentsline {paragraph}{}{27}{section*.160}%
-\contentsline {subsection}{\numberline {5.5.2}Effect of using reduced encoding}{27}{subsection.161}%
-\contentsline {paragraph}{}{27}{section*.162}%
-\contentsline {paragraph}{}{29}{section*.164}%
-\contentsline {subsection}{\numberline {5.5.3}Effect of wall}{29}{subsection.165}%
-\contentsline {paragraph}{}{29}{section*.166}%
-\contentsline {paragraph}{}{29}{section*.167}%
-\contentsline {paragraph}{}{30}{section*.169}%
-\contentsline {section}{\numberline {5.6}A different approach based on transfer learning}{30}{section.170}%
-\contentsline {paragraph}{}{30}{section*.171}%
-\contentsline {paragraph}{}{31}{section*.173}%
-\contentsline {paragraph}{}{31}{section*.175}%
-\contentsline {paragraph}{}{32}{section*.177}%
-\contentsline {paragraph}{}{33}{section*.181}%
-\contentsline {paragraph}{}{34}{section*.185}%
-\contentsline {paragraph}{}{34}{section*.187}%
-\contentsline {paragraph}{}{35}{section*.189}%
-\contentsline {section}{\numberline {5.7}Techniques to learn the 'switch'}{35}{section.190}%
-\contentsline {paragraph}{}{35}{section*.191}%
-\contentsline {paragraph}{}{35}{section*.192}%
-\contentsline {paragraph}{}{36}{section*.196}%
-\contentsline {paragraph}{}{37}{section*.197}%
-\contentsline {chapter}{\numberline {6}Applicability of the proposed technique}{38}{chapter.198}%
-\contentsline {paragraph}{}{38}{section*.199}%
-\contentsline {paragraph}{}{38}{section*.200}%
-\contentsline {paragraph}{}{38}{section*.202}%
-\contentsline {paragraph}{}{39}{section*.203}%
-\contentsline {paragraph}{}{39}{section*.204}%
-\contentsline {paragraph}{}{40}{section*.206}%
-\contentsline {paragraph}{}{40}{section*.207}%
-\contentsline {chapter}{\numberline {7}Conclusions and Further Work}{41}{chapter.208}%
-\contentsline {section}{\numberline {7.1}Findings}{41}{section.209}%
-\contentsline {paragraph}{}{41}{section*.210}%
-\contentsline {paragraph}{}{41}{section*.211}%
-\contentsline {paragraph}{}{41}{section*.212}%
-\contentsline {paragraph}{}{41}{section*.213}%
-\contentsline {section}{\numberline {7.2}Discussion}{42}{section.214}%
-\contentsline {paragraph}{}{42}{section*.215}%
-\contentsline {paragraph}{}{42}{section*.216}%
-\contentsline {paragraph}{}{42}{section*.217}%
-\contentsline {paragraph}{}{42}{section*.218}%
-\contentsline {paragraph}{}{42}{section*.219}%
-\contentsline {section}{\numberline {7.3}Extensions}{42}{section.220}%
-\contentsline {paragraph}{Finding the state-transition matrix}{42}{section*.221}%
-\contentsline {paragraph}{Compression and embeddings of states}{43}{section*.222}%
-\contentsline {paragraph}{Applying state-decomposition to continuous state-spaces}{43}{section*.223}%
-\contentsline {paragraph}{Different types of decomposition}{43}{section*.224}%
-\contentsline {paragraph}{Sharing information between sub-agents}{43}{section*.225}%
-\contentsline {paragraph}{Using state-decomposition for automatic sub-goal discovery}{44}{section*.227}%
-\contentsline {paragraph}{Proving mathematical bounds}{44}{section*.228}%
-\contentsline {paragraph}{Applying state-decomposition to policy gradient algorithms}{44}{section*.229}%
-\contentsline {chapter}{\numberline {A}Performance graphs}{48}{appendix.231}%
+\contentsline {paragraph}{}{6}{section*.27}%
+\contentsline {paragraph}{}{7}{section*.39}%
+\contentsline {paragraph}{}{7}{section*.42}%
+\contentsline {paragraph}{}{7}{section*.45}%
+\contentsline {paragraph}{}{8}{section*.48}%
+\contentsline {section}{\numberline {2.2}Artificial Neural Networks}{8}{section.49}%
+\contentsline {paragraph}{}{8}{section*.50}%
+\contentsline {paragraph}{}{8}{section*.51}%
+\contentsline {paragraph}{}{8}{section*.53}%
+\contentsline {paragraph}{}{9}{section*.55}%
+\contentsline {section}{\numberline {2.3}Q-learning and Deep Q-learning}{10}{section.56}%
+\contentsline {paragraph}{}{10}{section*.57}%
+\contentsline {paragraph}{}{10}{section*.59}%
+\contentsline {paragraph}{}{10}{section*.60}%
+\contentsline {paragraph}{}{10}{section*.61}%
+\contentsline {paragraph}{}{11}{section*.63}%
+\contentsline {paragraph}{}{11}{section*.65}%
+\contentsline {section}{\numberline {2.4}Problem of large state-spaces}{11}{section.66}%
+\contentsline {paragraph}{}{11}{section*.67}%
+\contentsline {paragraph}{}{11}{section*.68}%
+\contentsline {paragraph}{}{12}{section*.69}%
+\contentsline {paragraph}{}{12}{section*.70}%
+\contentsline {chapter}{\numberline {3}State-Decomposition method}{13}{chapter.72}%
+\contentsline {paragraph}{}{13}{section*.73}%
+\contentsline {section}{\numberline {3.1}Originally proposed method}{13}{section.74}%
+\contentsline {paragraph}{}{13}{section*.75}%
+\contentsline {paragraph}{}{13}{section*.76}%
+\contentsline {paragraph}{}{14}{section*.79}%
+\contentsline {paragraph}{}{14}{section*.81}%
+\contentsline {paragraph}{}{15}{section*.83}%
+\contentsline {paragraph}{}{16}{section*.84}%
+\contentsline {paragraph}{}{16}{section*.85}%
+\contentsline {section}{\numberline {3.2}Decomposing state trans. matrix, when this is known}{16}{section.86}%
+\contentsline {paragraph}{}{16}{section*.87}%
+\contentsline {paragraph}{}{17}{section*.90}%
+\contentsline {chapter}{\numberline {4}Experimental method}{18}{chapter.93}%
+\contentsline {paragraph}{}{18}{section*.94}%
+\contentsline {section}{\numberline {4.1}Tools}{18}{section.95}%
+\contentsline {paragraph}{Python}{18}{section*.96}%
+\contentsline {paragraph}{Google Colaboratory (Colab)}{18}{section*.97}%
+\contentsline {paragraph}{Keras}{19}{section*.99}%
+\contentsline {paragraph}{OpenAI Gym}{19}{section*.100}%
+\contentsline {section}{\numberline {4.2}Environments}{19}{section.102}%
+\contentsline {paragraph}{}{19}{section*.103}%
+\contentsline {paragraph}{}{20}{section*.106}%
+\contentsline {paragraph}{}{20}{section*.107}%
+\contentsline {paragraph}{}{21}{section*.111}%
+\contentsline {paragraph}{}{21}{section*.116}%
+\contentsline {paragraph}{}{22}{section*.117}%
+\contentsline {paragraph}{}{22}{section*.119}%
+\contentsline {paragraph}{}{22}{section*.120}%
+\contentsline {paragraph}{}{23}{section*.122}%
+\contentsline {paragraph}{}{23}{section*.123}%
+\contentsline {section}{\numberline {4.3}Benchmark DQN agent}{23}{section.124}%
+\contentsline {paragraph}{}{23}{section*.125}%
+\contentsline {paragraph}{}{24}{section*.126}%
+\contentsline {paragraph}{}{24}{section*.127}%
+\contentsline {paragraph}{}{25}{section*.132}%
+\contentsline {section}{\numberline {4.4}Ensuring fair comparison}{25}{section.133}%
+\contentsline {chapter}{\numberline {5}Results}{26}{chapter.134}%
+\contentsline {section}{\numberline {5.1}Evaluation method}{26}{section.135}%
+\contentsline {paragraph}{}{26}{section*.136}%
+\contentsline {paragraph}{}{27}{section*.138}%
+\contentsline {section}{\numberline {5.2}Effect of state representations}{27}{section.139}%
+\contentsline {paragraph}{}{27}{section*.140}%
+\contentsline {paragraph}{}{29}{section*.146}%
+\contentsline {section}{\numberline {5.3}Effect of the NN's size}{29}{section.147}%
+\contentsline {section}{\numberline {5.4}Initial results}{30}{section.149}%
+\contentsline {section}{\numberline {5.5}A simple approach to decomposition: 'DeltaSwitch'}{31}{section.151}%
+\contentsline {paragraph}{}{31}{section*.152}%
+\contentsline {paragraph}{}{32}{section*.155}%
+\contentsline {paragraph}{}{33}{section*.156}%
+\contentsline {paragraph}{}{33}{section*.158}%
+\contentsline {paragraph}{}{34}{section*.159}%
+\contentsline {paragraph}{}{34}{section*.160}%
+\contentsline {subsection}{\numberline {5.5.1}Applying 'DeltaSwitch' to non-prefectly decomposable environment}{35}{subsection.163}%
+\contentsline {paragraph}{}{35}{section*.164}%
+\contentsline {paragraph}{}{35}{section*.166}%
+\contentsline {paragraph}{}{35}{section*.167}%
+\contentsline {paragraph}{}{35}{section*.168}%
+\contentsline {subsection}{\numberline {5.5.2}Effect of using reduced encoding}{37}{subsection.169}%
+\contentsline {paragraph}{}{37}{section*.170}%
+\contentsline {paragraph}{}{37}{section*.172}%
+\contentsline {subsection}{\numberline {5.5.3}Effect of wall}{38}{subsection.174}%
+\contentsline {paragraph}{}{38}{section*.175}%
+\contentsline {paragraph}{}{38}{section*.176}%
+\contentsline {paragraph}{}{38}{section*.178}%
+\contentsline {section}{\numberline {5.6}A different approach based on transfer learning}{39}{section.179}%
+\contentsline {paragraph}{}{39}{section*.180}%
+\contentsline {paragraph}{}{39}{section*.182}%
+\contentsline {paragraph}{}{40}{section*.184}%
+\contentsline {paragraph}{}{40}{section*.186}%
+\contentsline {paragraph}{}{41}{section*.190}%
+\contentsline {paragraph}{}{42}{section*.194}%
+\contentsline {paragraph}{}{43}{section*.197}%
+\contentsline {paragraph}{}{44}{section*.199}%
+\contentsline {section}{\numberline {5.7}Techniques to learn the 'switch'}{44}{section.200}%
+\contentsline {paragraph}{}{44}{section*.201}%
+\contentsline {paragraph}{}{45}{section*.203}%
+\contentsline {paragraph}{}{46}{section*.207}%
+\contentsline {paragraph}{}{46}{section*.208}%
+\contentsline {chapter}{\numberline {6}Applicability of the proposed techniques}{47}{chapter.209}%
+\contentsline {paragraph}{}{47}{section*.210}%
+\contentsline {paragraph}{}{47}{section*.211}%
+\contentsline {paragraph}{}{48}{section*.213}%
+\contentsline {paragraph}{}{48}{section*.214}%
+\contentsline {paragraph}{}{48}{section*.215}%
+\contentsline {paragraph}{}{49}{section*.217}%
+\contentsline {paragraph}{}{49}{section*.218}%
+\contentsline {chapter}{\numberline {7}Conclusions and Further Work}{51}{chapter.219}%
+\contentsline {section}{\numberline {7.1}Findings}{51}{section.220}%
+\contentsline {paragraph}{}{51}{section*.221}%
+\contentsline {paragraph}{}{51}{section*.222}%
+\contentsline {paragraph}{}{51}{section*.223}%
+\contentsline {paragraph}{}{52}{section*.224}%
+\contentsline {paragraph}{}{52}{section*.225}%
+\contentsline {section}{\numberline {7.2}Discussion}{52}{section.226}%
+\contentsline {paragraph}{}{52}{section*.227}%
+\contentsline {paragraph}{}{52}{section*.228}%
+\contentsline {paragraph}{}{53}{section*.229}%
+\contentsline {paragraph}{}{53}{section*.230}%
+\contentsline {paragraph}{}{53}{section*.231}%
+\contentsline {section}{\numberline {7.3}Extensions}{53}{section.232}%
+\contentsline {paragraph}{Finding the state-transition matrix}{53}{section*.233}%
+\contentsline {paragraph}{Compression and embeddings of states}{54}{section*.234}%
+\contentsline {paragraph}{Applying state-decomposition to continuous state-spaces}{54}{section*.235}%
+\contentsline {paragraph}{Different types of decomposition}{54}{section*.236}%
+\contentsline {paragraph}{Sharing information between sub-agents}{54}{section*.237}%
+\contentsline {paragraph}{Using state-decomposition for automatic sub-goal discovery}{55}{section*.239}%
+\contentsline {paragraph}{Proving mathematical bounds}{55}{section*.240}%
+\contentsline {paragraph}{Applying state-decomposition to policy gradient algorithms}{55}{section*.241}%
+\contentsline {chapter}{\numberline {A}Performance graphs}{59}{appendix.243}%

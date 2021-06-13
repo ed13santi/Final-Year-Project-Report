@@ -4,31 +4,31 @@
 \BOOKMARK [1][-]{section.10}{Structure of the report}{chapter.3}% 4
 \BOOKMARK [0][-]{chapter.12}{Background}{}% 5
 \BOOKMARK [1][-]{section.13}{Reinforcement learning}{chapter.12}% 6
-\BOOKMARK [1][-]{section.49}{Neural networks}{chapter.12}% 7
-\BOOKMARK [1][-]{section.50}{Q-learning and Deep Q-learning}{chapter.12}% 8
-\BOOKMARK [1][-]{section.60}{Problem of large state-spaces}{chapter.12}% 9
-\BOOKMARK [0][-]{chapter.66}{State-Decomposition method}{}% 10
-\BOOKMARK [1][-]{section.68}{Originally proposed method}{chapter.66}% 11
-\BOOKMARK [1][-]{section.80}{Decomposing state trans. matrix, when this is known}{chapter.66}% 12
-\BOOKMARK [0][-]{chapter.87}{Design and testing}{}% 13
-\BOOKMARK [1][-]{section.89}{Tools}{chapter.87}% 14
-\BOOKMARK [1][-]{section.96}{Environments}{chapter.87}% 15
-\BOOKMARK [1][-]{section.118}{Benchmark DQN agent}{chapter.87}% 16
-\BOOKMARK [1][-]{section.126}{Ensuring fair comparison}{chapter.87}% 17
-\BOOKMARK [0][-]{chapter.127}{Results}{}% 18
-\BOOKMARK [1][-]{section.128}{Evaluation method}{chapter.127}% 19
-\BOOKMARK [1][-]{section.132}{Effect of state representations}{chapter.127}% 20
-\BOOKMARK [1][-]{section.140}{Effect of the NN's size}{chapter.127}% 21
-\BOOKMARK [1][-]{section.142}{Initial results}{chapter.127}% 22
-\BOOKMARK [1][-]{section.144}{A simple approach to decomposition: 'DeltaSwitch'}{chapter.127}% 23
-\BOOKMARK [2][-]{subsection.156}{Applying 'DeltaSwitch' to non-prefectly decomposable environment}{section.144}% 24
-\BOOKMARK [2][-]{subsection.161}{Effect of using reduced encoding}{section.144}% 25
-\BOOKMARK [2][-]{subsection.165}{Effect of wall}{section.144}% 26
-\BOOKMARK [1][-]{section.170}{A different approach based on transfer learning}{chapter.127}% 27
-\BOOKMARK [1][-]{section.190}{Techniques to learn the 'switch'}{chapter.127}% 28
-\BOOKMARK [0][-]{chapter.198}{Applicability of the proposed technique}{}% 29
-\BOOKMARK [0][-]{chapter.208}{Conclusions and Further Work}{}% 30
-\BOOKMARK [1][-]{section.209}{Findings}{chapter.208}% 31
-\BOOKMARK [1][-]{section.214}{Discussion}{chapter.208}% 32
-\BOOKMARK [1][-]{section.220}{Extensions}{chapter.208}% 33
-\BOOKMARK [0][-]{appendix.231}{Performance graphs}{}% 34
+\BOOKMARK [1][-]{section.49}{Artificial Neural Networks}{chapter.12}% 7
+\BOOKMARK [1][-]{section.56}{Q-learning and Deep Q-learning}{chapter.12}% 8
+\BOOKMARK [1][-]{section.66}{Problem of large state-spaces}{chapter.12}% 9
+\BOOKMARK [0][-]{chapter.72}{State-Decomposition method}{}% 10
+\BOOKMARK [1][-]{section.74}{Originally proposed method}{chapter.72}% 11
+\BOOKMARK [1][-]{section.86}{Decomposing state trans. matrix, when this is known}{chapter.72}% 12
+\BOOKMARK [0][-]{chapter.93}{Experimental method}{}% 13
+\BOOKMARK [1][-]{section.95}{Tools}{chapter.93}% 14
+\BOOKMARK [1][-]{section.102}{Environments}{chapter.93}% 15
+\BOOKMARK [1][-]{section.124}{Benchmark DQN agent}{chapter.93}% 16
+\BOOKMARK [1][-]{section.133}{Ensuring fair comparison}{chapter.93}% 17
+\BOOKMARK [0][-]{chapter.134}{Results}{}% 18
+\BOOKMARK [1][-]{section.135}{Evaluation method}{chapter.134}% 19
+\BOOKMARK [1][-]{section.139}{Effect of state representations}{chapter.134}% 20
+\BOOKMARK [1][-]{section.147}{Effect of the NN's size}{chapter.134}% 21
+\BOOKMARK [1][-]{section.149}{Initial results}{chapter.134}% 22
+\BOOKMARK [1][-]{section.151}{A simple approach to decomposition: 'DeltaSwitch'}{chapter.134}% 23
+\BOOKMARK [2][-]{subsection.163}{Applying 'DeltaSwitch' to non-prefectly decomposable environment}{section.151}% 24
+\BOOKMARK [2][-]{subsection.169}{Effect of using reduced encoding}{section.151}% 25
+\BOOKMARK [2][-]{subsection.174}{Effect of wall}{section.151}% 26
+\BOOKMARK [1][-]{section.179}{A different approach based on transfer learning}{chapter.134}% 27
+\BOOKMARK [1][-]{section.200}{Techniques to learn the 'switch'}{chapter.134}% 28
+\BOOKMARK [0][-]{chapter.209}{Applicability of the proposed techniques}{}% 29
+\BOOKMARK [0][-]{chapter.219}{Conclusions and Further Work}{}% 30
+\BOOKMARK [1][-]{section.220}{Findings}{chapter.219}% 31
+\BOOKMARK [1][-]{section.226}{Discussion}{chapter.219}% 32
+\BOOKMARK [1][-]{section.232}{Extensions}{chapter.219}% 33
+\BOOKMARK [0][-]{appendix.243}{Performance graphs}{}% 34
