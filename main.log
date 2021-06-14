@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.10.27)  13 JUN 2021 16:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.10.27)  14 JUN 2021 11:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1134,150 +1134,32 @@ File: figures/modified-progressive.pdf Graphic file (type pdf)
 <use figures/modified-progressive.pdf>
 Package pdftex.def Info: figures/modified-progressive.pdf  used on input line 462.
 (pdftex.def)             Requested size: 219.08614pt x 259.17145pt.
-[43 </Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/figures/progressive.pdf>] [44 </Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/figures/modified-progressive.pdf>]
-<figures/simultaneous.pdf, id=1324, 433.62pt x 289.08pt>
-File: figures/simultaneous.pdf Graphic file (type pdf)
-<use figures/simultaneous.pdf>
-Package pdftex.def Info: figures/simultaneous.pdf  used on input line 508.
-(pdftex.def)             Requested size: 219.08614pt x 146.05702pt.
- [45 </Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/figures/simultaneous.pdf>]) (/Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/evaluation.tex [46]
+[43 </Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/figures/progressive.pdf>]
+
+LaTeX Warning: Reference `fig:progressive-combining-simultaneous' on page 44 undefined on input line 502.
+
+[44 </Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/figures/modified-progressive.pdf>]
+
+LaTeX Warning: Reference `fig:progressive-combining-simultaneous' on page 45 undefined on input line 517.
+
+[45]) (/Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/evaluation.tex [46]
 Chapter 6.
 
 
 pdfTeX warning: pdflatex (file /Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/figures/dataCentres.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<figures/dataCentres.pdf, id=1383, 225.7233pt x 277.035pt>
+<figures/dataCentres.pdf, id=1338, 225.7233pt x 277.035pt>
 File: figures/dataCentres.pdf Graphic file (type pdf)
 <use figures/dataCentres.pdf>
 Package pdftex.def Info: figures/dataCentres.pdf  used on input line 15.
-(pdftex.def)             Requested size: 131.45302pt x 161.33562pt.
+(pdftex.def)             Requested size: 219.08614pt x 268.8927pt.
 [47
 
- </Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/figures/dataCentres.pdf>] [48]
+] [48 </Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/figures/dataCentres.pdf>]
 
 pdfTeX warning: pdflatex (file /Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/figures/data-centre-decomposition.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<figures/data-centre-decomposition.pdf, id=1410, 399.41219pt x 218.7372pt>
+<figures/data-centre-decomposition.pdf, id=1363, 399.41219pt x 218.7372pt>
 File: figures/data-centre-decomposition.pdf Graphic file (type pdf)
 <use figures/data-centre-decomposition.pdf>
 Package pdftex.def Info: figures/data-centre-decomposition.pdf  used on input line 60.
-(pdftex.def)             Requested size: 306.71924pt x 167.97423pt.
-[49 </Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/figures/data-centre-decomposition.pdf>]) (/Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/conclusion.tex [50]
-Chapter 7.
-[51
-
-] [52]
-Overfull \hbox (27.45374pt too wide) in paragraph at lines 88--97
- []\OT1/bch/b/n/10.95 Finding the state-transition ma-trix[] \OT1/bch/m/n/10.95 The first step in the orig-i-nally pro-posed state-decomposition
- []
-
-[53]
-Overfull \hbox (13.24069pt too wide) in paragraph at lines 105--109
- []\OT1/bch/b/n/10.95 Applying state-decomposition to con-tin-u-ous state-spaces[] \OT1/bch/m/n/10.95 The state-decomposition method
- []
-
-[54] (/Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/graphs/connected-states.tex)
-Overfull \hbox (26.36967pt too wide) in paragraph at lines 137--144
- []\OT1/bch/b/n/10.95 Using state-decomposition for au-to-matic sub-goal dis-cov-ery[] \OT1/bch/m/n/10.95 The idea of state-decomposition,
- []
-
-) (/Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/main.bbl (/Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/main.brf)
-\tf@brf=\write6
-\openout6 = `main.brf'.
-
- [55]
-Underfull \hbox (badness 2726) in paragraph at lines 63--63
-[]\OT1/bch/m/n/10.95 David Ha and J[]urgen Schmid-hu-ber.  World Mod-els.  \OT1/bch/m/it/10.95 arXiv e-prints\OT1/bch/m/n/10.95 , page
- []
-
-[56
-
-] [57]) (/Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/appendix.tex [58]
-Appendix A.
-<figures/Taxi2_DQN_and_DeltaSwitch.pdf, id=1491, 433.62pt x 289.08pt>
-File: figures/Taxi2_DQN_and_DeltaSwitch.pdf Graphic file (type pdf)
-<use figures/Taxi2_DQN_and_DeltaSwitch.pdf>
-Package pdftex.def Info: figures/Taxi2_DQN_and_DeltaSwitch.pdf  used on input line 8.
-(pdftex.def)             Requested size: 262.90604pt x 175.27989pt.
-<figures/DeltaSwitch_oneHot.pdf, id=1492, 433.62pt x 289.08pt>
-File: figures/DeltaSwitch_oneHot.pdf Graphic file (type pdf)
-<use figures/DeltaSwitch_oneHot.pdf>
-Package pdftex.def Info: figures/DeltaSwitch_oneHot.pdf  used on input line 15.
-(pdftex.def)             Requested size: 262.90604pt x 175.27989pt.
-) [59
-
- </Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/figures/Taxi2_DQN_and_DeltaSwitch.pdf> </Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/figures/DeltaSwitch_oneHot.pdf
-
-pdfTeX warning: pdflatex (file /Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/figures/DeltaSwitch_oneHot.pdf): PDF inclusion: multiple pdfs with page group included in a single page
->]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 68.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 68.
- (/Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 68.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 68.
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 2B667E5D16EC8A6739B57AB45598B86A;2353.
-Package rerunfilecheck Info: File `main.brf' has not changed.
-(rerunfilecheck)             Checksum: F3472785B2F68F0B4E0E3AB42B3AA7E0;2512.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 68.
- ) 
-Here is how much of TeX's memory you used:
- 27118 strings out of 480608
- 529280 string characters out of 5903629
- 871944 words of memory out of 5000000
- 41999 multiletter control sequences out of 15000+600000
- 571036 words of font info for 98 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 63i,16n,85p,533b,1154s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{Hfootnote.205} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.204} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.202} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.195} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.188} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.187} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.183} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.173} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.161} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.141} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.130} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.129} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.128} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.108} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.105} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.104} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.98} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.71} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.64} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.62} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.43} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.18} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{Hfootnote.17} has been referenced but does not exist, replaced by a fixed one
-
-{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2020/texmf-dist/fonts/type1/bitstrea/charter/bchb8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/bitstrea/charter/bchr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/bitstrea/charter/bchr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/bitstrea/charter/bchri8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/doublestroke/dsrom10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on /Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/main.pdf (63 pages, 1636781 bytes).
-PDF statistics:
- 1721 PDF objects out of 1728 (max. 8388607)
- 1076 compressed objects within 11 object streams
- 347 named destinations out of 1000 (max. 500000)
- 455 words of extra memory for PDF output out of 10000 (max. 10000000)
-
+(pdftex.def)             Requested size: 394.35236pt x 215.96638pt.
+[49 </Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/figures/data-centre-d

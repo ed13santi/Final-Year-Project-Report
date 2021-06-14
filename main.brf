@@ -24,7 +24,7 @@
 \backcite {worldModels}{{11}{2.4}{section*.68}}
 \backcite {stateAggregation}{{11}{2.4}{section*.68}}
 \backcite {aggregationHierarchical}{{11}{2.4}{section*.68}}
-\backcite {barto_recent_2003}{{12}{2.4}{section*.69}}
+\backcite {barto_recent_2003}{{11}{2.4}{section*.69}}
 \backcite {dietterich_hierarchical_1999}{{12}{2.4}{section*.69}}
 \backcite {sutton_between_1999}{{12}{2.4}{section*.69}}
 \backcite {parr_reinforcement_nodate}{{12}{2.4}{section*.69}}
@@ -41,5 +41,5 @@
 \backcite {kingma_adam_2017}{{24}{4.3}{section*.127}}
 \backcite {rusu_progressive_2016}{{42}{5.6}{section*.194}}
 \backcite {rusu_progressive_2016}{{43}{5.15}{figure.caption.196}}
-\backcite {simsek_identifying_2005}{{55}{7.3}{section*.239}}
-\backcite {menache_q-cutdynamic_2002}{{55}{7.3}{section*.239}}
+\backcite {simsek_identifying_2005}{{55}{7.3}{section*.238}}
+\backcite {menache_q-cutdynamic_2002}{{55}{7.3}{section*.238}}
