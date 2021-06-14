@@ -1,0 +1,34 @@
+\BOOKMARK [0][-]{chapter.3}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.4}{Motivation}{chapter.3}% 2
+\BOOKMARK [1][-]{section.7}{Project Definition}{chapter.3}% 3
+\BOOKMARK [1][-]{section.10}{Structure of the report}{chapter.3}% 4
+\BOOKMARK [0][-]{chapter.12}{Background}{}% 5
+\BOOKMARK [1][-]{section.13}{Reinforcement learning}{chapter.12}% 6
+\BOOKMARK [1][-]{section.49}{Artificial Neural Networks}{chapter.12}% 7
+\BOOKMARK [1][-]{section.56}{Q-learning and Deep Q-learning}{chapter.12}% 8
+\BOOKMARK [1][-]{section.66}{Problem of large state spaces}{chapter.12}% 9
+\BOOKMARK [0][-]{chapter.72}{state decomposition method}{}% 10
+\BOOKMARK [1][-]{section.74}{Originally proposed method}{chapter.72}% 11
+\BOOKMARK [1][-]{section.86}{Decomposing the state-strans. matrix}{chapter.72}% 12
+\BOOKMARK [0][-]{chapter.93}{Experimental method}{}% 13
+\BOOKMARK [1][-]{section.95}{Tools}{chapter.93}% 14
+\BOOKMARK [1][-]{section.102}{Testing environments}{chapter.93}% 15
+\BOOKMARK [1][-]{section.124}{Benchmark DQN agent}{chapter.93}% 16
+\BOOKMARK [1][-]{section.133}{Ensuring fair comparison}{chapter.93}% 17
+\BOOKMARK [0][-]{chapter.134}{Results}{}% 18
+\BOOKMARK [1][-]{section.135}{Evaluation method}{chapter.134}% 19
+\BOOKMARK [1][-]{section.139}{Effect of state representations}{chapter.134}% 20
+\BOOKMARK [1][-]{section.147}{Effect of the NN's size}{chapter.134}% 21
+\BOOKMARK [1][-]{section.149}{Initial results}{chapter.134}% 22
+\BOOKMARK [1][-]{section.151}{A simple approach to decomposition: 'DeltaSwitch'}{chapter.134}% 23
+\BOOKMARK [2][-]{subsection.163}{Applying 'DeltaSwitch' to non-prefectly decomposable environment}{section.151}% 24
+\BOOKMARK [2][-]{subsection.169}{Effect of using reduced encoding}{section.151}% 25
+\BOOKMARK [2][-]{subsection.174}{Effect of wall}{section.151}% 26
+\BOOKMARK [1][-]{section.179}{A different approach based on transfer learning}{chapter.134}% 27
+\BOOKMARK [1][-]{section.200}{Techniques to learn the 'switch'}{chapter.134}% 28
+\BOOKMARK [0][-]{chapter.208}{Applicability of the proposed techniques}{}% 29
+\BOOKMARK [0][-]{chapter.218}{Conclusions and further work}{}% 30
+\BOOKMARK [1][-]{section.219}{Findings}{chapter.218}% 31
+\BOOKMARK [1][-]{section.225}{Discussion}{chapter.218}% 32
+\BOOKMARK [1][-]{section.231}{Extensions}{chapter.218}% 33
+\BOOKMARK [0][-]{appendix.242}{Performance graphs}{}% 34
