@@ -1,4 +1,4 @@
-\begin{lstlisting}[caption={Function which is given the state-transition matrix in input and combines the thresholding of its values with the decomposition into separate MDPs, returning \texttt{d} which is a list indicating which sub-space each state belongs to (as an index) and \texttt{groups} which is a list of lists containing the states of each sub-space.}, captionpos=b]
+\begin{lstlisting}[caption={Function which is given the state-transition matrix in input and combines the thresholding of its values with the decomposition into separate MDPs, returning \texttt{d} which is a list indicating which subspace each state belongs to (as an index) and \texttt{groups} which is a list of lists containing the states of each subspace.}, captionpos=b]
 def stateDecomposition(st_table, thr):
   def joinGroups(i, j, d, groups):
     M = max(d[i], d[j])

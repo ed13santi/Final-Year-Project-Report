@@ -55,13 +55,13 @@ action spaces. Figure \ref{fig:cartpole} shows a screenshot of one of the most p
 The state-transition matrices and their decomposed versions were obtained\footnote{These were obtained by "cheating" by simply
 inspecting the source code of the environments.} for 4 different OpenAI Gym environments: "Cartpole-v1"\footnote{This environment
 has continuous states which are discretised using a linear quantiser to apply the decomposition algorithm.}, "FrozenLake8x8-v0",
-"CliffWalking-v0" and "Taxi-v3". The state decomposition algorithm is aimed at environments whose state-spaces decompose into
-similarly sized sub-spaces, as this is the case in which the method would be potentially very effective. If one of the
-state-spaces is much greater than the others and similar in size to the original state-space, the reduction in complexity of
-training an agent for this sub-space would not be as significant. Having sub-spaces that are too small (in the extreme case having
-just one state) limits the amount of learning that can be achieved by the sub-spaces' agents, so that learning to combine the
+"CliffWalking-v0" and "Taxi-v3". The state-decomposition algorithm is aimed at environments whose state spaces decompose into
+similarly sized subspaces, as this is the case in which the method would be potentially very effective. If one of the
+state spaces is much greater than the others and similar in size to the original state space, the reduction in complexity of
+training an agent for this subspace would not be as significant. Having subspaces that are too small (in the extreme case having
+just one state) limits the amount of learning that can be achieved by the subspaces' agents, so that learning to combine the
 sub-agents could be very complex and slow. The MDPs of "Cartpole-v1", "FrozenLake8x8-v0" and "CliffWalking-v0" don't decompose into
-similarly sized sub-spaces, thus they are not suitable for testing the state decomposition method.
+similarly sized subspaces, thus they are not suitable for testing the state-decomposition method.
 
 \paragraph{}
 The "Taxi-v3" environment, shown on the left in Figure \ref{fig:taxi} has then been deemed to be a more suitable candidate. The
@@ -74,26 +74,26 @@ environment has:
     drop-off actions.
 \end{itemize}
 
-An episode terminates when the passenger is successfully dropped off or after 200 time-steps. Applying the state decomposition to
-this environment can form 4 equally sized sub-spaces even with a threshold of 0, meaning that these are 4 completely independent
-sub-spaces that can be treated as independent Markov Decision Processes. These 4 sub-spaces correspond to the 4 possible
+An episode terminates when the passenger is successfully dropped off or after 200 time-steps. Applying the state-decomposition to
+this environment can form 4 equally sized subspaces even with a threshold of 0, meaning that these are 4 completely independent
+subspaces that can be treated as independent Markov Decision Processes. These 4 subspaces correspond to the 4 possible
 destinations of the passenger, which never change during a single episode. Thus, this is a more specific and easier problem than
 the one we are trying to solve, where the subsystems, though rarely, do interact with each other. 
 
 \paragraph{}
 This project then proposes a modified version called "TaxiTraps", shown in the middle in Figure \ref{fig:taxi}, in which the
-transition probabilities were modified to allow a small amount of interaction between sub-spaces\footnote{Making transition
+transition probabilities were modified to allow a small amount of interaction between subspaces\footnote{Making transition
 probabilities between spaces of different subsystems non-zero.} in order to test in the more general case. This has added "traps"
 located on the edges of certain cells of the grid. These activate with a low probability $p_{trap}$ when the Taxi moves over them.
 If a trap does not activate, the taxi simply moves over it as in the original "Taxi-v3" environment. When the trap does activate,
 the behaviour of the environment is modified in two ways:
 
 \begin{enumerate}
-    \item The destination of the Taxi changes, thus transitioning to a different sub-space.
+    \item The destination of the Taxi changes, thus transitioning to a different subspace.
     
     \item The agent receives a highly negative reward. This is added to ensure that the optimal policy in the "TaxiTraps" environment is
-    different than in the original Taxi environment. Since in the first stage of the original state decomposition method the transitions
-    between different state sub-spaces are ignored, the agents are trained in an environment equivalent to the original "Taxi-v3".
+    different than in the original Taxi environment. Since in the first stage of the original state-decomposition method the transitions
+    between different state subspaces are ignored, the agents are trained in an environment equivalent to the original "Taxi-v3".
     If the optimal policy is the same in "Taxi-v3" and "TaxiTraps", the optimal policy would not change between the first and
     second training stage of training, which is unlikely to happen in a general scenario. Thus, ensuring that the optimal policy
     changes between training stages is required for the results of testing to generalise to other environments.  
@@ -134,7 +134,7 @@ terminates when the taxi reaches the correct destination. To summarise, the envi
 \paragraph{}
 This is a perfectly decomposable environment, as there are no possible transitions between states having different destinations.
 For a complete evaluation of the state-decomposition method, it needs to be tested in a more generic environment, with non-zero
-albeit small transition probabilities between the decomposed sub-spaces. This is achieved by introducing a probability $\epsilon$
+albeit small transition probabilities between the decomposed subspaces. This is achieved by introducing a probability $\epsilon$
 of changing the destination whenever the current destination is the one closest to the current position in the grid. The initial
 destination can now be the far one, with probability $\epsilon$. This modified 'Grid' environment will be referred to as
 'GridEps'. Table-\ref{table:state-transitions-GridEps} summarises the transition probabilities in 'GridEps'.
@@ -157,7 +157,7 @@ destination can now be the far one, with probability $\epsilon$. This modified '
 
 \paragraph{}
 The transition probabilities are chosen in this way to achieve the following effects. That is, while providing small transition
-probabilities between different sub-spaces, changes in $\epsilon$ also change the optimal policy. This is important as
+probabilities between different subspaces, changes in $\epsilon$ also change the optimal policy. This is important as
 the case in which the optimal policy is unaffected by the value of $\epsilon$ is a special case which should not be used for
 testing.
 
@@ -177,14 +177,14 @@ decomposed, as mentione in the next chapter.
 
 \paragraph{}
 'GridEps' is an example of a scenario in which the decomposition is "intuitive", as mentioned in
-Section \ref{sec:decomposing-trans-matrix}. It is clear here that one possible decomposition is given by creating one sub-space
+Section \ref{sec:decomposing-trans-matrix}. It is clear here that one possible decomposition is given by creating one subspace
 for each possible destination, as at each-time the probability of changing destination is very small, being either $0$ or
 $\epsilon$. Another kind of decomposition that has been tested, although it does not necessarily follow the procedure previously
 described for decomposing the state-transition matrix for $\epsilon > 0$, is to assign states corresponding to positions in the
-upper-left "triangle" of the grid to one sub-space and positions in the lower-right "triangle" to the other sub-space. The reasoning
+upper-left "triangle" of the grid to one subspace and positions in the lower-right "triangle" to the other subspace. The reasoning
 is that when $\epsilon$ is 0, following the optimal policy would lead to never crossing the boundary between these two
-"triangles", meaning that they form two independent sub-spaces. When $\epsilon > 0$, this can happen and the transitions between
-the two sub-spaces are not small, thus it is an interesting example of using a different kind of decomposition that is not based
+"triangles", meaning that they form two independent subspaces. When $\epsilon > 0$, this can happen and the transitions between
+the two subspaces are not small, thus it is an interesting example of using a different kind of decomposition that is not based
 on single transition probabilities.
 
 \paragraph{}
@@ -195,9 +195,9 @@ not given the dynamics of the model as input, actually perform optimal actions a
 \section{Benchmark DQN agent}
 
 \paragraph{}
-The aim of this project is to determine whether state decomposition techniques can be used to increase the sample efficiency of
-reinforcement learning algorithms. Doing so requires comparing the performance of an algorithm where state decomposition is
-applied and that of an equivalent algorithm without state decomposition, while choosing all other parameters to be the same or to
+The aim of this project is to determine whether state-decomposition techniques can be used to increase the sample efficiency of
+reinforcement learning algorithms. Doing so requires comparing the performance of an algorithm where state-decomposition is
+applied and that of an equivalent algorithm without state-decomposition, while choosing all other parameters to be the same or to
 be the values that make for the fairest comparison. The number of possible choices to be made in these algorithms is such that
 providing a fair comparison can be a non-trivial task, as discussed in Section \ref{sec:fair-comparison}. 
 
@@ -206,7 +206,7 @@ The chosen benchmark RL agent is a basic DQN agent. The value updates occur with
 possible to use $\gamma=1$, as the algorithm in tested in environments with finite length episodes, however, using a slightly
 smaller discount factor enhances the stability of the algorithm, giving more consistent results. The agent acts according to an
 $\epsilon$-greedy policy. This involves a parameter called $\epsilon$ that is a different parameter and unrelated to the
-$\epsilon$ that represents the probability of transitions between different sub-spaces in 'GridEps'. This means that at each
+$\epsilon$ that represents the probability of transitions between different subspaces in 'GridEps'. This means that at each
 agent-environment interaction, the agent picks the action that currently has the highest estimated action value with probability
 $1-\epsilon$ or a random action with probability $\epsilon$. $\epsilon$ is initialised at 1, meaning that in the first iteration
 the action is completely random. $\epsilon$ decays by a factor $0.999$ after each update of the action values. $\epsilon$ is set

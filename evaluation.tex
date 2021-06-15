@@ -42,7 +42,7 @@ If the difference of the rewards upon completion of tasks between local and remo
 controller will allocate most tasks locally. The fact that the controller is unlikely to assign tasks to the remote data centre
 makes it so that the equivalent transitions are unlikely to happen and that the state space can be decomposed accordingly. 
 
-\paragraph{} The simplest way of applying state decomposition in this scenario would be with a 'DeltaSwitch' agent having two
+\paragraph{} The simplest way of applying state-decomposition in this scenario would be with a 'DeltaSwitch' agent having two
 neural networks, one for when a task is received by one data centre and another NN for when a task is received by the other data
 centre. Though this might be effective, it does not use the decomposition previously discussed based on decomposing by 'ignoring'
 state transitions below a certain threshold. In this case, an intuitive decomposition of treating two relatively separate problems
@@ -77,7 +77,7 @@ approach feeds the knowledge of the possible 'low level' agents to a global agen
 \paragraph{} Thought it was shown that the proposed state-decomposition techniques can be beneficial in terms of sample
 efficiency, there is an increase in complexity of the design of the agent, compared to simple DQN. The main issue is that the
 state-transition matrix is not normally known in applications that use reinforcement learning, meaning that if the decomposition
-is not "intuitive" as in this example, this would have to be estimated before being able to apply state decomposition.
+is not "intuitive" as in this example, this would have to be estimated before being able to apply state-decomposition.
 Additionally, there are cases in which there might be different types of possible decompositions and there is no systematic way to
 predict which one is most efficient. Lastly, while it was shown that the state-decomposition techniques achieve performance gain
 in certain environment, this is not guaranteed in general, thus the extra design effort might not be rewarded by increased

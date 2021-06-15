@@ -7,9 +7,9 @@
 \BOOKMARK [1][-]{section.52}{Artificial Neural Networks}{chapter.15}% 7
 \BOOKMARK [1][-]{section.59}{Q-learning and Deep Q-learning}{chapter.15}% 8
 \BOOKMARK [1][-]{section.69}{Problem of large state spaces}{chapter.15}% 9
-\BOOKMARK [0][-]{chapter.75}{state decomposition method}{}% 10
+\BOOKMARK [0][-]{chapter.75}{state-decomposition method}{}% 10
 \BOOKMARK [1][-]{section.77}{Originally proposed method}{chapter.75}% 11
-\BOOKMARK [1][-]{section.89}{Decomposing the state-strans. matrix}{chapter.75}% 12
+\BOOKMARK [1][-]{section.89}{Decomposing the state-trans. matrix}{chapter.75}% 12
 \BOOKMARK [0][-]{chapter.96}{Experimental method}{}% 13
 \BOOKMARK [1][-]{section.98}{Tools}{chapter.96}% 14
 \BOOKMARK [1][-]{section.105}{Testing environments}{chapter.96}% 15

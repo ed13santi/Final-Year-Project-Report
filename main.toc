@@ -38,7 +38,7 @@
 \contentsline {paragraph}{}{11}{section*.71}%
 \contentsline {paragraph}{}{11}{section*.72}%
 \contentsline {paragraph}{}{11}{section*.73}%
-\contentsline {chapter}{\numberline {3}state decomposition method}{12}{chapter.75}%
+\contentsline {chapter}{\numberline {3}state-decomposition method}{12}{chapter.75}%
 \contentsline {paragraph}{}{12}{section*.76}%
 \contentsline {section}{\numberline {3.1}Originally proposed method}{12}{section.77}%
 \contentsline {paragraph}{}{12}{section*.78}%
@@ -48,7 +48,7 @@
 \contentsline {paragraph}{}{14}{section*.86}%
 \contentsline {paragraph}{}{14}{section*.87}%
 \contentsline {paragraph}{}{15}{section*.88}%
-\contentsline {section}{\numberline {3.2}Decomposing the state-strans. matrix}{15}{section.89}%
+\contentsline {section}{\numberline {3.2}Decomposing the state-trans. matrix}{15}{section.89}%
 \contentsline {paragraph}{}{15}{section*.90}%
 \contentsline {paragraph}{}{15}{section*.93}%
 \contentsline {chapter}{\numberline {4}Experimental method}{17}{chapter.96}%
@@ -107,7 +107,7 @@
 \contentsline {paragraph}{}{39}{section*.185}%
 \contentsline {paragraph}{}{40}{section*.186}%
 \contentsline {paragraph}{}{40}{section*.188}%
-\contentsline {paragraph}{}{41}{section*.190}%
+\contentsline {paragraph}{}{40}{section*.190}%
 \contentsline {paragraph}{}{41}{section*.192}%
 \contentsline {paragraph}{}{42}{section*.196}%
 \contentsline {paragraph}{}{43}{section*.200}%
@@ -141,7 +141,7 @@
 \contentsline {section}{\numberline {7.3}Further work}{54}{section.236}%
 \contentsline {paragraph}{Finding the state-transition matrix}{54}{section*.237}%
 \contentsline {paragraph}{Compression and embeddings of states}{54}{section*.238}%
-\contentsline {paragraph}{Applying state decomposition to continuous state spaces}{54}{section*.239}%
+\contentsline {paragraph}{Applying state-decomposition to continuous state spaces}{54}{section*.239}%
 \contentsline {paragraph}{Different types of decomposition}{54}{section*.240}%
 \contentsline {paragraph}{Sharing information between sub-agents}{55}{section*.241}%
 \contentsline {paragraph}{Using state-decomposition for automatic sub-goal discovery}{55}{section*.243}%

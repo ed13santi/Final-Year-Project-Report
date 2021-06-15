@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.10.27)  15 JUN 2021 16:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.10.27)  15 JUN 2021 17:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -967,13 +967,13 @@ Missing character: There is no ; in font nullfont!
 ) [12
 
 ]
-<figures/join_networks.png, id=435, 318.18875pt x 360.34625pt>
-File: figures/join_networks.png Graphic file (type png)
-<use figures/join_networks.png>
-Package pdftex.def Info: figures/join_networks.png  used on input line 75.
-(pdftex.def)             Requested size: 219.08614pt x 248.11133pt.
- [13] [14 </Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/figures/join_networks.png>]
-Overfull \hbox (10.66696pt too wide) in paragraph at lines 117--121
+<figures/joineverything.pdf, id=435, 175.61609pt x 168.63pt>
+File: figures/joineverything.pdf Graphic file (type pdf)
+<use figures/joineverything.pdf>
+Package pdftex.def Info: figures/joineverything.pdf  used on input line 75.
+(pdftex.def)             Requested size: 306.71924pt x 294.55368pt.
+ [13] [14 </Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/figures/joineverything.pdf>]
+Overfull \hbox (7.47696pt too wide) in paragraph at lines 117--121
 []\OT1/bch/m/n/10 The de-com-po-si-tion into sub-spaces of states given the state-transition ta-ble can be done us-ing Algorithm-
  []
 
@@ -990,7 +990,7 @@ File: ts1bch.fd 2004/10/18 font definitions for TS1/bch.
 ) [17
 
 ]
-<figures/cartpole.PNG, id=494, 341.02406pt x 228.855pt>
+<figures/cartpole.PNG, id=504, 341.02406pt x 228.855pt>
 File: figures/cartpole.PNG Graphic file (type png)
 <use figures/cartpole.PNG>
 Package pdftex.def Info: figures/cartpole.PNG  used on input line 45.
@@ -998,14 +998,14 @@ Package pdftex.def Info: figures/cartpole.PNG  used on input line 45.
  [18 </Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/figures/cartpole.PNG>] (/Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/graphs/taxi.tex) [19] (/Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/graphs/grid.tex) [20] [21] [22]
 
 pdfTeX warning: pdflatex (file /Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/figures/DQN.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<figures/DQN.pdf, id=562, 305.22029pt x 146.4672pt>
+<figures/DQN.pdf, id=572, 305.22029pt x 146.4672pt>
 File: figures/DQN.pdf Graphic file (type pdf)
 <use figures/DQN.pdf>
 Package pdftex.def Info: figures/DQN.pdf  used on input line 234.
 (pdftex.def)             Requested size: 350.53915pt x 168.21469pt.
 ) (/Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/results.tex [23 </Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/figures/DQN.pdf>] [24]
 Chapter 5.
-<figures/grid_samples.pdf, id=590, 433.62pt x 289.08pt>
+<figures/grid_samples.pdf, id=600, 433.62pt x 289.08pt>
 File: figures/grid_samples.pdf Graphic file (type pdf)
 <use figures/grid_samples.pdf>
 Package pdftex.def Info: figures/grid_samples.pdf  used on input line 23.
@@ -1013,79 +1013,79 @@ Package pdftex.def Info: figures/grid_samples.pdf  used on input line 23.
 [25
 
 ] [26 </Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/figures/grid_samples.pdf>]
-<figures/encodings.pdf, id=637, 433.62pt x 289.08pt>
+<figures/encodings.pdf, id=647, 433.62pt x 289.08pt>
 File: figures/encodings.pdf Graphic file (type pdf)
 <use figures/encodings.pdf>
 Package pdftex.def Info: figures/encodings.pdf  used on input line 69.
 (pdftex.def)             Requested size: 438.17227pt x 292.13168pt.
  [27] [28 </Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/figures/encodings.pdf>]
-<figures/effect_NN_dimension.pdf, id=693, 433.62pt x 289.08pt>
+<figures/effect_NN_dimension.pdf, id=703, 433.62pt x 289.08pt>
 File: figures/effect_NN_dimension.pdf Graphic file (type pdf)
 <use figures/effect_NN_dimension.pdf>
 Package pdftex.def Info: figures/effect_NN_dimension.pdf  used on input line 106.
 (pdftex.def)             Requested size: 438.17227pt x 292.13168pt.
  [29 </Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/figures/effect_NN_dimension.pdf>]
-<figures/two_stage.pdf, id=733, 433.62pt x 289.08pt>
+<figures/two_stage.pdf, id=743, 433.62pt x 289.08pt>
 File: figures/two_stage.pdf Graphic file (type pdf)
 <use figures/two_stage.pdf>
 Package pdftex.def Info: figures/two_stage.pdf  used on input line 122.
 (pdftex.def)             Requested size: 438.17227pt x 292.13168pt.
  [30 </Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/figures/two_stage.pdf>]
-<figures/deltaSwitch.pdf, id=774, 254.8722pt x 117.3183pt>
+<figures/deltaSwitch.pdf, id=784, 254.8722pt x 117.3183pt>
 File: figures/deltaSwitch.pdf Graphic file (type pdf)
 <use figures/deltaSwitch.pdf>
 Package pdftex.def Info: figures/deltaSwitch.pdf  used on input line 164.
 (pdftex.def)             Requested size: 438.17227pt x 201.71371pt.
  [31 </Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/figures/deltaSwitch.pdf>]
-<figures/Taxi2_DQN_and_DeltaSwitch.pdf, id=792, 433.62pt x 289.08pt>
+<figures/Taxi2_DQN_and_DeltaSwitch.pdf, id=802, 433.62pt x 289.08pt>
 File: figures/Taxi2_DQN_and_DeltaSwitch.pdf Graphic file (type pdf)
 <use figures/Taxi2_DQN_and_DeltaSwitch.pdf>
 Package pdftex.def Info: figures/Taxi2_DQN_and_DeltaSwitch.pdf  used on input line 177.
 (pdftex.def)             Requested size: 438.17227pt x 292.13168pt.
-<figures/GridNoWall_dqn_DeltaSwitch.pdf, id=794, 433.62pt x 289.08pt>
+<figures/GridNoWall_dqn_DeltaSwitch.pdf, id=804, 433.62pt x 289.08pt>
 File: figures/GridNoWall_dqn_DeltaSwitch.pdf Graphic file (type pdf)
 <use figures/GridNoWall_dqn_DeltaSwitch.pdf>
 Package pdftex.def Info: figures/GridNoWall_dqn_DeltaSwitch.pdf  used on input line 193.
 (pdftex.def)             Requested size: 438.17227pt x 292.13168pt.
  [32 </Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/figures/Taxi2_DQN_and_DeltaSwitch.pdf>]
-<figures/DeltaSwitch_oneHot.pdf, id=839, 433.62pt x 289.08pt>
+<figures/DeltaSwitch_oneHot.pdf, id=850, 433.62pt x 289.08pt>
 File: figures/DeltaSwitch_oneHot.pdf Graphic file (type pdf)
 <use figures/DeltaSwitch_oneHot.pdf>
 Package pdftex.def Info: figures/DeltaSwitch_oneHot.pdf  used on input line 212.
 (pdftex.def)             Requested size: 438.17227pt x 292.13168pt.
  [33 </Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/figures/GridNoWall_dqn_DeltaSwitch.pdf>]
-<figures/GridNoWall_dqn_DeltaSwitch_compare_delta.pdf, id=894, 433.62pt x 289.08pt>
+<figures/GridNoWall_dqn_DeltaSwitch_compare_delta.pdf, id=904, 433.62pt x 289.08pt>
 File: figures/GridNoWall_dqn_DeltaSwitch_compare_delta.pdf Graphic file (type pdf)
 <use figures/GridNoWall_dqn_DeltaSwitch_compare_delta.pdf>
 Package pdftex.def Info: figures/GridNoWall_dqn_DeltaSwitch_compare_delta.pdf  used on input line 238.
 (pdftex.def)             Requested size: 438.17227pt x 292.13168pt.
  [34 </Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/figures/DeltaSwitch_oneHot.pdf>]
-<figures/geps2_0.png, id=948, 433.62pt x 289.08pt>
+<figures/geps2_0.png, id=958, 433.62pt x 289.08pt>
 File: figures/geps2_0.png Graphic file (type png)
 <use figures/geps2_0.png>
 Package pdftex.def Info: figures/geps2_0.png  used on input line 259.
 (pdftex.def)             Requested size: 284.8093pt x 189.8803pt.
-<figures/geps2_001.png, id=949, 433.62pt x 289.08pt>
+<figures/geps2_001.png, id=959, 433.62pt x 289.08pt>
 File: figures/geps2_001.png Graphic file (type png)
 <use figures/geps2_001.png>
 Package pdftex.def Info: figures/geps2_001.png  used on input line 259.
 (pdftex.def)             Requested size: 284.8093pt x 189.8803pt.
-<figures/geps2_002.png, id=950, 433.62pt x 289.08pt>
+<figures/geps2_002.png, id=960, 433.62pt x 289.08pt>
 File: figures/geps2_002.png Graphic file (type png)
 <use figures/geps2_002.png>
 Package pdftex.def Info: figures/geps2_002.png  used on input line 261.
 (pdftex.def)             Requested size: 284.8093pt x 189.8803pt.
-<figures/geps2_003.png, id=951, 433.62pt x 289.08pt>
+<figures/geps2_003.png, id=961, 433.62pt x 289.08pt>
 File: figures/geps2_003.png Graphic file (type png)
 <use figures/geps2_003.png>
 Package pdftex.def Info: figures/geps2_003.png  used on input line 261.
 (pdftex.def)             Requested size: 284.8093pt x 189.8803pt.
-<figures/geps2_004.png, id=952, 433.62pt x 289.08pt>
+<figures/geps2_004.png, id=962, 433.62pt x 289.08pt>
 File: figures/geps2_004.png Graphic file (type png)
 <use figures/geps2_004.png>
 Package pdftex.def Info: figures/geps2_004.png  used on input line 263.
 (pdftex.def)             Requested size: 284.8093pt x 189.8803pt.
-<figures/geps2_005.png, id=953, 433.62pt x 289.08pt>
+<figures/geps2_005.png, id=963, 433.62pt x 289.08pt>
 File: figures/geps2_005.png Graphic file (type png)
 <use figures/geps2_005.png>
 Package pdftex.def Info: figures/geps2_005.png  used on input line 263.
@@ -1096,13 +1096,13 @@ Overfull \hbox (95.16083pt too wide) in paragraph at lines 257--266
  []
 
 [35 </Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/figures/GridNoWall_dqn_DeltaSwitch_compare_delta.pdf>] [36 </Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/figures/geps2_0.png> </Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/figures/geps2_001.png> </Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/figures/geps2_002.png> </Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/figures/geps2_003.png> </Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/figures/geps2_004.png> </Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/figures/geps2_005.png>]
-<figures/effectReduced.pdf, id=1017, 433.62pt x 289.08pt>
+<figures/effectReduced.pdf, id=1027, 433.62pt x 289.08pt>
 File: figures/effectReduced.pdf Graphic file (type pdf)
 <use figures/effectReduced.pdf>
 Package pdftex.def Info: figures/effectReduced.pdf  used on input line 310.
 (pdftex.def)             Requested size: 438.17227pt x 292.13168pt.
  [37]
-<figures/Wall-DQN-deltaSwitch.pdf, id=1027, 433.62pt x 289.08pt>
+<figures/Wall-DQN-deltaSwitch.pdf, id=1037, 433.62pt x 289.08pt>
 File: figures/Wall-DQN-deltaSwitch.pdf Graphic file (type pdf)
 <use figures/Wall-DQN-deltaSwitch.pdf>
 Package pdftex.def Info: figures/Wall-DQN-deltaSwitch.pdf  used on input line 341.
@@ -1110,30 +1110,30 @@ Package pdftex.def Info: figures/Wall-DQN-deltaSwitch.pdf  used on input line 34
  [38 </Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/figures/effectReduced.pdf>] [39 </Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/figures/Wall-DQN-deltaSwitch.pdf>]
 
 pdfTeX warning: pdflatex (file /Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/figures/combining-network.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<figures/combining-network.pdf, id=1132, 235.8411pt x 117.3183pt>
+<figures/combining-network.pdf, id=1143, 235.8411pt x 117.3183pt>
 File: figures/combining-network.pdf Graphic file (type pdf)
 <use figures/combining-network.pdf>
 Package pdftex.def Info: figures/combining-network.pdf  used on input line 384.
 (pdftex.def)             Requested size: 438.17227pt x 217.99138pt.
 [40 </Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/figures/combining-network.pdf>]
-<figures/learnSwitch1.pdf, id=1153, 433.62pt x 289.08pt>
+<figures/learnSwitch1.pdf, id=1165, 433.62pt x 289.08pt>
 File: figures/learnSwitch1.pdf Graphic file (type pdf)
 <use figures/learnSwitch1.pdf>
 Package pdftex.def Info: figures/learnSwitch1.pdf  used on input line 407.
 (pdftex.def)             Requested size: 438.17227pt x 292.13168pt.
  [41 </Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/figures/learnSwitch1.pdf>]
-<figures/initialisedLearnSwitch.pdf, id=1208, 433.62pt x 289.08pt>
+<figures/initialisedLearnSwitch.pdf, id=1219, 433.62pt x 289.08pt>
 File: figures/initialisedLearnSwitch.pdf Graphic file (type pdf)
 <use figures/initialisedLearnSwitch.pdf>
 Package pdftex.def Info: figures/initialisedLearnSwitch.pdf  used on input line 429.
 (pdftex.def)             Requested size: 438.17227pt x 292.13168pt.
  [42 </Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/figures/initialisedLearnSwitch.pdf>]
-<figures/Sarsa.pdf, id=1258, 433.62pt x 289.08pt>
+<figures/Sarsa.pdf, id=1269, 433.62pt x 289.08pt>
 File: figures/Sarsa.pdf Graphic file (type pdf)
 <use figures/Sarsa.pdf>
 Package pdftex.def Info: figures/Sarsa.pdf  used on input line 459.
 (pdftex.def)             Requested size: 438.17227pt x 292.13168pt.
-<figures/progressive.pdf, id=1262, 118.10896pt x 107.85706pt>
+<figures/progressive.pdf, id=1273, 118.10896pt x 107.85706pt>
 File: figures/progressive.pdf Graphic file (type pdf)
 <use figures/progressive.pdf>
 Package pdftex.def Info: figures/progressive.pdf  used on input line 478.
@@ -1141,7 +1141,7 @@ Package pdftex.def Info: figures/progressive.pdf  used on input line 478.
  [43 </Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/figures/Sarsa.pdf>]
 
 pdfTeX warning: pdflatex (file /Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/figures/modified-progressive.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<figures/modified-progressive.pdf, id=1319, 291.00719pt x 344.2461pt>
+<figures/modified-progressive.pdf, id=1329, 291.00719pt x 344.2461pt>
 File: figures/modified-progressive.pdf Graphic file (type pdf)
 <use figures/modified-progressive.pdf>
 Package pdftex.def Info: figures/modified-progressive.pdf  used on input line 497.
@@ -1158,7 +1158,7 @@ Chapter 6.
 
 
 pdfTeX warning: pdflatex (file /Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/figures/dataCentres.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<figures/dataCentres.pdf, id=1444, 225.7233pt x 277.035pt>
+<figures/dataCentres.pdf, id=1454, 225.7233pt x 277.035pt>
 File: figures/dataCentres.pdf Graphic file (type pdf)
 <use figures/dataCentres.pdf>
 Package pdftex.def Info: figures/dataCentres.pdf  used on input line 16.
@@ -1168,7 +1168,7 @@ Package pdftex.def Info: figures/dataCentres.pdf  used on input line 16.
 ] [49 </Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/figures/dataCentres.pdf>]
 
 pdfTeX warning: pdflatex (file /Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/figures/data-centre-decomposition.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<figures/data-centre-decomposition.pdf, id=1468, 399.41219pt x 218.7372pt>
+<figures/data-centre-decomposition.pdf, id=1478, 399.41219pt x 218.7372pt>
 File: figures/data-centre-decomposition.pdf Graphic file (type pdf)
 <use figures/data-centre-decomposition.pdf>
 Package pdftex.def Info: figures/data-centre-decomposition.pdf  used on input line 62.
@@ -1183,7 +1183,7 @@ Overfull \hbox (2.04323pt too wide) in paragraph at lines 88--97
  []
 
 
-Overfull \hbox (7.8421pt too wide) in paragraph at lines 114--122
+Overfull \hbox (4.5821pt too wide) in paragraph at lines 114--122
 []\OT1/bch/b/n/10 Applying thresh-old to tran-si-tions be-tween whole sub-spaces \OT1/bch/m/n/10 The orig-i-nal state-decomposition
  []
 
@@ -1210,12 +1210,12 @@ Overfull \hbox (3.98764pt too wide) in paragraph at lines 148--61
 
 ] [58]) (/Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/appendix.tex [59]
 Appendix A.
-<figures/GridEps2DeltaSwitch.pdf, id=1552, 433.62pt x 289.08pt>
+<figures/GridEps2DeltaSwitch.pdf, id=1562, 433.62pt x 289.08pt>
 File: figures/GridEps2DeltaSwitch.pdf Graphic file (type pdf)
 <use figures/GridEps2DeltaSwitch.pdf>
 Package pdftex.def Info: figures/GridEps2DeltaSwitch.pdf  used on input line 8.
 (pdftex.def)             Requested size: 438.17227pt x 292.13168pt.
-<figures/encodings_samples.pdf, id=1553, 433.62pt x 289.08pt>
+<figures/encodings_samples.pdf, id=1563, 433.62pt x 289.08pt>
 File: figures/encodings_samples.pdf Graphic file (type pdf)
 <use figures/encodings_samples.pdf>
 Package pdftex.def Info: figures/encodings_samples.pdf  used on input line 15.
@@ -1223,18 +1223,18 @@ Package pdftex.def Info: figures/encodings_samples.pdf  used on input line 15.
 [60
 
  </Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/figures/GridEps2DeltaSwitch.pdf>]
-<figures/size_comparison_samples.pdf, id=1599, 433.62pt x 289.08pt>
+<figures/size_comparison_samples.pdf, id=1609, 433.62pt x 289.08pt>
 File: figures/size_comparison_samples.pdf Graphic file (type pdf)
 <use figures/size_comparison_samples.pdf>
 Package pdftex.def Info: figures/size_comparison_samples.pdf  used on input line 22.
 (pdftex.def)             Requested size: 438.17227pt x 292.13168pt.
  [61 </Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/figures/encodings_samples.pdf>]
-<figures/GridNoWall_dqn_DeltaSwitch_samples.pdf, id=1646, 433.62pt x 289.08pt>
+<figures/GridNoWall_dqn_DeltaSwitch_samples.pdf, id=1656, 433.62pt x 289.08pt>
 File: figures/GridNoWall_dqn_DeltaSwitch_samples.pdf Graphic file (type pdf)
 <use figures/GridNoWall_dqn_DeltaSwitch_samples.pdf>
 Package pdftex.def Info: figures/GridNoWall_dqn_DeltaSwitch_samples.pdf  used on input line 29.
 (pdftex.def)             Requested size: 438.17227pt x 292.13168pt.
-<figures/GridNoWall_dqn_DeltaSwitch_compare_delta_samples.pdf, id=1647, 433.62pt x 289.08pt>
+<figures/GridNoWall_dqn_DeltaSwitch_compare_delta_samples.pdf, id=1657, 433.62pt x 289.08pt>
 File: figures/GridNoWall_dqn_DeltaSwitch_compare_delta_samples.pdf Graphic file (type pdf)
 <use figures/GridNoWall_dqn_DeltaSwitch_compare_delta_samples.pdf>
 Package pdftex.def Info: figures/GridNoWall_dqn_DeltaSwitch_compare_delta_samples.pdf  used on input line 36.
@@ -1243,32 +1243,32 @@ Package pdftex.def Info: figures/GridNoWall_dqn_DeltaSwitch_compare_delta_sample
 
 pdfTeX warning: pdflatex (file /Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/figures/GridNoWall_dqn_DeltaSwitch_samples.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 >]
-<figures/geps2_0_samples.pdf, id=1734, 433.62pt x 289.08pt>
+<figures/geps2_0_samples.pdf, id=1744, 433.62pt x 289.08pt>
 File: figures/geps2_0_samples.pdf Graphic file (type pdf)
 <use figures/geps2_0_samples.pdf>
 Package pdftex.def Info: figures/geps2_0_samples.pdf  used on input line 44.
 (pdftex.def)             Requested size: 284.8093pt x 189.8803pt.
-<figures/geps2_001_samples.pdf, id=1735, 433.62pt x 289.08pt>
+<figures/geps2_001_samples.pdf, id=1745, 433.62pt x 289.08pt>
 File: figures/geps2_001_samples.pdf Graphic file (type pdf)
 <use figures/geps2_001_samples.pdf>
 Package pdftex.def Info: figures/geps2_001_samples.pdf  used on input line 44.
 (pdftex.def)             Requested size: 284.8093pt x 189.8803pt.
-<figures/geps2_002_samples.pdf, id=1736, 433.62pt x 289.08pt>
+<figures/geps2_002_samples.pdf, id=1746, 433.62pt x 289.08pt>
 File: figures/geps2_002_samples.pdf Graphic file (type pdf)
 <use figures/geps2_002_samples.pdf>
 Package pdftex.def Info: figures/geps2_002_samples.pdf  used on input line 46.
 (pdftex.def)             Requested size: 284.8093pt x 189.8803pt.
-<figures/geps2_003_samples.pdf, id=1737, 433.62pt x 289.08pt>
+<figures/geps2_003_samples.pdf, id=1747, 433.62pt x 289.08pt>
 File: figures/geps2_003_samples.pdf Graphic file (type pdf)
 <use figures/geps2_003_samples.pdf>
 Package pdftex.def Info: figures/geps2_003_samples.pdf  used on input line 46.
 (pdftex.def)             Requested size: 284.8093pt x 189.8803pt.
-<figures/geps2_004_samples.pdf, id=1738, 433.62pt x 289.08pt>
+<figures/geps2_004_samples.pdf, id=1748, 433.62pt x 289.08pt>
 File: figures/geps2_004_samples.pdf Graphic file (type pdf)
 <use figures/geps2_004_samples.pdf>
 Package pdftex.def Info: figures/geps2_004_samples.pdf  used on input line 48.
 (pdftex.def)             Requested size: 284.8093pt x 189.8803pt.
-<figures/geps2_005_samples.pdf, id=1739, 433.62pt x 289.08pt>
+<figures/geps2_005_samples.pdf, id=1749, 433.62pt x 289.08pt>
 File: figures/geps2_005_samples.pdf Graphic file (type pdf)
 <use figures/geps2_005_samples.pdf>
 Package pdftex.def Info: figures/geps2_005_samples.pdf  used on input line 48.
@@ -1278,12 +1278,12 @@ Overfull \hbox (100.85129pt too wide) in paragraph at lines 42--51
 []  [] 
  []
 
-<figures/effectReduced_samples.pdf, id=1740, 433.62pt x 289.08pt>
+<figures/effectReduced_samples.pdf, id=1750, 433.62pt x 289.08pt>
 File: figures/effectReduced_samples.pdf Graphic file (type pdf)
 <use figures/effectReduced_samples.pdf>
 Package pdftex.def Info: figures/effectReduced_samples.pdf  used on input line 57.
 (pdftex.def)             Requested size: 438.17227pt x 292.13168pt.
-<figures/Wall-DQN-deltaSwitch_samples.pdf, id=1741, 433.62pt x 289.08pt>
+<figures/Wall-DQN-deltaSwitch_samples.pdf, id=1751, 433.62pt x 289.08pt>
 File: figures/Wall-DQN-deltaSwitch_samples.pdf Graphic file (type pdf)
 <use figures/Wall-DQN-deltaSwitch_samples.pdf>
 Package pdftex.def Info: figures/Wall-DQN-deltaSwitch_samples.pdf  used on input line 64.
@@ -1307,25 +1307,25 @@ pdfTeX warning: pdflatex (file /Users/edoardodavidsanti/Desktop/Final-Year-Proje
 
 pdfTeX warning: pdflatex (file /Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/figures/geps2_005_samples.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 >]
-<figures/learnSwitch1_samples.pdf, id=2087, 433.62pt x 289.08pt>
+<figures/learnSwitch1_samples.pdf, id=2097, 433.62pt x 289.08pt>
 File: figures/learnSwitch1_samples.pdf Graphic file (type pdf)
 <use figures/learnSwitch1_samples.pdf>
 Package pdftex.def Info: figures/learnSwitch1_samples.pdf  used on input line 71.
 (pdftex.def)             Requested size: 438.17227pt x 292.13168pt.
  [65 </Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/figures/Wall-DQN-deltaSwitch_samples.pdf>]
-<figures/initialisedLearnSwitch_samples.pdf, id=2135, 433.62pt x 289.08pt>
+<figures/initialisedLearnSwitch_samples.pdf, id=2145, 433.62pt x 289.08pt>
 File: figures/initialisedLearnSwitch_samples.pdf Graphic file (type pdf)
 <use figures/initialisedLearnSwitch_samples.pdf>
 Package pdftex.def Info: figures/initialisedLearnSwitch_samples.pdf  used on input line 78.
 (pdftex.def)             Requested size: 438.17227pt x 292.13168pt.
  [66 </Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/figures/learnSwitch1_samples.pdf>]
-<figures/Sarsa_samples.pdf, id=2184, 433.62pt x 289.08pt>
+<figures/Sarsa_samples.pdf, id=2194, 433.62pt x 289.08pt>
 File: figures/Sarsa_samples.pdf Graphic file (type pdf)
 <use figures/Sarsa_samples.pdf>
 Package pdftex.def Info: figures/Sarsa_samples.pdf  used on input line 85.
 (pdftex.def)             Requested size: 438.17227pt x 292.13168pt.
  [67 </Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/figures/initialisedLearnSwitch_samples.pdf>]
-<figures/simultaneous_samples.pdf, id=2233, 433.62pt x 289.08pt>
+<figures/simultaneous_samples.pdf, id=2243, 433.62pt x 289.08pt>
 File: figures/simultaneous_samples.pdf Graphic file (type pdf)
 <use figures/simultaneous_samples.pdf>
 Package pdftex.def Info: figures/simultaneous_samples.pdf  used on input line 92.
@@ -1337,9 +1337,9 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 70.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 70.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 70.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 59019456A8B4746AF86887503CEC91D4;2323.
+(rerunfilecheck)             Checksum: C89703C03108B4E25F23A5C5B6C19008;2322.
 Package rerunfilecheck Info: File `main.brf' has not changed.
-(rerunfilecheck)             Checksum: 9FD26B1E52201A2564EF0E9A22C8C698;2627.
+(rerunfilecheck)             Checksum: 12FFF3EBDA7CBEF70F3A39C52F544B97;2627.
 
 
 LaTeX Warning: There were undefined references.
@@ -1347,10 +1347,10 @@ LaTeX Warning: There were undefined references.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 70.
  ) 
 Here is how much of TeX's memory you used:
- 27269 strings out of 480608
- 534300 string characters out of 5903629
- 875950 words of memory out of 5000000
- 42104 multiletter control sequences out of 15000+600000
+ 27267 strings out of 480608
+ 534284 string characters out of 5903629
+ 875941 words of memory out of 5000000
+ 42102 multiletter control sequences out of 15000+600000
  573666 words of font info for 102 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  63i,16n,85p,533b,1162s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1401,10 +1401,10 @@ pdfTeX warning (dest): name{Hfootnote.21} has been referenced but does not exist
 pdfTeX warning (dest): name{Hfootnote.20} has been referenced but does not exist, replaced by a fixed one
 
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2020/texmf-dist/fonts/type1/bitstrea/charter/bchb8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/bitstrea/charter/bchr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/bitstrea/charter/bchr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/bitstrea/charter/bchri8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/doublestroke/dsrom10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on /Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/main.pdf (73 pages, 2234629 bytes).
+Output written on /Users/edoardodavidsanti/Desktop/Final-Year-Project-Report/main.pdf (73 pages, 2248006 bytes).
 PDF statistics:
- 2477 PDF objects out of 2487 (max. 8388607)
- 1233 compressed objects within 13 object streams
+ 2487 PDF objects out of 2487 (max. 8388607)
+ 1242 compressed objects within 13 object streams
  373 named destinations out of 1000 (max. 500000)
  535 words of extra memory for PDF output out of 10000 (max. 10000000)
 

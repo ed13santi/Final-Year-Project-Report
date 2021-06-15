@@ -1,22 +1,22 @@
-\chapter{state decomposition method}
+\chapter{state-decomposition method}
 
 \paragraph{}
-The main topic of this project is the development of the state decomposition method for reinforcement learning. This is suited to
+The main topic of this project is the development of the state-decomposition method for reinforcement learning. This is suited to
 control problems of environments that are composed of many sub-problems that only seldom interact with each other. The
-state decomposition method takes advantage of the almost independence of these problems to learn agents that deal with these
+state-decomposition method takes advantage of the almost independence of these problems to learn agents that deal with these
 smaller problems, which are easier to solve. These separate agents need to be combined to take into account the interactions
 between the sub-problems. 
 
 An example of a system composed of many almost independent sub-systems could be the control of a communication network composed of
-many networks that rarely communicate with each other. The state decomposition method would aim to learn an optimal controller by
+many networks that rarely communicate with each other. The state-decomposition method would aim to learn an optimal controller by
 training agents that control the smaller sub-networks and combining them to account for the small amount of interaction between
 sub-networks.
 
-\section[Originally proposed method]{The original state decomposition method}
+\section[Originally proposed method]{The original state-decomposition method}
 
 \paragraph{}
-This section discusses the procedure of the initally proposed state decomposition method. This is not the only version that was
-considered in this project, as the state decomposition can be regarded as a more general idea that be exploited in different ways.
+This section discusses the procedure of the initally proposed state-decomposition method. This is not the only version that was
+considered in this project, as the state-decomposition can be regarded as a more general idea that be exploited in different ways.
 
 \paragraph{}
 The first step of the process is to separate the sub-problems by identifying separate groups of states. This is done by examining
@@ -37,7 +37,7 @@ where $n$ is the number of states in $\mathcal{S}$.
 \input{graphs/break chain}
 
 \paragraph{}
-The state decomposition method is based on the fact that some state-transition probabilities are negligible compared to others and
+The state-decomposition method is based on the fact that some state-transition probabilities are negligible compared to others and
 could be regarded as 0 to obtain a sparse version of the state-transition matrix. Specifically, every matrix element smaller than a
 certain threshold $\tau$ can be set to 0. The probabilities in the matrix can then be normalised so that each row of the matrix
 has a sum of 1. This step is unnecessary and can be skipped in the implementation; however, it is necessary to obtain a valid MDP
@@ -55,24 +55,24 @@ reordering the states it is possible to express the state-transition matrix as a
 \end{equation} 
 
 where the matrices $B_1, B_2, ..., B_n$ are the state-transition matrices of the newly formed separate MDPs. This is the method of
-state decomposition that this report focuses on, which is based on ignoring state transitions with probability lower than the
+state-decomposition that this report focuses on, which is based on ignoring state transitions with probability lower than the
 threshold $\tau$. There are different ways to decompose the state space, the choice of which might depends on the specific problem
 that the method is applied to. This is discussed further in Section \ref{sec:different-decompositions}.
 
 \paragraph{}
-The following describes the original architecture that is devised to apply state decomposition to a practical problem. Once the
-states of the original MDP have been separated into multiple sub-spaces, it is possible to proceed with training the RL agent. In
-the first stage of training, a separate DQN agent is trained for each of these sub-spaces. To do so, we consider for each
-sub-space's agent only those state transitions that start and end within the corresponding sub-space. Once the sub-spaces' agents
+The following describes the original architecture that is devised to apply state-decomposition to a practical problem. Once the
+states of the original MDP have been separated into multiple subspaces, it is possible to proceed with training the RL agent. In
+the first stage of training, a separate DQN agent is trained for each of these subspaces. To do so, we consider for each
+subspace's agent only those state transitions that start and end within the corresponding subspace. Once the subspaces' agents
 converge, these should be combined to form a global agent that also takes into account transitions between the different
-sub-spaces. This is done by feeding the action values of the sub-spaces' agents, which are the outputs of their neural networks,
+subspaces. This is done by feeding the action values of the subspaces' agents, which are the outputs of their neural networks,
 as inputs of another neural network, as in Figure \ref{fig:join_nets}. This forms a bigger neural network which is the Q-function
 approximator of a new global DQN agent, which is then trained using all possible transitions. This will be referred to as the
 second stage of training and the method as a two-stage method.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\linewidth]{figures/join_networks}
+    \includegraphics[width=0.7\linewidth]{figures/joineverything.pdf}
     \caption{The NNs of the decomposed states' agents are merged as input of another NN to form a new bigger NN architecture.}
     \label{fig:join_nets}
 \end{figure}
@@ -82,51 +82,51 @@ This method operates on the assumption that it would require fewer samples to ac
 smaller MDPs than for one single MDP having as the number of states the sum of the number of states of the smaller MDPs. By then
 combining the neural networks as previously explained, we take into account interactions between the sub-problems, allowing us to
 achieve the optimal policy for the original MDP. For this method to be successful, it is assumed that the weights of the neural
-networks of the sub-spaces' agents after the first stage are not far from the values they take once the global agent converges in
+networks of the subspaces' agents after the first stage are not far from the values they take once the global agent converges in
 the second stage. This is equivalent to saying that the first stage of training provides a very good initialisation of
 the weights of the network used in the second stage. Although we use DQN agents, this method could be generalised to any agents
 that use a function approximator to evaluate the action-values given the states as input. This method however would not be as
 useful if no approximator is being used and the action-values are simply stored in a table, such as in the original Q-learning
-algorithm. In this case, applying the state decomposition would simply ignore the transitions between different sub-spaces without
+algorithm. In this case, applying the state-decomposition would simply ignore the transitions between different subspaces without
 changing the structure of the agent at all in the first stage of training, leading to no benefits at all.
 
 \paragraph{}
 It is important to mention that the state-transition matrix depends on the policy being followed by the agent that interacts with
 the environment. Thus the state-transition matrix is most likely different when starting to train an agent and upon convergence.
-For this reason, different state decompositions could be possible depending on the policy that the state-transition matrix is
-based on. For example, some state decompositions might exist regardless of the policy, such as when the transitions between two
-sub-spaces are made unlikely by the characteristics of the environemnt itself, such as moving between two places separated by a
+For this reason, different state-decompositions could be possible depending on the policy that the state-transition matrix is
+based on. For example, some state-decompositions might exist regardless of the policy, such as when the transitions between two
+subspaces are made unlikely by the characteristics of the environemnt itself, such as moving between two places separated by a
 wall in a navigation problem. However, some decompositions are purely created by the policy of the agent, such as if in a
 navigation problem there is no wall seaparating two positions, but the agent simply never moves between these two places. More
 examples are given in the next chapter and for now it is sufficient to acknowledge that different decompositions can occur
 depending on the assumed policy. 
 
 \paragraph{}
-This method is the one that was initially proposed to study the effects of state decomposition. In chapter \ref{chap:results} we
+This method is the one that was initially proposed to study the effects of state-decomposition. In chapter \ref{chap:results} we
 show that this architecture is problematic, having issues such as the first stage of training not successfully providing a good
 initialisation for the second stage and thus not speeding up the training of the second stage.
 
-\section[Decomposing the state-strans. matrix]{Decomposing the state-transition matrix} \label{sec:decomposing-trans-matrix}
+\section[Decomposing the state-trans. matrix]{Decomposing the state-transition matrix} \label{sec:decomposing-trans-matrix}
 
 \paragraph{}
-This report focuses on the application of state decomposition where the state decomposition is "intuitive" and it is done in a
+This report focuses on the application of state-decomposition where the state-decomposition is "intuitive" and it is done in a
 non-mathematical way, as will be shown in the next chapter. However this is not always the case, thus we need a systematic way to
-obtain the correct state decomposition, given that we know the state-transition matrix. This would normally also be unknown
+obtain the correct state-decomposition, given that we know the state-transition matrix. This would normally also be unknown
 and techniques to estimate this could be investigated as an extension of this project. 
 
-The decomposition into sub-spaces of states given the state-transition table can be done using Algorithm-\ref{algo:decompose},
-which takes in input the state transition matrix. The states are initialised as all separate sub-spaces. Then we iterate through
+The decomposition into subspaces of states given the state-transition table can be done using Algorithm-\ref{algo:decompose},
+which takes in input the state transition matrix. The states are initialised as all separate subspaces. Then we iterate through
 all transition probabilities and given that the transition probability from state $i$ to state $j$ is higher than $\tau$ we join
-the sub-spaces containing the two states. After iterating through all transitions this returns the decomposed sub-spaces.
+the subspaces containing the two states. After iterating through all transitions this returns the decomposed subspaces.
 
 \input{algorithms/decompose}
 
 \paragraph{}
-Sometimes we know the number of sub-spaces that the original MDP should be decomposed into. For example, we might know the
+Sometimes we know the number of subspaces that the original MDP should be decomposed into. For example, we might know the
 characteristics of the system and the number of subsystems it can be considered to have, such as how many sub-networks compose a
-certain communication network. In such case, the function that returns the decomposed sub-spaces can be run repeatedly while
+certain communication network. In such case, the function that returns the decomposed subspaces can be run repeatedly while
 updating the threshold value $\tau$ at each iteration using binary search, until the MDP is decomposed in the correct number
-of sub-spaces. This is given in Algorithm-\ref{algo:threshold}. 
+of subspaces. This is given in Algorithm-\ref{algo:threshold}. 
 
 \input{algorithms/threshold}
 
