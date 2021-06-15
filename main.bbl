@@ -96,6 +96,13 @@ Thomas~M. Moerland, Joost Broekens, and Catholijn~M. Jonker.
 \newblock Gym: A toolkit for developing and comparing reinforcement learning
   algorithms.
 
+\bibitem{pan_survey_2010}
+Sinno~Jialin Pan and Qiang Yang.
+\newblock A survey on transfer learning.
+\newblock 22(10):1345--1359.
+\newblock Conference Name: {IEEE} Transactions on Knowledge and Data
+  Engineering.
+
 \bibitem{parr_reinforcement_nodate}
 Ronald Parr and Stuart Russell.
 \newblock Reinforcement learning with hierarchies of machines.
@@ -143,6 +150,11 @@ Richard~S. Sutton, Doina Precup, and Satinder Singh.
 \newblock Between {MDPs} and semi-{MDPs}: A framework for temporal abstraction
   in reinforcement learning.
 \newblock 112(1):181--211.
+
+\bibitem{taylor_transfer_nodate}
+Matthew~E Taylor and Peter Stone.
+\newblock Transfer learning for reinforcement learning domains: A survey.
+\newblock page~53.
 
 \bibitem{keras}
 Keras Team.

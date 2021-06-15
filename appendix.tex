@@ -5,61 +5,47 @@
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\linewidth]{figures/Taxi2_DQN_and_DeltaSwitch.pdf}
-    \caption{Comparison of DQN and DeltaSwitch with $\delta=0$ in the 'Taxi2' environment.}
-    \label{fig:Taxi2-dqn-deltaSwitch}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\linewidth]{figures/DeltaSwitch_oneHot.pdf}
-    \caption{Performance of DQN and 'DeltaSwitch' when the state is one-hot encoded.}
-    \label{fig:one-hot}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\linewidth]{figures/GridEps2DeltaSwitch.pdf}
+    \includegraphics[width=\linewidth]{figures/GridEps2DeltaSwitch.pdf}
     \caption{Performance of DQN and 'DeltaSwitch' in 'GridEps2'.}
     \label{fig:GridEps2}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\linewidth]{figures/encodings_samples.pdf}
+    \includegraphics[width=\linewidth]{figures/encodings_samples.pdf}
     \caption{Effect of different state encoding methods on the performance of the baseline DQNagent in the ’Grid’ environment.}
     \label{fig:Encodings-sample}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\linewidth]{figures/size_comparison_samples.pdf}
+    \includegraphics[width=\linewidth]{figures/size_comparison_samples.pdf}
     \caption{Performance of DQN with NNs of different sizes in the Taxi2 environment. ’medium2’has twice the number of trainable weights of ’medium’.}
     \label{fig:sizes-sample}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\linewidth]{figures/GridNoWall_dqn_DeltaSwitch_samples.pdf}
+    \includegraphics[width=\linewidth]{figures/GridNoWall_dqn_DeltaSwitch_samples.pdf}
     \caption{Comparison of DQN and DeltaSwitch with $\delta=0$ in the Grid environment.}
     \label{fig:gridNoWall-dqn-deltaSwitch-samples}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\linewidth]{figures/GridNoWall_dqn_DeltaSwitch_compare_delta_samples.pdf}
+    \includegraphics[width=\linewidth]{figures/GridNoWall_dqn_DeltaSwitch_compare_delta_samples.pdf}
     \caption{Comparison of DeltaSwitch with different $\delta$.}
     \label{fig:gridNoWall-deltaSwitch-compareDelta-samples}
 \end{figure}
 
 \begin{figure}
-    \hspace{-1cm}
+    \hspace{-2cm}
     \begin{tabular}{cc}
-      \includegraphics[width=0.6\linewidth]{figures/geps2_0_samples.pdf} & \includegraphics[width=0.6\linewidth]{figures/geps2_001_samples.pdf} \\
+      \includegraphics[width=0.65\linewidth]{figures/geps2_0_samples.pdf} & \includegraphics[width=0.65\linewidth]{figures/geps2_001_samples.pdf} \\
       (a) $\delta=0\%$ & (b) $\delta=1\%$ \\
-      \includegraphics[width=0.6\linewidth]{figures/geps2_002_samples.pdf} & \includegraphics[width=0.6\linewidth]{figures/geps2_003_samples.pdf} \\
+      \includegraphics[width=0.65\linewidth]{figures/geps2_002_samples.pdf} & \includegraphics[width=0.65\linewidth]{figures/geps2_003_samples.pdf} \\
       (c) $\delta=2\%$ & (d) $\delta=3\%$ \\
-      \includegraphics[width=0.6\linewidth]{figures/geps2_004_samples.pdf} & \includegraphics[width=0.6\linewidth]{figures/geps2_005_samples.pdf} \\
+      \includegraphics[width=0.65\linewidth]{figures/geps2_004_samples.pdf} & \includegraphics[width=0.65\linewidth]{figures/geps2_005_samples.pdf} \\
       (e) $\delta=4\%$ & (f) $\delta=5\%$ \\
     \end{tabular}
     \caption{DeltaSwitch vs DQN in 'GridEps' with $0 \leq \epsilon \leq 5\%$.}
@@ -68,42 +54,42 @@
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\linewidth]{figures/effectReduced_samples.pdf}
+    \includegraphics[width=\linewidth]{figures/effectReduced_samples.pdf}
     \caption{Effect of reducing the input size.}
     \label{fig:reduced-effect-sample}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\linewidth]{figures/Wall-DQN-deltaSwitch_samples.pdf}
+    \includegraphics[width=\linewidth]{figures/Wall-DQN-deltaSwitch_samples.pdf}
     \caption{Performance of DQN and DeltaSwitch with different decomposition in the 'Grid' environment with wall.}
     \label{fig:wall-samples}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\linewidth]{figures/learnSwitch1_samples.pdf}
+    \includegraphics[width=\linewidth]{figures/learnSwitch1_samples.pdf}
     \caption{Performance of combining 'NN0' and 'NN1' using another NN that is also fed the current state as input in a 'GridEps' environment with $\epsilon=0\%, \;1\%$.}
     \label{fig:learnSwitch1-samples}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\linewidth]{figures/initialisedLearnSwitch_samples.pdf}
+    \includegraphics[width=\linewidth]{figures/initialisedLearnSwitch_samples.pdf}
     \caption{Performance of combining 'NN0' and 'NN1' with another NN when initialising the combined network to behave as the original 'DeltaSwitch'. Tested with different network sizes}
     \label{fig:initialisedLearnSwitch-samples}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\linewidth]{figures/Sarsa_samples.pdf}
+    \includegraphics[width=\linewidth]{figures/Sarsa_samples.pdf}
     \caption{Comparison of using Expected SARSA after combining, progressive combined network and standard DQN.}
     \label{fig:SARSA-progressive-samples}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\linewidth]{figures/simultaneous_samples.pdf}
+    \includegraphics[width=\linewidth]{figures/simultaneous_samples.pdf}
     \caption{Performance of progressive network and combining network when 'NN0' and 'NN1' are not pre-trained. Standard DQN and DeltaSwitch are shown for comparison.}
     \label{fig:progressive-combining-simultaneous-samples}
 \end{figure}
